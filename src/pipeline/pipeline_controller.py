@@ -1,3 +1,5 @@
+import json
+
 from .cnn_stub import CNNClassificationStub
 from .enums import ElementaryLesionClass, PipelineStep, UserDecision
 from .focus_stub import FocusEvaluationStub
@@ -304,3 +306,143 @@ class PipelineController:
             risk=result.risk.value,
         )
         return result
+
+    def build_summary(self) -> dict[str, object]:
+        original = self.state.original_image
+        detection = self.state.detection_result
+        crop = self.state.active_crop
+        focus = self.state.focus_result
+        cnn = self.state.cnn_result
+        classification = self.state.classification_decision
+        answers = self.state.questionnaire_answers
+        multimodal = self.state.multimodal_result
+
+        image_summary = None
+        if original is not None:
+            image_summary = {
+                "id": original.image_id,
+                "nome": original.name,
+                "origem": original.source,
+                "tamanho_bytes": original.byte_size,
+                "hash_conteudo": original.content_hash,
+            }
+
+        detection_summary = None
+        if detection is not None:
+            detection_summary = {
+                "sucesso": detection.success,
+                "classe_detectada": detection.detected_class,
+                "bounding_box": (
+                    detection.bounding_box.as_dict()
+                    if detection.bounding_box is not None
+                    else None
+                ),
+                "confianca_ficticia": detection.confidence,
+                "recorte_id": (
+                    detection.cropped_image.image_id
+                    if detection.cropped_image is not None
+                    else None
+                ),
+                "mensagem": detection.message,
+            }
+
+        crop_summary = {
+            "utilizado": self.state.manual_crop_used,
+            "recorte_ativo": (
+                {
+                    "id": crop.image_id,
+                    "nome": crop.name,
+                    "origem": crop.source,
+                    "imagem_original_id": crop.parent_image_id,
+                    "bounding_box": (
+                        crop.bounding_box.as_dict()
+                        if crop.bounding_box is not None
+                        else None
+                    ),
+                }
+                if crop is not None
+                else None
+            ),
+        }
+
+        focus_summary = None
+        if focus is not None:
+            focus_summary = {
+                "imagem_id": focus.image_id,
+                "escore_interno_ficticio": focus.score,
+                "status_interno": focus.status.value,
+                "decisao_visual_usuario": (
+                    self.state.visual_quality_decision.value
+                    if self.state.visual_quality_decision is not None
+                    else None
+                ),
+                "mensagem": focus.message,
+            }
+
+        feedback = [
+            {
+                "tipo": event.event_type.value,
+                "imagem_id": event.image_id,
+                "detalhes": dict(event.details),
+                "requer_curadoria": event.requires_curator_review,
+                "candidata_retreinamento": event.retraining_candidate,
+            }
+            for event in self.state.feedback_events
+        ]
+        retraining = [
+            {
+                "imagem_id": event.image_id,
+                "modelo_futuro": event.details.get("modelo_futuro"),
+                "status": (
+                    "Candidata a avaliação/curadoria; não incorporada "
+                    "automaticamente ao retreinamento futuro."
+                ),
+            }
+            for event in self.state.feedback_events
+            if event.retraining_candidate
+        ]
+        history = [
+            {
+                "etapa": event.step.value,
+                "mensagem": event.message,
+                "detalhes": dict(event.details),
+            }
+            for event in self.state.history
+        ]
+
+        return {
+            "sessao_id": self.state.session_id,
+            "imagem_original": image_summary,
+            "resultado_yolo_fantasma": detection_summary,
+            "recorte_manual": crop_summary,
+            "avaliacao_foco": focus_summary,
+            "classe_sugerida_cnn": (
+                cnn.suggested_class.value if cnn is not None else None
+            ),
+            "decisao_usuario_cnn": (
+                classification.decision.value
+                if classification is not None
+                else None
+            ),
+            "classe_final_questionario": (
+                self.state.final_class.value
+                if self.state.final_class is not None
+                else None
+            ),
+            "respostas_questionario": (
+                dict(answers.responses) if answers is not None else {}
+            ),
+            "modelo_multimodal_utilizado": (
+                multimodal.model_name if multimodal is not None else None
+            ),
+            "risco_final": (
+                multimodal.risk.value if multimodal is not None else None
+            ),
+            "mensagem_final": self.state.final_message,
+            "eventos_sistema_inteligente": feedback,
+            "indicacoes_retreinamento_futuro": retraining,
+            "historico_pipeline": history,
+        }
+
+    def build_summary_json(self) -> str:
+        return json.dumps(self.build_summary(), ensure_ascii=False, indent=2)
