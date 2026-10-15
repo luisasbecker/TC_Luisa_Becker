@@ -39,6 +39,7 @@ from .multimodal_stub import (
 from .questionnaire_stub import QuestionnaireStub
 from .yolo_stub import YoloDetectionStub
 from .pipeline_controller import PipelineController
+from .ui_helpers import build_stub_config, clamp_box_to_image
 
 __all__ = [
     "BoundingBox",
@@ -75,4 +76,6 @@ __all__ = [
     "VesicleBullaMultimodalStub",
     "YoloDetectionStub",
     "build_multimodal_registry",
+    "build_stub_config",
+    "clamp_box_to_image",
 ]
