@@ -66,11 +66,26 @@ O protótipo foi verificado com Python 3.14, Streamlit 1.66 e Pillow 11.3.
 
 ## Instalação
 
-No PowerShell, a partir da pasta do projeto:
+Clone o repositório e acesse a pasta do projeto:
+
+```text
+git clone https://github.com/luisasbecker/TC_Luisa_Becker.git
+cd TC_Luisa_Becker
+```
+
+No Windows PowerShell:
 
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+```
+
+No Linux ou macOS:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
 python -m pip install -r requirements.txt
 ```
 
@@ -80,7 +95,11 @@ python -m pip install -r requirements.txt
 python -m streamlit run app.py
 ```
 
-O navegador exibirá a interface. Nenhuma imagem é gravada automaticamente: os bytes permanecem apenas na sessão em memória do Streamlit. O resumo JSON contém somente identificadores e metadados do fluxo.
+O terminal exibirá o endereço local da aplicação, normalmente `http://localhost:8501`. Abra esse endereço no navegador caso a interface não seja aberta automaticamente.
+
+Nenhuma imagem é gravada automaticamente: os bytes permanecem apenas na sessão em memória do Streamlit. O resumo JSON contém somente identificadores e metadados do fluxo.
+
+Para encerrar a aplicação, pressione `Ctrl+C` no terminal em que o Streamlit está sendo executado.
 
 ## Configuração da simulação
 
