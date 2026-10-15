@@ -59,6 +59,11 @@ class PipelineController:
         self.state.original_image = ClinicalImage.create(
             name, source, byte_size, content_hash
         )
+        self.state.feedback_events.append(
+            self.intelligent_system.register_flow_metadata(
+                self.state.session_id, self.state.original_image
+            )
+        )
         self._record(
             PipelineStep.IMAGE_LOADED,
             "Imagem clínica simulada carregada.",

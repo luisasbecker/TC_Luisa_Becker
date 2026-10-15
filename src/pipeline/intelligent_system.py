@@ -1,9 +1,26 @@
-from .enums import ElementaryLesionClass, FeedbackEventType
+from .enums import ElementaryLesionClass, FeedbackEventType, PipelineStep
 from .models import ClinicalImage, CroppedImage, FeedbackEvent
 
 
 class IntelligentSystemStub:
     """Registra feedback para curadoria, sem executar retreinamento."""
+
+    def register_flow_metadata(
+        self, session_id: str, image: ClinicalImage
+    ) -> FeedbackEvent:
+        return FeedbackEvent(
+            event_type=FeedbackEventType.FLOW_METADATA,
+            image_id=image.image_id,
+            details={
+                "sessao_id": session_id,
+                "nome_imagem": image.name,
+                "origem_imagem": image.source,
+                "etapa": PipelineStep.IMAGE_LOADED.value,
+                "observacao": "Metadados registrados apenas em memória nesta sessão.",
+            },
+            requires_curator_review=False,
+            retraining_candidate=False,
+        )
 
     def register_manual_crop(
         self, original: ClinicalImage, crop: CroppedImage

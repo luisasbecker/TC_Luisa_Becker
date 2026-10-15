@@ -14,6 +14,19 @@ from src.pipeline import (
 
 
 class PipelineFlowTests(unittest.TestCase):
+    def test_start_session_registers_flow_metadata_with_intelligent_system(self):
+        controller = PipelineController()
+        state = controller.start_session("imagem.png", "upload", 10, "hash")
+
+        self.assertEqual(len(state.feedback_events), 1)
+        event = state.feedback_events[0]
+        self.assertIs(event.event_type, FeedbackEventType.FLOW_METADATA)
+        self.assertEqual(event.image_id, state.original_image.image_id)
+        self.assertEqual(event.details["sessao_id"], state.session_id)
+        self.assertEqual(event.details["etapa"], PipelineStep.IMAGE_LOADED.value)
+        self.assertFalse(event.requires_curator_review)
+        self.assertFalse(event.retraining_candidate)
+
     def test_complete_flow_with_automatic_crop_and_cnn_agreement(self):
         controller = PipelineController(
             StubConfig(cnn_class=ElementaryLesionClass.ULCER)
@@ -120,13 +133,14 @@ class PipelineFlowTests(unittest.TestCase):
         )
 
         self.assertEqual(controller.state.final_class, ElementaryLesionClass.PLAQUE)
-        self.assertEqual(len(controller.state.feedback_events), 3)
+        self.assertEqual(len(controller.state.feedback_events), 4)
         self.assertEqual(
             {event.event_type for event in controller.state.feedback_events},
             {
                 FeedbackEventType.CNN_DISAGREEMENT,
                 FeedbackEventType.CORRECTED_CLASS,
                 FeedbackEventType.RETRAINING_CANDIDATE,
+                FeedbackEventType.FLOW_METADATA,
             },
         )
         questions = controller.get_questionnaire()
