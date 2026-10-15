@@ -42,6 +42,7 @@ As seis classes de lesão elementar são:
 | Arquivo | Responsabilidade |
 |---|---|
 | `app.py` | Assistente Streamlit e visualização temporária das imagens. |
+| `GUIA_DE_INSTALACAO.md` | Manual completo para baixar, instalar, executar, testar e atualizar o protótipo em outro computador. |
 | `src/pipeline/enums.py` | Classes de lesão, qualidade, decisões, risco, feedback e etapas. |
 | `src/pipeline/models.py` | Dataclasses que representam entradas, resultados e eventos. |
 | `src/pipeline/state.py` | Estado completo da sessão e erro de transição. |
@@ -59,19 +60,25 @@ O núcleo não depende do Streamlit. Isso permite testar o pipeline diretamente 
 
 ## Pré-requisitos
 
-- Python 3.11 ou superior;
-- `pip` disponível.
+- Python 3.11 a 3.14, com Python 3.14.x recomendado;
+- `pip` disponível;
+- Git, caso seja utilizado o método recomendado de clonagem;
+- navegador atualizado.
 
-O protótipo foi verificado com Python 3.14, Streamlit 1.66 e Pillow 11.3.
+O protótipo foi verificado com Python 3.14, Streamlit 1.66 e Pillow 11.3. Versões futuras do Python devem ser validadas antes do uso.
 
-## Instalação
+> **Primeira instalação ou computador novo?** Siga o [Guia completo de instalação e execução](GUIA_DE_INSTALACAO.md). Ele explica desde o download do Python e do Git até a solução dos problemas mais comuns.
+
+## Instalação rápida
 
 Clone o repositório e acesse a pasta do projeto:
 
-```text
+```powershell
 git clone https://github.com/luisasbecker/TC_Luisa_Becker.git
 cd TC_Luisa_Becker
 ```
+
+Se preferir não instalar o Git, entre na [página do projeto no GitHub](https://github.com/luisasbecker/TC_Luisa_Becker), selecione **Code > Download ZIP**, extraia o arquivo e abra um terminal na pasta extraída. Repositórios privados exigem que a conta autorizada esteja conectada ao GitHub.
 
 No Windows PowerShell:
 
