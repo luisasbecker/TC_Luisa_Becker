@@ -22,6 +22,7 @@ from src.pipeline import (
     build_stub_config,
     clamp_box_to_image,
 )
+from src.ui.image_cropper import image_cropper
 
 
 st.set_page_config(
@@ -61,10 +62,7 @@ def render_crop_preview(raw: bytes, box: BoundingBox | None) -> None:
     )
     st.image(
         image.crop(preview_box),
-        caption=(
-            "Prévia visual do recorte simulado. As coordenadas registradas "
-            "continuam sendo as configuradas no stub."
-        ),
+        caption="Prévia da região de interesse selecionada",
         width="stretch",
     )
 
@@ -245,32 +243,26 @@ try:
             )
             correction_mode = st.radio(
                 "Como deseja corrigir o recorte?",
-                ("Ajustar coordenadas simuladas", "Enviar imagem corrigida"),
+                ("Recortar diretamente na imagem", "Enviar imagem corrigida"),
             )
-            if correction_mode == "Ajustar coordenadas simuladas":
-                box = detection.bounding_box
-                left, right = st.columns(2)
-                manual_x_min = left.number_input(
-                    "Novo x mínimo", min_value=0, value=box.x_min, step=1
+            if correction_mode == "Recortar diretamente na imagem":
+                st.caption(
+                    "Arraste os pontos dos cantos ou das bordas para ajustar o recorte. "
+                    "Arraste o interior do retângulo para movê-lo. "
+                    "A prévia é atualizada ao soltar."
                 )
-                manual_y_min = right.number_input(
-                    "Novo y mínimo", min_value=0, value=box.y_min, step=1
+                manual_box = image_cropper(
+                    load_image(st.session_state.uploaded_bytes),
+                    detection.bounding_box,
+                    key=f"manual_crop_{state.session_id}",
                 )
-                manual_x_max = left.number_input(
-                    "Novo x máximo", min_value=1, value=box.x_max, step=1
-                )
-                manual_y_max = right.number_input(
-                    "Novo y máximo", min_value=1, value=box.y_max, step=1
-                )
-                if st.button("Registrar coordenadas corrigidas"):
-                    controller.submit_manual_crop(
-                        bounding_box=BoundingBox(
-                            int(manual_x_min),
-                            int(manual_y_min),
-                            int(manual_x_max),
-                            int(manual_y_max),
-                        )
-                    )
+                if manual_box is not None:
+                    st.markdown("#### Prévia do recorte manual")
+                    render_crop_preview(st.session_state.uploaded_bytes, manual_box)
+                if st.button(
+                    "Confirmar recorte manual", type="primary", disabled=manual_box is None
+                ):
+                    controller.submit_manual_crop(bounding_box=manual_box)
                     st.rerun()
             else:
                 corrected_upload = st.file_uploader(

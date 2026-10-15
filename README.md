@@ -15,7 +15,7 @@ Não utilize imagens reais ou identificáveis de pacientes neste protótipo.
 1. Upload de imagem clínica simulada.
 2. Detecção e recorte por YOLO fantasma, tratando “lesão” como classe única.
 3. Validação do recorte automático pelo profissional da saúde.
-4. Correção por coordenadas simuladas ou envio de imagem corrigida.
+4. Correção visual arrastando os pontos sobre a imagem ou envio de imagem corrigida.
 5. Registro do recorte manual pelo sistema inteligente para curadoria futura.
 6. Processamento e avaliação interna de foco por stub.
 7. Validação subjetiva da qualidade visual.
@@ -54,6 +54,7 @@ As seis classes de lesão elementar são:
 | `src/pipeline/intelligent_system.py` | Eventos para curadoria e possível retreinamento futuro. |
 | `src/pipeline/pipeline_controller.py` | Regras do fluxo, transições e resumo JSON. |
 | `src/pipeline/ui_helpers.py` | Conversão da configuração e recorte seguro da prévia visual. |
+| `src/ui/image_cropper.py` e `src/ui/cropper/index.html` | Seletor visual de recorte com pontos arrastáveis, executado localmente. |
 | `tests/` | Testes automatizados do domínio, stubs, fluxo e segurança da saída. |
 
 O núcleo não depende do Streamlit. Isso permite testar o pipeline diretamente e substituir a interface no futuro.
@@ -138,8 +139,11 @@ Resultado esperado: risco configurado, mensagem médica e JSON completo.
 ### 2. Correção manual do recorte
 
 1. Rejeite o recorte automático.
-2. Ajuste as coordenadas ou envie uma imagem corrigida.
-3. Continue o fluxo.
+2. Na opção **Recortar diretamente na imagem**, arraste os pontos dos cantos ou das bordas para ajustar a área. Arraste o interior do retângulo para movê-lo.
+3. Confira a prévia, atualizada ao soltar, e clique em **Confirmar recorte manual**. Como alternativa, selecione **Enviar imagem corrigida**.
+4. Continue o fluxo.
+
+O seletor começa com a área proposta pelo YOLO fantasma, limitada às bordas da imagem. O recorte usa a resolução original, mesmo quando a imagem aparece reduzida na tela. Também é possível focar o retângulo com `Tab` e usar as setas para movê-lo; `Shift` + setas ajusta o tamanho. O componente funciona localmente com as dependências existentes.
 
 Resultado esperado: eventos de recorte manual, curadoria e candidatura ao retreinamento futuro da YOLO.
 
@@ -178,7 +182,8 @@ A suíte verifica, entre outros pontos:
 - orientação médica em todas as classes de risco;
 - ausência de bytes de imagem no JSON;
 - bloqueio de transições fora de ordem;
-- vínculo entre imagem original e recortes.
+- vínculo entre imagem original e recortes;
+- conversão da seleção visual para a resolução original e validação de seus limites.
 
 ## Dados, feedback e privacidade
 

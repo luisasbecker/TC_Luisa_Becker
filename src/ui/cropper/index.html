@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 12px; }
+    #stage { position: relative; width: fit-content; max-width: 100%; margin: auto; overflow: hidden; user-select: none; touch-action: none; }
+    #image { display: block; max-width: 100%; max-height: 520px; width: auto; height: auto; pointer-events: none; }
+    #selection { position: absolute; border: 2px solid #00a6a6; box-shadow: 0 0 0 2000px #0007; cursor: move; touch-action: none; }
+    #selection:focus-visible { outline: 3px solid #ffbf47; outline-offset: 3px; }
+    .handle { position: absolute; width: 16px; height: 16px; border: 2px solid #007d7d; border-radius: 3px; background: white; transform: translate(-50%, -50%); touch-action: none; }
+    [data-handle="nw"] { left: 0; top: 0; cursor: nwse-resize; }
+    [data-handle="n"] { left: 50%; top: 0; cursor: ns-resize; }
+    [data-handle="ne"] { left: 100%; top: 0; cursor: nesw-resize; }
+    [data-handle="e"] { left: 100%; top: 50%; cursor: ew-resize; }
+    [data-handle="se"] { left: 100%; top: 100%; cursor: nwse-resize; }
+    [data-handle="s"] { left: 50%; top: 100%; cursor: ns-resize; }
+    [data-handle="sw"] { left: 0; top: 100%; cursor: nesw-resize; }
+    [data-handle="w"] { left: 0; top: 50%; cursor: ew-resize; }
+    .grid { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(to right, transparent 33%, #ffffff70 33%, #ffffff70 33.3%, transparent 33.3%, transparent 66.6%, #ffffff70 66.6%, #ffffff70 67%, transparent 67%), linear-gradient(to bottom, transparent 33%, #ffffff70 33%, #ffffff70 33.3%, transparent 33.3%, transparent 66.6%, #ffffff70 66.6%, #ffffff70 67%, transparent 67%); }
+  </style>
+</head>
+<body>
+  <div id="stage">
+    <img id="image" alt="Imagem original para selecionar a região de interesse" draggable="false">
+    <div id="selection" tabindex="0" role="group" aria-label="Área de recorte. Arraste para mover. Use as setas para mover e Shift mais setas para ajustar o tamanho.">
+      <div class="grid"></div>
+      <span class="handle" data-handle="nw" aria-hidden="true"></span>
+      <span class="handle" data-handle="n" aria-hidden="true"></span>
+      <span class="handle" data-handle="ne" aria-hidden="true"></span>
+      <span class="handle" data-handle="e" aria-hidden="true"></span>
+      <span class="handle" data-handle="se" aria-hidden="true"></span>
+      <span class="handle" data-handle="s" aria-hidden="true"></span>
+      <span class="handle" data-handle="sw" aria-hidden="true"></span>
+      <span class="handle" data-handle="w" aria-hidden="true"></span>
+    </div>
+  </div>
+  <script>
+    const image = document.getElementById("image");
+    const stage = document.getElementById("stage");
+    const selection = document.getElementById("selection");
+    let box, args, imageId, drag, lastHeight;
+    const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
+    const send = (type, data = {}) => window.parent.postMessage({isStreamlitMessage: true, type, ...data}, "*");
+    const publish = () => send("streamlit:setComponentValue", {value: {...box}, dataType: "json"});
+    function setHeight() {
+      const height = Math.ceil(document.body.getBoundingClientRect().height);
+      if (height !== lastHeight) {
+        lastHeight = height;
+        send("streamlit:setFrameHeight", {height});
+      }
+    }
+
+    function paint() {
+      if (!box) return;
+      Object.assign(selection.style, {
+        left: `${box.left * 100}%`, top: `${box.top * 100}%`,
+        width: `${(box.right - box.left) * 100}%`, height: `${(box.bottom - box.top) * 100}%`
+      });
+      setHeight();
+    }
+
+    function adjust(start, handle, dx, dy) {
+      const next = {...start};
+      if (handle === "move") {
+        dx = clamp(dx, -start.left, 1 - start.right);
+        dy = clamp(dy, -start.top, 1 - start.bottom);
+        next.left += dx; next.right += dx;
+        next.top += dy; next.bottom += dy;
+      } else {
+        const minWidth = 1 / args.image_width, minHeight = 1 / args.image_height;
+        if (handle.includes("w")) next.left = clamp(start.left + dx, 0, start.right - minWidth);
+        if (handle.includes("e")) next.right = clamp(start.right + dx, start.left + minWidth, 1);
+        if (handle.includes("n")) next.top = clamp(start.top + dy, 0, start.bottom - minHeight);
+        if (handle.includes("s")) next.bottom = clamp(start.bottom + dy, start.top + minHeight, 1);
+      }
+      box = next;
+      paint();
+    }
+
+    window.addEventListener("message", event => {
+      if (event.source !== window.parent || event.data.type !== "streamlit:render") return;
+      args = event.data.args;
+      if (imageId !== args.image_id) {
+        imageId = args.image_id;
+        box = {...args.initial_selection};
+        image.onload = () => { paint(); publish(); };
+        image.src = args.image_data;
+      }
+      paint();
+    });
+
+    selection.addEventListener("pointerdown", event => {
+      if (!box || drag || event.button !== 0) return;
+      event.preventDefault();
+      selection.focus({preventScroll: true});
+      selection.setPointerCapture(event.pointerId);
+      drag = {
+        pointerId: event.pointerId, x: event.clientX, y: event.clientY,
+        box: {...box}, bounds: image.getBoundingClientRect(),
+        handle: event.target.dataset.handle || "move"
+      };
+    });
+    selection.addEventListener("pointermove", event => {
+      if (!drag || event.pointerId !== drag.pointerId) return;
+      adjust(drag.box, drag.handle,
+        (event.clientX - drag.x) / drag.bounds.width,
+        (event.clientY - drag.y) / drag.bounds.height);
+    });
+    function finishDrag(event) {
+      if (!drag || event.pointerId !== drag.pointerId) return;
+      drag = null;
+      if (selection.hasPointerCapture(event.pointerId)) selection.releasePointerCapture(event.pointerId);
+      publish();
+    }
+    selection.addEventListener("pointerup", finishDrag);
+    selection.addEventListener("pointercancel", finishDrag);
+    selection.addEventListener("lostpointercapture", finishDrag);
+    selection.addEventListener("keydown", event => {
+      if (!box || !["ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown"].includes(event.key)) return;
+      event.preventDefault();
+      const dx = event.key === "ArrowLeft" ? -1 : event.key === "ArrowRight" ? 1 : 0;
+      const dy = event.key === "ArrowUp" ? -1 : event.key === "ArrowDown" ? 1 : 0;
+      adjust(box, event.shiftKey ? "se" : "move", dx / args.image_width, dy / args.image_height);
+      publish();
+    });
+    new ResizeObserver(paint).observe(stage);
+    send("streamlit:componentReady", {apiVersion: 1});
+    setHeight();
+  </script>
+</body>
+</html>

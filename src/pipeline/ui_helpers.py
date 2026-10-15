@@ -1,3 +1,6 @@
+from collections.abc import Mapping
+from math import ceil, floor, isfinite
+
 from .enums import CancerRiskClass, ElementaryLesionClass, ImageQualityStatus
 from .models import BoundingBox, StubConfig
 
@@ -15,6 +18,30 @@ def clamp_box_to_image(
     right = max(left + 1, min(x_max, width))
     bottom = max(top + 1, min(y_max, height))
     return left, top, right, bottom
+
+
+def selection_to_box(
+    selection: Mapping[str, float], width: int, height: int
+) -> BoundingBox:
+    """Converte a seleção visual proporcional em pixels da imagem original."""
+
+    try:
+        left, top, right, bottom = (
+            float(selection[key]) for key in ("left", "top", "right", "bottom")
+        )
+    except (KeyError, TypeError, ValueError) as error:
+        raise ValueError("A seleção de recorte é inválida.") from error
+    if not all(isfinite(value) for value in (left, top, right, bottom)):
+        raise ValueError("A seleção de recorte deve conter valores finitos.")
+    if right <= left or bottom <= top:
+        raise ValueError("Selecione uma área de recorte com largura e altura positivas.")
+    coordinates = (
+        floor(left * width),
+        floor(top * height),
+        ceil(right * width),
+        ceil(bottom * height),
+    )
+    return BoundingBox(*clamp_box_to_image(coordinates, width, height))
 
 
 def build_stub_config(
