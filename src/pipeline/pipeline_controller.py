@@ -3,6 +3,7 @@ from .enums import ElementaryLesionClass, PipelineStep, UserDecision
 from .focus_stub import FocusEvaluationStub
 from .intelligent_system import IntelligentSystemStub
 from .models import (
+    BoundingBox,
     ClassificationDecision,
     ClinicalImage,
     CroppedImage,
@@ -100,6 +101,50 @@ class PipelineController:
         )
         return result.cropped_image
 
+    def submit_manual_crop(
+        self,
+        bounding_box: BoundingBox | None = None,
+        corrected_image: ClinicalImage | None = None,
+    ) -> CroppedImage:
+        self._require(PipelineStep.DETECTED)
+        if (bounding_box is None) == (corrected_image is None):
+            raise ValueError(
+                "Informe exatamente uma correção: coordenadas ou imagem corrigida."
+            )
+        if self.state.original_image is None:
+            raise PipelineTransitionError("A imagem original não está disponível.")
+        if corrected_image is not None:
+            crop = CroppedImage.create(
+                original=self.state.original_image,
+                name=corrected_image.name,
+                source="corrected_upload",
+                bounding_box=None,
+                manual=True,
+            )
+        else:
+            crop = CroppedImage.create(
+                original=self.state.original_image,
+                name=f"{self.state.original_image.name}_recorte_manual",
+                source="manual_coordinates",
+                bounding_box=bounding_box,
+                manual=True,
+            )
+        self.state.active_crop = crop
+        self.state.manual_crop_used = True
+        self.state.feedback_events.extend(
+            self.intelligent_system.register_manual_crop(
+                self.state.original_image, crop
+            )
+        )
+        self._record(
+            PipelineStep.CROP_VALIDATED,
+            "Recorte manual simulado registrado para avaliação do sistema inteligente.",
+            crop_id=crop.image_id,
+            manual=True,
+            source=crop.source,
+        )
+        return crop
+
     def run_focus_evaluation(self) -> FocusResult:
         self._require(PipelineStep.CROP_VALIDATED)
         if self.state.active_crop is None:
@@ -158,7 +203,38 @@ class PipelineController:
         if self.state.cnn_result is None:
             raise PipelineTransitionError("O resultado da CNN não está disponível.")
         if decision is UserDecision.REJECT:
-            raise ValueError("A correção de classe ainda não foi registrada.")
+            if corrected_class is None:
+                raise ValueError("Informe a classe corrigida quando houver discordância.")
+            if corrected_class is self.state.cnn_result.suggested_class:
+                raise ValueError(
+                    "A classe corrigida deve ser diferente da classe rejeitada."
+                )
+            if self.state.active_crop is None:
+                raise PipelineTransitionError(
+                    "A imagem recortada não está disponível para feedback."
+                )
+            result = ClassificationDecision(
+                decision=decision,
+                suggested_class=self.state.cnn_result.suggested_class,
+                corrected_class=corrected_class,
+            )
+            self.state.classification_decision = result
+            self.state.final_class = corrected_class
+            self.state.feedback_events.extend(
+                self.intelligent_system.register_cnn_disagreement(
+                    self.state.active_crop,
+                    self.state.cnn_result.suggested_class,
+                    corrected_class,
+                )
+            )
+            self._record(
+                PipelineStep.CLASS_CONFIRMED,
+                "Discordância registrada; classe corrigida orientará as próximas etapas.",
+                suggested_class=self.state.cnn_result.suggested_class.value,
+                final_class=corrected_class.value,
+                decision=decision.value,
+            )
+            return result
         if corrected_class is not None:
             raise ValueError("Não informe classe corrigida quando houver concordância.")
         result = ClassificationDecision(
