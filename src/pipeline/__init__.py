@@ -38,6 +38,7 @@ from .multimodal_stub import (
 )
 from .questionnaire_stub import QuestionnaireStub
 from .yolo_stub import YoloDetectionStub
+from .pipeline_controller import PipelineController
 
 __all__ = [
     "BoundingBox",
@@ -61,6 +62,7 @@ __all__ = [
     "MultimodalResult",
     "PapuleNoduleMultimodalStub",
     "PipelineStep",
+    "PipelineController",
     "PipelineTransitionError",
     "PlaqueMultimodalStub",
     "QuestionnaireAnswers",
