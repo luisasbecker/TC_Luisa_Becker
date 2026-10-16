@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import hashlib
+import os
 from io import BytesIO
 from typing import Iterable
 
@@ -23,13 +24,83 @@ from src.pipeline import (
     clamp_box_to_image,
 )
 from src.ui.image_cropper import image_cropper
+from src.ui.image_preparation import PreparedImage, prepare_image_for_session
+from src.ui.mobile_access import make_qr_png
 
 
 st.set_page_config(
-    page_title="Pipeline de Lesões Bucais — Protótipo",
+    page_title="Pipeline Bucal",
     page_icon="🦷",
     layout="wide",
 )
+
+
+def apply_responsive_styles() -> None:
+    """Aumenta alvos de toque e preserva a leitura em telas estreitas."""
+
+    st.markdown(
+        """
+        <style>
+        .stButton > button, .stDownloadButton > button {
+            min-height: 44px;
+        }
+        @media (max-width: 768px) {
+            .block-container {
+                padding: 1rem 0.75rem 3rem;
+            }
+            h1 { font-size: 1.85rem !important; line-height: 1.15 !important; }
+            h2 { font-size: 1.35rem !important; }
+            div[data-testid="stHorizontalBlock"] {
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+            div[data-testid="stHorizontalBlock"] > div[data-testid="stColumn"] {
+                min-width: 100%;
+                flex: 1 1 100%;
+            }
+            div[data-testid="stFileUploaderDropzone"] {
+                min-height: 108px;
+            }
+            .stButton > button, .stDownloadButton > button,
+            div[data-testid="stFormSubmitButton"] > button {
+                width: 100%;
+                min-height: 48px;
+                font-size: 1rem;
+            }
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
+
+def render_mobile_access() -> None:
+    """Mostra o endereço escolhido pelo iniciador do Windows e seu QR local."""
+
+    mobile_url = os.environ.get("PIPELINE_MOBILE_URL", "").strip()
+    if not mobile_url:
+        return
+    try:
+        qr_png = make_qr_png(mobile_url)
+    except ValueError:
+        st.sidebar.error("O endereço móvel configurado é inválido.")
+        return
+
+    st.sidebar.divider()
+    st.sidebar.subheader("Acesso no celular")
+    st.sidebar.image(qr_png, caption="Aponte a câmera do iPhone para este QR")
+    st.sidebar.code(mobile_url, language=None)
+    st.sidebar.caption(
+        "O celular deve estar conectado à mesma rede ou ao mesmo hotspot do computador."
+    )
+    with st.sidebar.expander("Adicionar à Tela de Início"):
+        st.markdown(
+            "No Safari, toque em **Compartilhar**, depois em "
+            "**Adicionar à Tela de Início** e confirme o nome **Pipeline Bucal**."
+        )
+
+
+apply_responsive_styles()
 
 
 def reset_simulation() -> None:
@@ -37,6 +108,8 @@ def reset_simulation() -> None:
         "controller",
         "uploaded_bytes",
         "corrected_bytes",
+        "uploaded_preparation",
+        "corrected_preparation",
         "crop_rejected",
         "cnn_disagreed",
     ):
@@ -45,9 +118,9 @@ def reset_simulation() -> None:
 
 
 def load_image(raw: bytes) -> Image.Image:
-    image = Image.open(BytesIO(raw))
-    image.load()
-    return image
+    with Image.open(BytesIO(raw)) as source:
+        source.load()
+        return source.copy()
 
 
 def render_crop_preview(raw: bytes, box: BoundingBox | None) -> None:
@@ -151,15 +224,22 @@ for key, default in (
     ("controller", None),
     ("uploaded_bytes", None),
     ("corrected_bytes", None),
+    ("uploaded_preparation", None),
+    ("corrected_preparation", None),
     ("crop_rejected", False),
     ("cnn_disagreed", False),
 ):
     if key not in st.session_state:
         st.session_state[key] = default
 
+render_mobile_access()
 config = sidebar_configuration()
 
-st.title("Pipeline para Detecção, Processamento e Classificação de Lesões Bucais")
+st.title("Pipeline Bucal")
+st.caption(
+    "Pipeline para Detecção, Processamento e Classificação de Lesões Bucais "
+    "em Imagens Clínicas"
+)
 st.write(
     "Protótipo funcional e teórico destinado ao **profissional da saúde**. "
     "Todos os módulos computacionais desta tela são blocos fantasmas configuráveis."
@@ -180,7 +260,7 @@ uploaded = st.file_uploader(
 if uploaded is not None and controller is None:
     raw = uploaded.getvalue()
     try:
-        load_image(raw)
+        prepared = prepare_image_for_session(raw)
     except (UnidentifiedImageError, OSError):
         st.error("O arquivo selecionado não pôde ser lido como imagem.")
         st.stop()
@@ -192,7 +272,8 @@ if uploaded is not None and controller is None:
         content_hash=hashlib.sha256(raw).hexdigest(),
     )
     st.session_state.controller = controller
-    st.session_state.uploaded_bytes = raw
+    st.session_state.uploaded_bytes = prepared.data
+    st.session_state.uploaded_preparation = prepared
     st.rerun()
 
 if controller is None:
@@ -205,9 +286,19 @@ st.subheader(f"Etapa atual: {state.step.value}")
 if st.session_state.uploaded_bytes:
     st.image(
         load_image(st.session_state.uploaded_bytes),
-        caption="Imagem original mantida em memória nesta sessão",
+        caption="Cópia preparada da imagem, mantida somente em memória nesta sessão",
         width="stretch",
     )
+    preparation: PreparedImage | None = st.session_state.uploaded_preparation
+    if preparation and (preparation.resized or preparation.orientation_corrected):
+        changes = []
+        if preparation.orientation_corrected:
+            changes.append("orientação do aparelho corrigida")
+        if preparation.resized:
+            changes.append(
+                f"dimensões ajustadas para {preparation.width} × {preparation.height} px"
+            )
+        st.caption("Preparação local: " + "; ".join(changes) + ".")
 
 try:
     if state.step is PipelineStep.IMAGE_LOADED:
@@ -272,9 +363,9 @@ try:
                 )
                 if corrected_upload is not None:
                     corrected_raw = corrected_upload.getvalue()
-                    load_image(corrected_raw)
+                    corrected_prepared = prepare_image_for_session(corrected_raw)
                     st.image(
-                        load_image(corrected_raw),
+                        load_image(corrected_prepared.data),
                         caption="Imagem corrigida selecionada",
                         width="stretch",
                     )
@@ -288,7 +379,8 @@ try:
                         controller.submit_manual_crop(
                             corrected_image=corrected_metadata
                         )
-                        st.session_state.corrected_bytes = corrected_raw
+                        st.session_state.corrected_bytes = corrected_prepared.data
+                        st.session_state.corrected_preparation = corrected_prepared
                         st.rerun()
 
     elif state.step is PipelineStep.CROP_VALIDATED:

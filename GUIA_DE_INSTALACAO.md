@@ -285,9 +285,12 @@ python -m pip install -r requirements.txt
 O arquivo `requirements.txt` declara diretamente:
 
 - Streamlit;
-- Pillow.
+- Pillow;
+- `qrcode`.
 
 O `pip` também instalará automaticamente as dependências indiretas necessárias, o que é esperado. Nenhum modelo real de inteligência artificial é baixado.
+
+O pacote `qrcode` gera o QR de acesso móvel inteiramente no computador, sem enviar o endereço a um serviço externo.
 
 ## 7. Executar os testes
 
@@ -335,6 +338,8 @@ Para conferir o fluxo principal:
 8. confira o risco final e o histórico JSON.
 
 Outros desvios do fluxo estão descritos nos [cenários manuais do README](README.md#cenários-manuais-principais).
+
+Para usar o protótipo no iPhone ou Android, conclua primeiro este teste no computador e depois siga o [Guia de apresentação móvel](GUIA_APRESENTACAO_MOBILE.md).
 
 ## 9. Executar novamente em outro dia
 
@@ -460,6 +465,7 @@ Antes de considerar a instalação concluída, confirme:
 - [ ] As dependências foram instaladas sem erro.
 - [ ] Os testes terminaram com `OK`.
 - [ ] A aplicação abriu em `http://localhost:8501` ou na porta alternativa escolhida.
+- [ ] Se haverá apresentação no celular, o procedimento de `GUIA_APRESENTACAO_MOBILE.md` foi ensaiado na rede escolhida.
 
 ## Uso responsável
 
