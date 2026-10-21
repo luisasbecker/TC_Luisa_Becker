@@ -24,6 +24,7 @@ from src.pipeline import (
     clamp_box_to_image,
 )
 from src.ui.image_cropper import image_cropper
+from src.ui.active_image import resolve_active_image
 from src.ui.image_preparation import PreparedImage, prepare_image_for_session
 from src.ui.mobile_access import make_qr_png
 
@@ -104,6 +105,7 @@ apply_responsive_styles()
 
 
 def reset_simulation() -> None:
+    st.session_state["upload_generation"] = st.session_state.get("upload_generation", 0) + 1
     for key in (
         "controller",
         "uploaded_bytes",
@@ -256,6 +258,7 @@ uploaded = st.file_uploader(
     "Envie uma imagem clínica simulada",
     type=["png", "jpg", "jpeg", "webp"],
     disabled=controller is not None,
+    key=f"original_upload_{st.session_state.get('upload_generation', 0)}",
 )
 if uploaded is not None and controller is None:
     raw = uploaded.getvalue()
@@ -285,10 +288,13 @@ st.subheader(f"Etapa atual: {state.step.value}")
 
 if st.session_state.uploaded_bytes:
     st.image(
-        load_image(st.session_state.uploaded_bytes),
-        caption="Cópia preparada da imagem, mantida somente em memória nesta sessão",
+        resolve_active_image(st.session_state.uploaded_bytes, st.session_state.corrected_bytes, state.active_crop),
+        caption="Recorte validado em uso nesta etapa" if state.active_crop else "Imagem original preparada",
         width="stretch",
     )
+    if state.active_crop:
+        with st.expander("Comparar com a imagem original"):
+            st.image(load_image(st.session_state.uploaded_bytes), caption="Original — somente para comparação", width="stretch")
     preparation: PreparedImage | None = st.session_state.uploaded_preparation
     if preparation and (preparation.resized or preparation.orientation_corrected):
         changes = []
@@ -388,12 +394,6 @@ try:
             "Recorte validado."
             + (" A correção manual foi registrada." if state.manual_crop_used else "")
         )
-        preview_raw = (
-            st.session_state.corrected_bytes
-            if state.active_crop.source == "corrected_upload"
-            else st.session_state.uploaded_bytes
-        )
-        render_crop_preview(preview_raw, state.active_crop.bounding_box)
         if st.button("Executar processamento e avaliação de foco", type="primary"):
             controller.run_focus_evaluation()
             st.rerun()

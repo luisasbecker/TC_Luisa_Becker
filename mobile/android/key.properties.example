@@ -1,0 +1,5 @@
+# Copie para key.properties e preencha localmente. Não comite senhas nem chaves.
+storeFile=/caminho/absoluto/upload-keystore.jks
+storePassword=PREENCHER_LOCALMENTE
+keyAlias=upload
+keyPassword=PREENCHER_LOCALMENTE

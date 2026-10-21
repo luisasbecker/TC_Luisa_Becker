@@ -4,6 +4,10 @@ Protótipo funcional e teórico, em Python, do pipeline proposto no TCC I **“I
 
 O objetivo atual é validar o fluxo de informações, as decisões do profissional da saúde e a passagem da imagem entre módulos. Todos os módulos computacionais são **stubs/blocos fantasmas determinísticos**. Não há IA real, inferência clínica, treinamento ou retreinamento.
 
+## Versão instalável para iPhone e Android
+
+A pasta [`mobile/`](mobile/README.md) contém a adaptação Flutter local do fluxo, com recorte por toque e uso dos pixels confirmados nas etapas seguintes. O protótipo Streamlit descrito abaixo permanece disponível. A versão Release foi compilada e instalada no iPhone conectado. O usuário confirmou o sucesso da instalação e iniciará os testes de uso. O build Android permanece pendente por bloqueio de rede. Veja o guia móvel para os testes executados e os próximos passos.
+
 ## Aviso importante
 
 O sistema é somente uma ferramenta de apoio. A saída final expressa **risco baixo, médio ou alto de câncer**, sem produzir diagnóstico definitivo. Em qualquer classe de risco, o protótipo orienta a busca por avaliação médica adequada e informa que não substitui avaliação profissional nem exames complementares quando indicados.
