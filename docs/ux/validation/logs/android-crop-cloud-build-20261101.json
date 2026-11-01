@@ -1,0 +1,51 @@
+{
+  "signature": {
+    "exit_code": 0,
+    "output": [
+      "Verifies",
+      "Verified using v1 scheme (JAR signing): false",
+      "Verified using v2 scheme (APK Signature Scheme v2): true",
+      "Verified using v3 scheme (APK Signature Scheme v3): false",
+      "Verified using v3.1 scheme (APK Signature Scheme v3.1): false",
+      "Verified using v4 scheme (APK Signature Scheme v4): false",
+      "Verified for SourceStamp: false",
+      "Number of signers: 1"
+    ],
+    "stderr": ""
+  },
+  "alignment": {
+    "exit_code": 0,
+    "output": [],
+    "stderr": ""
+  },
+  "manifest": {
+    "exit_code": 0,
+    "output": [
+      "package: name='br.com.luisabecker.pipeline_bucal' versionCode='4' versionName='0.3.0' platformBuildVersionName='16' platformBuildVersionCode='36' compileSdkVersion='36' compileSdkVersionCodename='16'",
+      "sdkVersion:'24'",
+      "targetSdkVersion:'36'",
+      "application-label:'Pipeline Bucal'",
+      "native-code: 'arm64-v8a' 'armeabi-v7a' 'x86_64'"
+    ],
+    "stderr": ""
+  },
+  "contents": {
+    "flutter_debug_kernel_present": true,
+    "cloud_endpoint_present": true,
+    "main_entrypoint": true,
+    "flutter_lib_abis": [
+      "arm64-v8a",
+      "armeabi-v7a",
+      "x86_64"
+    ]
+  },
+  "apk": {
+    "path": "mobile/build/app/outputs/flutter-apk/app-debug.apk",
+    "bytes": 178601072,
+    "sha256": "37e5727923e6ad79c530d97cce2c6745b0e19569d66b62e4835583780229ec5e",
+    "built_current_source": true,
+    "installed": false,
+    "exported": false,
+    "release": false
+  }
+}

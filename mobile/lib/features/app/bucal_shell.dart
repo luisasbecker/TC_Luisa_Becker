@@ -7,6 +7,7 @@ import 'package:share_plus/share_plus.dart';
 import '../../design_system/design_system.dart';
 import '../analysis/analysis_controller.dart';
 import '../analysis/analysis_screen.dart';
+import '../analysis/operation_presentation.dart';
 import '../demo/demo_scenarios.dart';
 import '../library/library_widgets.dart';
 import '../library/reference_library.dart';
@@ -174,7 +175,10 @@ class _BucalShellState extends State<BucalShell> with WidgetsBindingObserver {
   String get sessionOrigin =>
       demo.scenario == null ? 'manual' : 'fixture:${demo.scenario!.id}';
 
-  Future<void> start({ExecutionMode? mode, bool resetScenario = false}) async {
+  Future<void> start({
+    ExecutionMode mode = ExecutionMode.cloud,
+    bool resetScenario = true,
+  }) async {
     if (!await confirmNew() || !mounted) return;
     if (resetScenario) demo.scenario = null;
     controller.newAnalysis(mode: mode, executionOrigin: sessionOrigin);
@@ -185,8 +189,18 @@ class _BucalShellState extends State<BucalShell> with WidgetsBindingObserver {
   }
 
   Future<void> useReference(ClinicalReference reference) async {
-    if (!await confirmNew() || !mounted) return;
-    controller.newAnalysis(executionOrigin: sessionOrigin);
+    // Choosing a reference is also image acquisition. Preserve an explicitly
+    // started demo or a replacement image in the same analysis; otherwise this
+    // is a new normal (cloud) analysis, never an inherited offline scenario.
+    final awaitingImage =
+        controller.hasStarted &&
+        controller.state.stage == AnalysisStage.acquisition &&
+        controller.state.original == null;
+    if (!awaitingImage) {
+      if (!await confirmNew() || !mounted) return;
+      demo.scenario = null;
+      controller.newAnalysis(mode: ExecutionMode.cloud);
+    }
     selectTab(1);
     try {
       await controller.selectImage(
@@ -238,6 +252,18 @@ class _BucalShellState extends State<BucalShell> with WidgetsBindingObserver {
     if (!controller.goBack()) selectTab(0);
   }
 
+  bool get editingCrop =>
+      tab == 1 && controller.state.stage == AnalysisStage.manualCrop;
+
+  Widget analysis() => AnalysisScreen(
+    controller: controller,
+    onPick: pick,
+    onLibrary: () => selectTab(2),
+    onNewAnalysis: start,
+    onExport: exportHistory,
+    onHome: () => selectTab(0),
+  );
+
   @override
   Widget build(BuildContext context) => PopScope(
     canPop: tab == 0,
@@ -246,7 +272,7 @@ class _BucalShellState extends State<BucalShell> with WidgetsBindingObserver {
     },
     child: Scaffold(
       appBar: AppBar(
-        toolbarHeight: 72,
+        toolbarHeight: editingCrop ? 56 : 72,
         leading: tab == 1 && controller.state.stage != AnalysisStage.acquisition
             ? IconButton(
                 onPressed: controller.state.busy ? null : goBack,
@@ -254,7 +280,13 @@ class _BucalShellState extends State<BucalShell> with WidgetsBindingObserver {
                 icon: const Icon(Icons.arrow_back_rounded),
               )
             : null,
-        title: const Text('Pipeline Bucal'),
+        title: Text(
+          editingCrop
+              ? MediaQuery.textScalerOf(context).scale(14) > 22
+                    ? 'Recorte'
+                    : 'Ajustar recorte'
+              : 'Pipeline Bucal',
+        ),
         actions: [
           IconButton(
             onPressed: showHistory,
@@ -270,66 +302,70 @@ class _BucalShellState extends State<BucalShell> with WidgetsBindingObserver {
         ],
       ),
       body: SafeArea(
-        bottom: false,
+        bottom: editingCrop,
         child: Center(
           child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 640),
-            child: SingleChildScrollView(
-              controller: scroll,
-              padding: const EdgeInsets.fromLTRB(24, 12, 24, 24),
-              child: AnimatedSwitcher(
-                duration: BucalMotion.duration(context),
-                child: KeyedSubtree(
-                  key: ValueKey(tab),
-                  child: switch (tab) {
-                    0 => home(context),
-                    1 => Column(
-                      children: [
-                        if (demo.scenario != null)
-                          Padding(
-                            padding: const EdgeInsets.only(bottom: 16),
-                            child: BucalNotice(
-                              title: 'Cenário de demonstração fixo',
-                              message:
-                                  '${demo.scenario!.title}\n${demo.scenario!.task}',
-                              tone: BucalNoticeTone.warning,
-                            ),
+            constraints: BoxConstraints(maxWidth: editingCrop ? 960 : 640),
+            child: editingCrop
+                ? Padding(
+                    key: const ValueKey('fixed-crop-workspace'),
+                    padding: const EdgeInsets.fromLTRB(16, 4, 16, 8),
+                    child: analysis(),
+                  )
+                : SingleChildScrollView(
+                    controller: scroll,
+                    padding: const EdgeInsets.fromLTRB(24, 12, 24, 24),
+                    child: AnimatedSwitcher(
+                      duration: BucalMotion.duration(context),
+                      child: KeyedSubtree(
+                        key: ValueKey(tab),
+                        child: switch (tab) {
+                          0 => home(context),
+                          1 => Column(
+                            children: [
+                              if (demo.scenario != null)
+                                Padding(
+                                  padding: const EdgeInsets.only(bottom: 16),
+                                  child: BucalNotice(
+                                    title: 'Cenário de demonstração fixo',
+                                    message:
+                                        '${demo.scenario!.title}\n${demo.scenario!.task}',
+                                    tone: BucalNoticeTone.warning,
+                                  ),
+                                ),
+                              if (choosingImage)
+                                const Padding(
+                                  padding: EdgeInsets.only(bottom: 20),
+                                  child: BucalLoading(label: 'Abrindo imagem…'),
+                                ),
+                              analysis(),
+                            ],
                           ),
-                        if (choosingImage)
-                          const Padding(
-                            padding: EdgeInsets.only(bottom: 20),
-                            child: BucalLoading(label: 'Abrindo imagem…'),
-                          ),
-                        AnalysisScreen(
-                          controller: controller,
-                          onPick: pick,
-                          onLibrary: () => selectTab(2),
-                          onNewAnalysis: start,
-                          onExport: exportHistory,
-                          onHome: () => selectTab(0),
-                        ),
-                      ],
+                          _ => ReferenceBrowser(onUse: useReference),
+                        },
+                      ),
                     ),
-                    _ => ReferenceBrowser(onUse: useReference),
-                  },
-                ),
-              ),
-            ),
+                  ),
           ),
         ),
       ),
-      bottomNavigationBar: BucalFloatingNav(
-        items: const [
-          BucalNavItem(label: 'Início', icon: Icons.home_outlined),
-          BucalNavItem(
-            label: 'Análise',
-            icon: Icons.add_circle_outline_rounded,
-          ),
-          BucalNavItem(label: 'Biblioteca', icon: Icons.grid_view_rounded),
-        ],
-        selectedIndex: tab,
-        onSelected: selectTab,
-      ),
+      bottomNavigationBar: editingCrop
+          ? null
+          : BucalFloatingNav(
+              items: const [
+                BucalNavItem(label: 'Início', icon: Icons.home_outlined),
+                BucalNavItem(
+                  label: 'Análise',
+                  icon: Icons.add_circle_outline_rounded,
+                ),
+                BucalNavItem(
+                  label: 'Biblioteca',
+                  icon: Icons.grid_view_rounded,
+                ),
+              ],
+              selectedIndex: tab,
+              onSelected: selectTab,
+            ),
     ),
   );
 
@@ -707,6 +743,30 @@ class _BucalShellState extends State<BucalShell> with WidgetsBindingObserver {
                             eventLabel(event['type'] as String),
                             style: Theme.of(context).textTheme.titleMedium,
                           ),
+                          if (event['operation'] is String)
+                            Text(
+                              '${operationLabel(event['operation'] as String)}'
+                              '${event['execution_mode'] == 'cloud'
+                                  ? ' · Google Cloud Run'
+                                  : event['execution_mode'] == 'offline'
+                                  ? ' · No aparelho'
+                                  : ''}',
+                            ),
+                          if (event['type'] == 'operation_completed' &&
+                              event['execution_mode'] == 'cloud')
+                            const Text(
+                              'Resposta da nuvem recebida e verificada.',
+                            ),
+                          if (event['module'] is String)
+                            Text(
+                              'Módulo simulado: ${event['module']}',
+                              style: Theme.of(context).textTheme.bodySmall,
+                            ),
+                          if (event['duration_ms'] is num)
+                            Text(
+                              'Tempo de comunicação e processamento: ${((event['duration_ms'] as num) / 1000).toStringAsFixed(2)} s',
+                              style: Theme.of(context).textTheme.bodySmall,
+                            ),
                           const SizedBox(height: 4),
                           Text(
                             '${event['stage']} · ${event['at']}',

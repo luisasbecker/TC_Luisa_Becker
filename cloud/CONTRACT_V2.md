@@ -1,6 +1,9 @@
 # Contrato cloud v2 — Pipeline Bucal
 
-Implementado localmente em 29/10/2026. **Ainda não publicado nesta etapa.**
+Publicado em 29/10/2026 na revisão `pipeline-bucal-00003-kx2`, conforme o
+registro e a verificação HTTPS em [README.md](README.md). A revisão do cliente
+em 01/11/2026 reforça a validação e a visibilidade das chamadas; não altera
+o contrato nem realiza uma nova implantação do backend.
 Serviço WSGI existente, sem banco ou armazenamento de imagens. `/v1` permanece
 compatível com o app 0.2.1, incluindo sorteio `ghost-v1`, detecção positiva e seus
 rótulos antigos. O novo cliente usa `/v2` explicitamente; não há fallback silencioso.
@@ -168,6 +171,7 @@ python3 cloud/smoke.py https://URL_DO_SERVICO
 python3 cloud/smoke_v2.py https://URL_DO_SERVICO
 ```
 
-Não foi publicado um novo serviço ou alterado faturamento nesta implementação.
+O contrato utiliza o mesmo serviço existente, sem banco ou armazenamento clínico.
+A revisão do cliente em 01/11/2026 não publica serviço nem altera faturamento.
 O Dockerfile inclui os módulos v2 no mesmo contêiner. Fixtures controladas pertencem
 a testes/mockups; não há seleção manual de saídas no endpoint utilizado pelo app.

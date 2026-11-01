@@ -31,7 +31,7 @@ class FakeCloud implements AnalysisTransport {
   final bool detected;
   final calls = <RecordedCall>[];
   final offline = OfflineAnalysisTransport();
-  String? failNext, pauseOperation, corruptNext;
+  String? failNext, pauseOperation, corruptNext, wrongModuleNext;
   Completer<void>? paused;
   @override
   Future<Map<String, dynamic>> call(
@@ -86,6 +86,10 @@ class FakeCloud implements AnalysisTransport {
       response['image_id'] = 'different-image-id';
       corruptNext = null;
     }
+    if (wrongModuleNext == operation) {
+      response['module'] = 'UnrelatedModule';
+      wrongModuleNext = null;
+    }
     return response;
   }
 
@@ -93,14 +97,63 @@ class FakeCloud implements AnalysisTransport {
       calls.where((call) => call.operation == op).toList();
 }
 
-AnalysisController controller(FakeCloud cloud, {DateTime Function()? clock}) {
+class UnexpectedOffline implements AnalysisTransport {
+  int calls = 0;
+
+  @override
+  Future<Map<String, dynamic>> call(
+    String operation,
+    Map<String, Object?> payload,
+  ) async {
+    calls++;
+    throw StateError('A cloud analysis must never invoke offline processing.');
+  }
+}
+
+AnalysisController controller(
+  FakeCloud cloud, {
+  DateTime Function()? clock,
+  AnalysisTransport? offline,
+}) {
   var counter = 0;
   return AnalysisController(
     cloud: cloud,
+    offline: offline,
     clock: clock,
     idFactory: () => 'fixture_${(++counter).toString().padLeft(16, '0')}',
   );
 }
+
+const cloudStages = [
+  'detect',
+  'focus',
+  'classify',
+  'questionnaire',
+  'multimodal',
+];
+
+Future<void> prepareOperation(AnalysisController flow, String operation) async {
+  await flow.selectImage(photo());
+  if (operation == 'detect') return;
+  await flow.confirmImage();
+  if (operation == 'focus') return;
+  await flow.confirmCrop();
+  if (operation == 'classify') return;
+  await flow.acceptQuality(true);
+  if (operation == 'questionnaire') return;
+  await flow.confirmSuggestedClass();
+  fillAnswers(flow);
+}
+
+Future<void> performOperation(AnalysisController flow, String operation) =>
+    switch (operation) {
+      'detect' => flow.confirmImage(),
+      'focus' => flow.confirmCrop(),
+      'classify' => flow.acceptQuality(true),
+      'questionnaire' => flow.confirmSuggestedClass(),
+      'multimodal' => flow.submitAnswers(),
+      _ => throw ArgumentError.value(operation),
+    };
 
 Future<void> reachClassification(AnalysisController flow) async {
   await flow.selectImage(photo());
@@ -130,7 +183,8 @@ void main() {
     'image identity and the actual corrected pixels continue through all five cloud stages',
     () async {
       final cloud = FakeCloud(risk: 2);
-      final flow = controller(cloud);
+      final offline = UnexpectedOffline();
+      final flow = controller(cloud, offline: offline);
       addTearDown(flow.dispose);
       await flow.selectImage(photo());
       final analysisId = flow.state.analysisId;
@@ -149,6 +203,13 @@ void main() {
       fillAnswers(flow);
       await flow.submitAnswers();
       expect(flow.state.result!.risk, RiskLevel.high);
+      expect(
+        cloud.calls
+            .where((call) => call.operation != 'feedback')
+            .map((call) => call.operation),
+        cloudStages,
+      );
+      expect(offline.calls, 0);
       for (final request in cloud.calls.where(
         (r) => r.operation != 'feedback',
       )) {
@@ -164,6 +225,16 @@ void main() {
         }
       }
       expect(flow.events.any((e) => e['type'] == 'crop_corrected'), isTrue);
+      final receipts = flow.events
+          .where((event) => event['type'] == 'operation_completed')
+          .toList();
+      expect(receipts.map((event) => event['operation']), cloudStages);
+      for (final receipt in receipts) {
+        expect(receipt['execution_mode'], 'cloud');
+        expect(receipt['module'], isA<String>());
+        expect(receipt['duration_ms'], isNonNegative);
+        expect(receipt.containsKey('image_base64'), isFalse);
+      }
       expect(
         cloud
             .operations('feedback')
@@ -172,6 +243,139 @@ void main() {
       );
     },
   );
+
+  for (final operation in cloudStages) {
+    test(
+      '$operation waits for a validated cloud receipt before completion',
+      () async {
+        final cloud = FakeCloud();
+        final offline = UnexpectedOffline();
+        var now = DateTime.utc(2026, 11, 1);
+        final flow = controller(cloud, offline: offline, clock: () => now);
+        addTearDown(flow.dispose);
+        await prepareOperation(flow, operation);
+        cloud.pauseOperation = operation;
+        final pending = performOperation(flow, operation);
+        await Future<void>.delayed(Duration.zero);
+        expect(flow.pendingOperation, operation);
+        expect(flow.state.busy, isTrue);
+        expect(
+          flow.events.where(
+            (event) =>
+                event['type'] == 'operation_completed' &&
+                event['operation'] == operation,
+          ),
+          isEmpty,
+        );
+        final started = flow.events.lastWhere(
+          (event) =>
+              event['type'] == 'operation_started' &&
+              event['operation'] == operation,
+        );
+        expect(started['execution_mode'], 'cloud');
+        now = now.add(const Duration(milliseconds: 250));
+        cloud.paused!.complete();
+        await pending;
+        expect(flow.pendingOperation, isNull);
+        expect(flow.state.busy, isFalse);
+        expect(flow.state.error, isNull);
+        final completed = flow.events.lastWhere(
+          (event) =>
+              event['type'] == 'operation_completed' &&
+              event['operation'] == operation,
+        );
+        expect(completed['execution_mode'], 'cloud');
+        expect(completed['request_id'], started['request_id']);
+        expect(
+          completed['module'],
+          operation == 'multimodal'
+              ? modelNames[flow.state.effectiveClass!]
+              : analysisOperationModules[operation],
+        );
+        expect(completed['duration_ms'], 250);
+        expect(offline.calls, 0);
+      },
+    );
+
+    test(
+      '$operation network failure stays cloud and retries identical inputs',
+      () async {
+        final cloud = FakeCloud();
+        final offline = UnexpectedOffline();
+        final flow = controller(cloud, offline: offline);
+        addTearDown(flow.dispose);
+        await prepareOperation(flow, operation);
+        final previousStage = flow.state.stage;
+        cloud.failNext = operation;
+        await performOperation(flow, operation);
+        expect(flow.state.stage, previousStage);
+        expect(flow.state.error, isNotNull);
+        expect(flow.state.mode, ExecutionMode.cloud);
+        expect(flow.pendingOperation, isNull);
+        expect(flow.canRetry, isTrue);
+        expect(
+          flow.events.where(
+            (event) =>
+                event['type'] == 'operation_completed' &&
+                event['operation'] == operation,
+          ),
+          isEmpty,
+        );
+        final failed = flow.events.lastWhere(
+          (event) =>
+              event['type'] == 'operation_error' &&
+              event['operation'] == operation,
+        );
+        expect(failed['execution_mode'], 'cloud');
+        expect(failed.containsKey('module'), isFalse);
+        await flow.retry();
+        expect(cloud.operations(operation), hasLength(2));
+        expect(
+          cloud.operations(operation).first.payload,
+          cloud.operations(operation).last.payload,
+        );
+        expect(flow.state.error, isNull);
+        expect(flow.canRetry, isFalse);
+        expect(flow.pendingOperation, isNull);
+        expect(offline.calls, 0);
+      },
+    );
+
+    for (final wrongModule in [false, true]) {
+      test(
+        '$operation rejects a wrong ${wrongModule ? 'module' : 'image identity'} without recording success',
+        () async {
+          final cloud = FakeCloud();
+          final offline = UnexpectedOffline();
+          final flow = controller(cloud, offline: offline);
+          addTearDown(flow.dispose);
+          await prepareOperation(flow, operation);
+          final previousStage = flow.state.stage;
+          if (wrongModule) {
+            cloud.wrongModuleNext = operation;
+          } else {
+            cloud.corruptNext = operation;
+          }
+          await performOperation(flow, operation);
+          expect(flow.state.stage, previousStage);
+          expect(flow.state.error, isNotNull);
+          expect(flow.pendingOperation, isNull);
+          expect(
+            flow.events.where(
+              (event) =>
+                  event['type'] == 'operation_completed' &&
+                  event['operation'] == operation,
+            ),
+            isEmpty,
+          );
+          expect(flow.state.result, isNull);
+          await flow.retry();
+          expect(flow.state.error, isNull);
+          expect(offline.calls, 0);
+        },
+      );
+    }
+  }
 
   test(
     'a replacement keeps analysis identity, creates a new image and must rerun detection',
@@ -489,14 +693,20 @@ void main() {
       await flow.selectImage(photo());
       final pending = flow.confirmImage();
       await Future<void>.delayed(Duration.zero);
+      expect(flow.pendingOperation, 'detect');
       final previousId = flow.state.analysisId;
       flow.newAnalysis();
+      expect(flow.pendingOperation, isNull);
       cloud.paused!.complete();
       await pending;
       expect(flow.state.analysisId, isNot(previousId));
       expect(flow.state.stage, AnalysisStage.acquisition);
       expect(flow.state.activeImage, isNull);
       expect(flow.state.busy, isFalse);
+      expect(
+        flow.events.where((event) => event['type'] == 'operation_completed'),
+        isEmpty,
+      );
     },
   );
 

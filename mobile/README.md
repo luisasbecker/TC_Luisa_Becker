@@ -28,13 +28,17 @@ Selecione a equipe e o destino no Xcode, com a conta Apple autenticada e o apare
 ## Usar o aplicativo
 
 - **Início → Nova análise:** selecione uma imagem da câmera, galeria ou biblioteca. A prévia exige confirmação antes do envio da imagem à cloud.
-- **Conferir recorte:** aprove a região ou escolha recorte manual/novo envio. O editor opera sobre a imagem original, com alças, movimentação, modo de ampliação e ajustes acessíveis de posição/tamanho. A confirmação materializa os novos pixels; o recorte segue para as etapas seguintes.
-- **Verificar qualidade:** a decisão é do profissional. Se a qualidade for inadequada, o fluxo retorna à aquisição, na mesma análise, e a nova imagem passa novamente pela detecção.
+- **Conferir recorte:** aprove a região ou escolha recorte manual/novo envio. O editor ocupa uma área fixa, sem rolagem da página, ajusta a imagem por largura e altura e mantém confirmação/cancelamento visíveis. Arraste as alças ou o centro; a lupa alterna ampliação e edição. Ajustes acessíveis e ajuda abrem separadamente. A confirmação materializa os novos pixels; o recorte segue para as etapas seguintes.
+- **Verificar qualidade:** a sugestão automática de foco, adequada ou inadequada, é recebida do módulo fantasma e aparece explicitamente como fictícia. A decisão é do profissional. Ao rejeitar a qualidade, o fluxo retorna à aquisição, na mesma análise, e a nova imagem passa novamente pela detecção.
 - **Comparar lesão:** consulte as referências e concorde, escolha outra das cinco classes ou registre “Não consigo determinar”. A incerteza continua com a sugestão original como classe provisória e permanece visível até o resultado.
 - **Informações clínicas:** responda às seções do questionário demonstrativo da classe utilizada; avance, volte, edite e revise antes de confirmar.
 - **Resultado:** somente risco baixo/médio/alto, sem porcentagem. Toda categoria exibe orientação de avaliação médica e aviso de simulação. Conclua ou inicie outra análise.
 
 O menu flutuante Início / Análise / Biblioteca preserva a análise em andamento. A seta de retorno e os botões de revisão permitem rever decisões. Alterações de imagem, recorte, classe ou resposta invalidam os dados dependentes; respostas antigas da rede não sobrescrevem o estado atual.
+
+Durante o recorte manual, o menu flutuante cede espaço à imagem e aos controles fixos; volta ao sair do editor. Uma **Nova análise** normal sempre inicia na cloud e encerra o cenário fixo anterior. Uma referência escolhida enquanto a análise aguarda uma imagem mantém a sessão e seu modo explicitamente selecionado, inclusive após rejeitar a qualidade.
+
+Detecção, foco, CNN e multimodal fazem chamadas HTTPS separadas ao serviço existente. A interface identifica a etapa em processamento e o retorno recebido. O histórico informa operação, origem, módulo fantasma validado e duração da comunicação; não inclui os pixels da imagem. Veja [comunicação por etapa](../docs/ux/validation/CLOUD_STAGE_COMMUNICATION.md).
 
 Em **⋯ → Sobre e configurações**, escolha tema claro, escuro ou sistema. A redução de movimento do aparelho é respeitada. **Configurar próxima análise** permite escolher Cloud Run ou demonstração offline; falhas de rede não ativam offline automaticamente.
 

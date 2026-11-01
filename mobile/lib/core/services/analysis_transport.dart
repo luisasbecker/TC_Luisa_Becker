@@ -105,6 +105,16 @@ const envelopeFields = [
   'image_hash',
 ];
 
+/// Module identities belong to the v2 simulation contract. They describe which
+/// remote block answered, never evidence of clinical inference or validation.
+const analysisOperationModules = {
+  'detect': 'YoloDetectionStub',
+  'focus': 'FocusEvaluationStub',
+  'classify': 'CnnClassificationStub',
+  'questionnaire': 'QuestionnaireStub',
+  'feedback': 'IntelligentSystemStub',
+};
+
 void validateReceipt(
   Map<String, dynamic> response,
   Map<String, Object?> request,
@@ -117,6 +127,9 @@ void validateReceipt(
       response['data_stored'] != false ||
       response['execution_mode'] != mode.name ||
       response['feedback'] is! List ||
+      (operation == 'multimodal'
+          ? !modelNames.contains(response['module'])
+          : response['module'] != analysisOperationModules[operation]) ||
       envelopeFields.any((key) => response[key] != request[key])) {
     throw const AnalysisServiceException(
       'A resposta não corresponde à imagem e às decisões atuais. Tente novamente.',
@@ -165,6 +178,8 @@ class OfflineAnalysisTransport implements AnalysisTransport {
       'simulation_only': true,
       'execution_mode': 'offline',
       'data_stored': false,
+      if (analysisOperationModules.containsKey(operation))
+        'module': analysisOperationModules[operation],
       'feedback': <Object>[],
     };
     switch (operation) {

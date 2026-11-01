@@ -51,6 +51,7 @@ class AnalysisController extends ChangeNotifier {
   bool _started = false;
   bool _active = true;
   String _executionOrigin;
+  String? _pendingOperation;
   final List<_ArchivedJournal> _archives = [];
   Future<void> Function()? _retry;
   final List<_PendingFeedback> _pendingFeedback = [];
@@ -60,6 +61,9 @@ class AnalysisController extends ChangeNotifier {
   int get pendingFeedbackCount => _pendingFeedback.length;
   bool get hasStarted => _started;
   String get executionOrigin => _executionOrigin;
+
+  /// The operation currently awaiting a validated reply, for truthful UI status.
+  String? get pendingOperation => _pendingOperation;
   List<Map<String, Object?>> get archivedSessions =>
       List.unmodifiable(_archives.map((entry) => entry.toJson()));
 
@@ -79,6 +83,7 @@ class AnalysisController extends ChangeNotifier {
   void _cancelPendingOperation() {
     _generation++;
     _retry = null;
+    _pendingOperation = null;
   }
 
   void _navigate(AnalysisStage stage, {bool returning = true}) {
@@ -212,24 +217,35 @@ class AnalysisController extends ChangeNotifier {
   }) async {
     final ticket = ++_generation;
     final mode = state.mode;
+    final startedAt = (_clock ?? DateTime.now)();
     _retry = null;
+    _pendingOperation = operation;
     _update(state.copyWith(stage: running, busy: true, error: null));
     _record('operation_started', {
       'operation': operation,
       'request_id': request['request_id'],
+      'execution_mode': mode.name,
     });
     try {
       final response = await _transport(mode).call(operation, request);
       if (_disposed || ticket != _generation) return;
       validateReceipt(response, request, operation, mode);
+      _pendingOperation = null;
       apply(response);
       _recordFeedbackReceipts(response);
       _record('operation_completed', {
         'operation': operation,
         'request_id': request['request_id'],
+        'execution_mode': mode.name,
+        'module': response['module'],
+        'duration_ms': (_clock ?? DateTime.now)()
+            .difference(startedAt)
+            .inMilliseconds
+            .clamp(0, 1 << 53),
       });
     } catch (error) {
       if (_disposed || ticket != _generation) return;
+      _pendingOperation = null;
       _retry = () => _run(
         operation,
         request,
@@ -249,6 +265,7 @@ class AnalysisController extends ChangeNotifier {
       _record('operation_error', {
         'operation': operation,
         'request_id': request['request_id'],
+        'execution_mode': mode.name,
         'recoverable': true,
       });
     }
@@ -980,6 +997,7 @@ class AnalysisController extends ChangeNotifier {
   void dispose() {
     _disposed = true;
     _generation++;
+    _pendingOperation = null;
     if (_cloud is HttpsAnalysisTransport) _cloud.close();
     super.dispose();
   }

@@ -22,6 +22,8 @@ _Evitar_: É câncer, não é câncer, porcentagem de câncer.
 
 **Demonstração offline**: Execução local explicitamente escolhida, distinguida da simulação com comunicação real à cloud.
 
+**Simulação na nuvem**: Percurso em que cada módulo recebe entradas e devolve uma resposta por comunicação remota real. As saídas permanecem fictícias; a existência da conexão não significa reconhecimento clínico por IA.
+
 **Análise**: Percurso iniciado pelo profissional para avaliar uma lesão, incluindo revisões, retornos e eventual substituição de fotografia antes da conclusão.
 
 **Imagem de referência**: Exemplo identificado em uma fonte científica e apresentado para comparação. Pode ser escolhido explicitamente como imagem de teste; sua presença na biblioteca não significa que foi analisado.

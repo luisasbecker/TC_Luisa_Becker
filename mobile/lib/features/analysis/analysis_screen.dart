@@ -4,6 +4,7 @@ import '../../design_system/design_system.dart';
 import '../library/library_widgets.dart';
 import 'analysis_controller.dart';
 import 'analysis_widgets.dart';
+import 'operation_presentation.dart';
 
 /// Presentation only: every pipeline transition and invalidation belongs to the
 /// controller, so a visual tab change never creates or discards an analysis.
@@ -137,6 +138,44 @@ class AnalysisScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (state.stage == AnalysisStage.manualCrop) {
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          if (state.error != null)
+            TextButton.icon(
+              onPressed: () => showModalBottomSheet<void>(
+                context: context,
+                useSafeArea: true,
+                isScrollControlled: true,
+                builder: (sheetContext) => SingleChildScrollView(
+                  padding: const EdgeInsets.all(24),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Text(state.error!),
+                      if (controller.canRetry) ...[
+                        gap(),
+                        BucalButton(
+                          label: 'Tentar novamente',
+                          onPressed: () {
+                            Navigator.pop(sheetContext);
+                            controller.retry();
+                          },
+                        ),
+                      ],
+                    ],
+                  ),
+                ),
+              ),
+              icon: const Icon(Icons.error_outline),
+              label: const Text('Ver detalhes do erro'),
+            ),
+          Expanded(child: body(context).single),
+        ],
+      );
+    }
     final (title, subtitle, step) = heading;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -170,6 +209,28 @@ class AnalysisScreen extends StatelessWidget {
           total: 6,
         ),
         gap(24),
+        if (!state.busy && receivedOperation != null) ...[
+          Row(
+            children: [
+              Icon(
+                state.mode == ExecutionMode.cloud
+                    ? Icons.cloud_done_outlined
+                    : Icons.phone_android_outlined,
+                size: 20,
+              ),
+              const SizedBox(width: 8),
+              Expanded(
+                child: Text(
+                  '${operationLabel(receivedOperation!)}: '
+                  '${state.mode == ExecutionMode.cloud ? 'retorno recebido da nuvem' : 'simulação local concluída'}.',
+                  key: const ValueKey('operation-receipt'),
+                  style: Theme.of(context).textTheme.bodySmall,
+                ),
+              ),
+            ],
+          ),
+          gap(),
+        ],
         if (state.error != null) ...[
           BucalNotice(
             title: 'Não foi possível continuar',
@@ -187,13 +248,28 @@ class AnalysisScreen extends StatelessWidget {
           gap(),
         ],
         if (state.busy) ...[
-          const BucalLoading(label: 'Processando esta etapa…'),
+          BucalLoading(
+            label:
+                '${operationLabel(controller.pendingOperation ?? '')} '
+                '${state.mode == ExecutionMode.cloud ? 'na nuvem' : 'no aparelho'}…',
+          ),
           gap(20),
         ],
         ...body(context),
       ],
     );
   }
+
+  String? get receivedOperation => switch (state.stage) {
+    AnalysisStage.crop when state.detectionFound != null => 'detect',
+    AnalysisStage.quality when state.qualityAdequate != null => 'focus',
+    AnalysisStage.classification when state.suggestedClass != null =>
+      'classify',
+    AnalysisStage.questionnaire when state.questionnaire != null =>
+      'questionnaire',
+    AnalysisStage.result when state.result != null => 'multimodal',
+    _ => null,
+  };
 
   List<Widget> body(BuildContext context) {
     switch (state.stage) {
@@ -335,6 +411,9 @@ class AnalysisScreen extends StatelessWidget {
             image: image,
             initialBox: state.cropBox,
             busy: state.busy,
+            processingLabel: state.mode == ExecutionMode.cloud
+                ? 'Verificando foco na nuvem…'
+                : 'Verificando foco no aparelho…',
             onConfirm: controller.confirmCrop,
             onCancel: controller.cancelCropEdit,
           ),
@@ -343,9 +422,15 @@ class AnalysisScreen extends StatelessWidget {
         return [
           patient(),
           gap(20),
-          const BucalNotice(
+          BucalNotice(
+            title: state.qualityAdequate == true
+                ? 'Sugestão simulada: foco adequado'
+                : 'Sugestão simulada: foco inadequado',
+            tone: state.qualityAdequate == true
+                ? BucalNoticeTone.info
+                : BucalNoticeTone.warning,
             message:
-                'A decisão sobre a qualidade visual é sua. A avaliação automática desta versão é simulada.',
+                'Esta sugestão automática é fictícia e não mede a nitidez real. Confira a imagem; a decisão sobre a qualidade visual continua sendo sua.',
           ),
           gap(20),
           button(
