@@ -1,7 +1,7 @@
 name: pipeline_bucal
-description: Protótipo acadêmico local do pipeline de lesões bucais.
+description: Protótipo acadêmico com simulação cloud e offline do pipeline de lesões bucais.
 publish_to: none
-version: 0.1.0+1
+version: 0.3.0+4
 environment:
   sdk: ^3.11.0
 dependencies:
@@ -17,3 +17,13 @@ dev_dependencies:
   flutter_lints: 6.0.0
 flutter:
   uses-material-design: true
+  assets:
+    - assets/branding/
+    - assets/fonts/OFL-Inter.txt
+    - assets/references/manifest.json
+    - assets/references/photos/
+    - assets/references/quality/
+  fonts:
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/Inter-Variable.ttf

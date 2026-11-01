@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "kind": "automated_mockup_asset_checks",
+  "human_ux_study": false,
+  "screens": 72,
+  "support_boards": 6,
+  "editable_text_nodes": 1044,
+  "vector_nodes": 2024,
+  "linked_actions": 506,
+  "source_preserved_images": 46,
+  "deterministic_scenarios": 15,
+  "broken_navigation_targets": 0,
+  "native_figma_components_created": false,
+  "external_network_calls": 0
+}

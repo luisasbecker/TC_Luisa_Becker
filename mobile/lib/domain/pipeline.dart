@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:typed_data';
+import 'dart:math';
 import 'package:crypto/crypto.dart';
 import 'package:image/image.dart' as img;
 
@@ -104,10 +105,10 @@ PreparedPhoto preparePhoto(Uint8List bytes) {
     );
   }
   var image = img.bakeOrientation(decoded);
-  if (image.width > 2560 || image.height > 2560) {
+  if (image.width > 1600 || image.height > 1600) {
     image = image.width >= image.height
-        ? img.copyResize(image, width: 2560)
-        : img.copyResize(image, height: 2560);
+        ? img.copyResize(image, width: 1600)
+        : img.copyResize(image, height: 1600);
   }
   // Copy pixels only, excluding EXIF, location and other source metadata.
   final clean = img.Image(
@@ -152,8 +153,15 @@ Uint8List cropPhoto(Uint8List original, CropBox box) {
 }
 
 class Pipeline {
-  Pipeline({this.config = const SimulationConfig()});
-  final SimulationConfig config;
+  Pipeline({SimulationConfig? config, this.executionMode = 'offline'})
+    : config =
+          config ??
+          SimulationConfig(
+            suggestedClass: Random.secure().nextInt(lesionClasses.length),
+            risk: Random.secure().nextInt(risks.length),
+          );
+  SimulationConfig config;
+  final String executionMode;
   Stage stage = Stage.empty;
   PreparedPhoto? original;
   Uint8List? _activeBytes;
@@ -167,7 +175,14 @@ class Pipeline {
   final List<Map<String, Object?>> history = [];
   final List<Map<String, Object?>> feedback = [];
   List<String> answers = [];
-  final String sessionId = DateTime.now().microsecondsSinceEpoch.toString();
+  int? _resultRisk;
+  int? get resultRisk => _resultRisk;
+  String? get resultRiskLabel =>
+      _resultRisk == null ? null : risks[_resultRisk!];
+  final String sessionId = List.generate(
+    16,
+    (_) => Random.secure().nextInt(256).toRadixString(16).padLeft(2, '0'),
+  ).join();
 
   void _require(Stage expected) {
     if (stage != expected) {
@@ -273,8 +288,20 @@ class Pipeline {
     _record('classe confirmada', {'class': lesionClasses[selected]});
   }
 
-  void complete(List<String> responses) {
+  void complete(List<String> responses, {int? cloudRisk}) {
     _require(Stage.questionnaire);
+    if (executionMode == 'cloud' && cloudRisk == null) {
+      throw StateError(
+        'O resultado cloud precisa de um risco recebido da API.',
+      );
+    }
+    if (executionMode != 'cloud' && cloudRisk != null) {
+      throw StateError('Uma sessão offline não pode receber resultado cloud.');
+    }
+    final acceptedRisk = cloudRisk ?? config.risk;
+    if (acceptedRisk < 0 || acceptedRisk >= risks.length) {
+      throw ArgumentError('Risco simulado inválido.');
+    }
     if (responses.length != 3 ||
         List.generate(
           3,
@@ -283,16 +310,19 @@ class Pipeline {
       throw ArgumentError('Responda todas as perguntas antes de continuar.');
     }
     answers = List.of(responses);
+    _resultRisk = acceptedRisk;
     stage = Stage.completed;
     _record('multimodal simulado', {
       'model': modelNames[finalClass!],
-      'risk': risks[config.risk],
+      'risk': resultRiskLabel,
+      'risk_index': resultRisk,
     });
   }
 
   String summary() => const JsonEncoder.withIndent('  ').convert({
     'session_id': sessionId,
     'simulation_only': true,
+    'execution_mode': executionMode,
     'stage': stage.name,
     'active_image_hash': activeHash,
     'manual_crop': manualCrop,
@@ -302,7 +332,8 @@ class Pipeline {
     },
     'result': stage == Stage.completed
         ? {
-            'risk': risks[config.risk],
+            'risk': resultRiskLabel,
+            'risk_index': resultRisk,
             'model': modelNames[finalClass!],
             'message': guidance,
           }

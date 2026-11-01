@@ -1,0 +1,5906 @@
+{
+  "screens": [
+    {
+      "id": "01-home",
+      "name": "Início",
+      "theme": "light",
+      "path": "svg/light/01-home.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "01-home",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "02-new",
+          "label": "Nova análise",
+          "bounds": [
+            24,
+            558,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "02-new",
+      "name": "Nova análise",
+      "theme": "light",
+      "path": "svg/light/02-new.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "01-home",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "03-source",
+          "label": "Selecionar imagem",
+          "bounds": [
+            24,
+            638,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "03-source",
+      "name": "Selecionar imagem",
+      "theme": "light",
+      "path": "svg/light/03-source.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "02-new",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "04-preview",
+          "label": "Capturar fotografia",
+          "bounds": [
+            24,
+            286,
+            342,
+            74
+          ]
+        },
+        {
+          "target": "04-preview",
+          "label": "Escolher da galeria",
+          "bounds": [
+            24,
+            376,
+            342,
+            74
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Usar imagem de exemplo",
+          "bounds": [
+            24,
+            466,
+            342,
+            74
+          ]
+        }
+      ]
+    },
+    {
+      "id": "04-preview",
+      "name": "Pré-visualização",
+      "theme": "light",
+      "path": "svg/light/04-preview.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "03-source",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "05-detecting",
+          "label": "Usar esta imagem",
+          "bounds": [
+            24,
+            610,
+            342,
+            52
+          ]
+        },
+        {
+          "target": "03-source",
+          "label": "Escolher outra",
+          "bounds": [
+            24,
+            674,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "05-detecting",
+      "name": "Processamento da região",
+      "theme": "light",
+      "path": "svg/light/05-detecting.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "04-preview",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "@detect",
+          "label": "Ver região sugerida",
+          "bounds": [
+            24,
+            606,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "06-detected",
+      "name": "Região encontrada",
+      "theme": "light",
+      "path": "svg/light/06-detected.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "04-preview",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "07-crop",
+          "label": "Conferir recorte",
+          "bounds": [
+            24,
+            550,
+            342,
+            52
+          ]
+        },
+        {
+          "target": "08-editor",
+          "label": "Ajustar recorte",
+          "bounds": [
+            24,
+            614,
+            342,
+            52
+          ]
+        },
+        {
+          "target": "10-replace",
+          "label": "Enviar outra imagem",
+          "bounds": [
+            24,
+            678,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "07-crop",
+      "name": "Validação do recorte",
+      "theme": "light",
+      "path": "svg/light/07-crop.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "04-preview",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "11-focus",
+          "label": "Sim, continuar",
+          "bounds": [
+            24,
+            550,
+            342,
+            52
+          ]
+        },
+        {
+          "target": "08-editor",
+          "label": "Ajustar recorte",
+          "bounds": [
+            24,
+            614,
+            342,
+            52
+          ]
+        },
+        {
+          "target": "10-replace",
+          "label": "Enviar outra imagem",
+          "bounds": [
+            24,
+            678,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "08-editor",
+      "name": "Editor manual",
+      "theme": "light",
+      "path": "svg/light/08-editor.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "07-crop",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "11-focus",
+          "label": "Usar este recorte",
+          "bounds": [
+            24,
+            640,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "09-no-detection",
+      "name": "Falha de detecção",
+      "theme": "light",
+      "path": "svg/light/09-no-detection.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "04-preview",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "08-editor",
+          "label": "Fazer recorte manual",
+          "bounds": [
+            24,
+            610,
+            342,
+            52
+          ]
+        },
+        {
+          "target": "10-replace",
+          "label": "Enviar outra fotografia",
+          "bounds": [
+            24,
+            674,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "10-replace",
+      "name": "Novo envio",
+      "theme": "light",
+      "path": "svg/light/10-replace.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "07-crop",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "04-preview",
+          "label": "Capturar fotografia",
+          "bounds": [
+            24,
+            492,
+            342,
+            56
+          ]
+        },
+        {
+          "target": "04-preview",
+          "label": "Escolher da galeria",
+          "bounds": [
+            24,
+            564,
+            342,
+            56
+          ]
+        },
+        {
+          "target": "07-crop",
+          "label": "Cancelar",
+          "bounds": [
+            24,
+            664,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "11-focus",
+      "name": "Verificar qualidade",
+      "theme": "light",
+      "path": "svg/light/11-focus.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "07-crop",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "13-classification",
+          "label": "Qualidade adequada",
+          "bounds": [
+            24,
+            610,
+            342,
+            52
+          ]
+        },
+        {
+          "target": "12-poor-focus",
+          "label": "Enviar nova imagem",
+          "bounds": [
+            24,
+            674,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "12-poor-focus",
+      "name": "Imagem inadequada",
+      "theme": "light",
+      "path": "svg/light/12-poor-focus.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "11-focus",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "10-replace",
+          "label": "Selecionar nova imagem",
+          "bounds": [
+            24,
+            668,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "13-classification",
+      "name": "Comparar lesão",
+      "theme": "light",
+      "path": "svg/light/13-classification.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "11-focus",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "14-gallery",
+          "label": "Ampliar referências",
+          "bounds": [
+            24,
+            564,
+            342,
+            48
+          ]
+        },
+        {
+          "target": "15-agreement",
+          "label": "Concordo com a classe",
+          "bounds": [
+            24,
+            620,
+            342,
+            52
+          ]
+        },
+        {
+          "target": "16-disagreement",
+          "label": "Não concordo",
+          "bounds": [
+            24,
+            684,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "14-gallery",
+      "name": "Referências ampliadas",
+      "theme": "light",
+      "path": "svg/light/14-gallery.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "13-classification",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "13-classification",
+          "label": "Voltar à comparação",
+          "bounds": [
+            24,
+            688,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "15-agreement",
+      "name": "Classe confirmada",
+      "theme": "light",
+      "path": "svg/light/15-agreement.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "13-classification",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "19-questionnaire",
+          "label": "Ir ao questionário",
+          "bounds": [
+            24,
+            644,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "16-disagreement",
+      "name": "Discordância",
+      "theme": "light",
+      "path": "svg/light/16-disagreement.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "13-classification",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "17-alternative",
+          "label": "Comparar outras classes",
+          "bounds": [
+            24,
+            540,
+            342,
+            52
+          ]
+        },
+        {
+          "target": "18-uncertainty",
+          "label": "Não consigo determinar",
+          "bounds": [
+            24,
+            604,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "17-alternative",
+      "name": "Seleção alternativa",
+      "theme": "light",
+      "path": "svg/light/17-alternative.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "16-disagreement",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "@class-0",
+          "label": "Pápula/nódulo",
+          "bounds": [
+            24,
+            284,
+            342,
+            66
+          ]
+        },
+        {
+          "target": "@class-1",
+          "label": "Mácula/mancha",
+          "bounds": [
+            24,
+            358,
+            342,
+            66
+          ]
+        },
+        {
+          "target": "@class-2",
+          "label": "Vesícula/bolha",
+          "bounds": [
+            24,
+            432,
+            342,
+            66
+          ]
+        },
+        {
+          "target": "@class-3",
+          "label": "Erosão",
+          "bounds": [
+            24,
+            506,
+            342,
+            66
+          ]
+        },
+        {
+          "target": "@class-5",
+          "label": "Placa",
+          "bounds": [
+            24,
+            580,
+            342,
+            66
+          ]
+        },
+        {
+          "target": "18-uncertainty",
+          "label": "Não consigo determinar",
+          "bounds": [
+            24,
+            676,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "18-uncertainty",
+      "name": "Incerteza",
+      "theme": "light",
+      "path": "svg/light/18-uncertainty.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "16-disagreement",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "@questionnaire-uncertain",
+          "label": "Ir ao questionário",
+          "bounds": [
+            24,
+            644,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "19-questionnaire",
+      "name": "Questionário",
+      "theme": "light",
+      "path": "svg/light/19-questionnaire.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "13-classification",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "@answer-yes",
+          "label": "Sim",
+          "bounds": [
+            24,
+            464,
+            342,
+            56
+          ]
+        },
+        {
+          "target": "@answer-no",
+          "label": "Não",
+          "bounds": [
+            24,
+            532,
+            342,
+            56
+          ]
+        },
+        {
+          "target": "@answer-unknown",
+          "label": "Não informado",
+          "bounds": [
+            24,
+            600,
+            342,
+            56
+          ]
+        },
+        {
+          "target": "31-section-two",
+          "label": "Próxima seção",
+          "bounds": [
+            24,
+            680,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "20-review",
+      "name": "Revisão das respostas",
+      "theme": "light",
+      "path": "svg/light/20-review.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "31-section-two",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "21-processing",
+          "label": "Confirmar e continuar",
+          "bounds": [
+            24,
+            622,
+            342,
+            52
+          ]
+        },
+        {
+          "target": "19-questionnaire",
+          "label": "Editar respostas",
+          "bounds": [
+            24,
+            686,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "21-processing",
+      "name": "Processamento final",
+      "theme": "light",
+      "path": "svg/light/21-processing.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "20-review",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "@result",
+          "label": "Ver resultado simulado",
+          "bounds": [
+            24,
+            606,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "22-low",
+      "name": "Risco baixo",
+      "theme": "light",
+      "path": "svg/light/22-low.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "20-review",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "26-complete",
+          "label": "Concluir análise",
+          "bounds": [
+            24,
+            680,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "23-medium",
+      "name": "Risco médio",
+      "theme": "light",
+      "path": "svg/light/23-medium.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "20-review",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "26-complete",
+          "label": "Concluir análise",
+          "bounds": [
+            24,
+            680,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "24-high",
+      "name": "Risco alto",
+      "theme": "light",
+      "path": "svg/light/24-high.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "20-review",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "26-complete",
+          "label": "Concluir análise",
+          "bounds": [
+            24,
+            680,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "25-unconfirmed",
+      "name": "Resultado com classe não confirmada",
+      "theme": "light",
+      "path": "svg/light/25-unconfirmed.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "20-review",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "26-complete",
+          "label": "Concluir análise",
+          "bounds": [
+            24,
+            680,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "26-complete",
+      "name": "Sessão concluída",
+      "theme": "light",
+      "path": "svg/light/26-complete.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "01-home",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "02-new",
+          "label": "Nova análise",
+          "bounds": [
+            24,
+            528,
+            342,
+            52
+          ]
+        },
+        {
+          "target": "30-history",
+          "label": "Ver histórico da execução",
+          "bounds": [
+            24,
+            592,
+            342,
+            52
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Voltar ao início",
+          "bounds": [
+            24,
+            656,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "27-about",
+      "name": "Sobre o sistema",
+      "theme": "light",
+      "path": "svg/light/27-about.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "01-home",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        }
+      ]
+    },
+    {
+      "id": "28-error",
+      "name": "Erro e recuperação",
+      "theme": "light",
+      "path": "svg/light/28-error.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "03-source",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "03-source",
+          "label": "Tentar novamente",
+          "bounds": [
+            24,
+            606,
+            342,
+            52
+          ]
+        },
+        {
+          "target": "03-source",
+          "label": "Voltar à seleção",
+          "bounds": [
+            24,
+            670,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "29-library",
+      "name": "Biblioteca de referências",
+      "theme": "light",
+      "path": "svg/light/29-library.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "01-home",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "@reference-0",
+          "label": "Pápula/nódulo",
+          "bounds": [
+            24,
+            270,
+            163,
+            134
+          ]
+        },
+        {
+          "target": "@reference-1",
+          "label": "Mácula/mancha",
+          "bounds": [
+            203,
+            270,
+            163,
+            134
+          ]
+        },
+        {
+          "target": "@reference-2",
+          "label": "Vesícula/bolha",
+          "bounds": [
+            24,
+            420,
+            163,
+            134
+          ]
+        },
+        {
+          "target": "@reference-3",
+          "label": "Erosão",
+          "bounds": [
+            203,
+            420,
+            163,
+            134
+          ]
+        },
+        {
+          "target": "@reference-4",
+          "label": "Úlcera",
+          "bounds": [
+            24,
+            570,
+            163,
+            134
+          ]
+        },
+        {
+          "target": "@reference-5",
+          "label": "Placa",
+          "bounds": [
+            203,
+            570,
+            163,
+            134
+          ]
+        }
+      ]
+    },
+    {
+      "id": "30-history",
+      "name": "Histórico da execução",
+      "theme": "light",
+      "path": "svg/light/30-history.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "26-complete",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "@export",
+          "label": "Exportar histórico JSON",
+          "bounds": [
+            24,
+            654,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "31-section-two",
+      "name": "Questionário — seção 2",
+      "theme": "light",
+      "path": "svg/light/31-section-two.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "19-questionnaire",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "@answer-yes",
+          "label": "Sim",
+          "bounds": [
+            24,
+            464,
+            342,
+            56
+          ]
+        },
+        {
+          "target": "@answer-no",
+          "label": "Não",
+          "bounds": [
+            24,
+            532,
+            342,
+            56
+          ]
+        },
+        {
+          "target": "@answer-unknown",
+          "label": "Não informado",
+          "bounds": [
+            24,
+            600,
+            342,
+            56
+          ]
+        },
+        {
+          "target": "20-review",
+          "label": "Revisar respostas",
+          "bounds": [
+            24,
+            680,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "32-empty",
+      "name": "Nenhuma análise iniciada",
+      "theme": "light",
+      "path": "svg/light/32-empty.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "01-home",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "02-new",
+          "label": "Nova análise",
+          "bounds": [
+            24,
+            604,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "33-offline",
+      "name": "Cloud indisponível",
+      "theme": "light",
+      "path": "svg/light/33-offline.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "03-source",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "05-detecting",
+          "label": "Tentar novamente",
+          "bounds": [
+            24,
+            606,
+            342,
+            52
+          ]
+        },
+        {
+          "target": "03-source",
+          "label": "Voltar à seleção",
+          "bounds": [
+            24,
+            670,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "34-revisit",
+      "name": "Revisão de decisões",
+      "theme": "light",
+      "path": "svg/light/34-revisit.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "20-review",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "10-replace",
+          "label": "Trocar imagem",
+          "bounds": [
+            24,
+            302,
+            342,
+            74
+          ]
+        },
+        {
+          "target": "08-editor",
+          "label": "Alterar recorte",
+          "bounds": [
+            24,
+            392,
+            342,
+            74
+          ]
+        },
+        {
+          "target": "13-classification",
+          "label": "Alterar classe",
+          "bounds": [
+            24,
+            482,
+            342,
+            74
+          ]
+        },
+        {
+          "target": "19-questionnaire",
+          "label": "Editar respostas",
+          "bounds": [
+            24,
+            572,
+            342,
+            74
+          ]
+        }
+      ]
+    },
+    {
+      "id": "35-zoom",
+      "name": "Imagem ampliada",
+      "theme": "light",
+      "path": "svg/light/35-zoom.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "14-gallery",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        }
+      ]
+    },
+    {
+      "id": "36-abandon",
+      "name": "Sair da análise",
+      "theme": "light",
+      "path": "svg/light/36-abandon.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "20-review",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "20-review",
+          "label": "Continuar análise",
+          "bounds": [
+            24,
+            514,
+            342,
+            52
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Encerrar esta sessão",
+          "bounds": [
+            24,
+            578,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "01-home",
+      "name": "Início",
+      "theme": "dark",
+      "path": "svg/dark/01-home.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "01-home",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "02-new",
+          "label": "Nova análise",
+          "bounds": [
+            24,
+            558,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "02-new",
+      "name": "Nova análise",
+      "theme": "dark",
+      "path": "svg/dark/02-new.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "01-home",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "03-source",
+          "label": "Selecionar imagem",
+          "bounds": [
+            24,
+            638,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "03-source",
+      "name": "Selecionar imagem",
+      "theme": "dark",
+      "path": "svg/dark/03-source.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "02-new",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "04-preview",
+          "label": "Capturar fotografia",
+          "bounds": [
+            24,
+            286,
+            342,
+            74
+          ]
+        },
+        {
+          "target": "04-preview",
+          "label": "Escolher da galeria",
+          "bounds": [
+            24,
+            376,
+            342,
+            74
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Usar imagem de exemplo",
+          "bounds": [
+            24,
+            466,
+            342,
+            74
+          ]
+        }
+      ]
+    },
+    {
+      "id": "04-preview",
+      "name": "Pré-visualização",
+      "theme": "dark",
+      "path": "svg/dark/04-preview.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "03-source",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "05-detecting",
+          "label": "Usar esta imagem",
+          "bounds": [
+            24,
+            610,
+            342,
+            52
+          ]
+        },
+        {
+          "target": "03-source",
+          "label": "Escolher outra",
+          "bounds": [
+            24,
+            674,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "05-detecting",
+      "name": "Processamento da região",
+      "theme": "dark",
+      "path": "svg/dark/05-detecting.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "04-preview",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "@detect",
+          "label": "Ver região sugerida",
+          "bounds": [
+            24,
+            606,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "06-detected",
+      "name": "Região encontrada",
+      "theme": "dark",
+      "path": "svg/dark/06-detected.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "04-preview",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "07-crop",
+          "label": "Conferir recorte",
+          "bounds": [
+            24,
+            550,
+            342,
+            52
+          ]
+        },
+        {
+          "target": "08-editor",
+          "label": "Ajustar recorte",
+          "bounds": [
+            24,
+            614,
+            342,
+            52
+          ]
+        },
+        {
+          "target": "10-replace",
+          "label": "Enviar outra imagem",
+          "bounds": [
+            24,
+            678,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "07-crop",
+      "name": "Validação do recorte",
+      "theme": "dark",
+      "path": "svg/dark/07-crop.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "04-preview",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "11-focus",
+          "label": "Sim, continuar",
+          "bounds": [
+            24,
+            550,
+            342,
+            52
+          ]
+        },
+        {
+          "target": "08-editor",
+          "label": "Ajustar recorte",
+          "bounds": [
+            24,
+            614,
+            342,
+            52
+          ]
+        },
+        {
+          "target": "10-replace",
+          "label": "Enviar outra imagem",
+          "bounds": [
+            24,
+            678,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "08-editor",
+      "name": "Editor manual",
+      "theme": "dark",
+      "path": "svg/dark/08-editor.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "07-crop",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "11-focus",
+          "label": "Usar este recorte",
+          "bounds": [
+            24,
+            640,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "09-no-detection",
+      "name": "Falha de detecção",
+      "theme": "dark",
+      "path": "svg/dark/09-no-detection.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "04-preview",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "08-editor",
+          "label": "Fazer recorte manual",
+          "bounds": [
+            24,
+            610,
+            342,
+            52
+          ]
+        },
+        {
+          "target": "10-replace",
+          "label": "Enviar outra fotografia",
+          "bounds": [
+            24,
+            674,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "10-replace",
+      "name": "Novo envio",
+      "theme": "dark",
+      "path": "svg/dark/10-replace.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "07-crop",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "04-preview",
+          "label": "Capturar fotografia",
+          "bounds": [
+            24,
+            492,
+            342,
+            56
+          ]
+        },
+        {
+          "target": "04-preview",
+          "label": "Escolher da galeria",
+          "bounds": [
+            24,
+            564,
+            342,
+            56
+          ]
+        },
+        {
+          "target": "07-crop",
+          "label": "Cancelar",
+          "bounds": [
+            24,
+            664,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "11-focus",
+      "name": "Verificar qualidade",
+      "theme": "dark",
+      "path": "svg/dark/11-focus.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "07-crop",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "13-classification",
+          "label": "Qualidade adequada",
+          "bounds": [
+            24,
+            610,
+            342,
+            52
+          ]
+        },
+        {
+          "target": "12-poor-focus",
+          "label": "Enviar nova imagem",
+          "bounds": [
+            24,
+            674,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "12-poor-focus",
+      "name": "Imagem inadequada",
+      "theme": "dark",
+      "path": "svg/dark/12-poor-focus.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "11-focus",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "10-replace",
+          "label": "Selecionar nova imagem",
+          "bounds": [
+            24,
+            668,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "13-classification",
+      "name": "Comparar lesão",
+      "theme": "dark",
+      "path": "svg/dark/13-classification.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "11-focus",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "14-gallery",
+          "label": "Ampliar referências",
+          "bounds": [
+            24,
+            564,
+            342,
+            48
+          ]
+        },
+        {
+          "target": "15-agreement",
+          "label": "Concordo com a classe",
+          "bounds": [
+            24,
+            620,
+            342,
+            52
+          ]
+        },
+        {
+          "target": "16-disagreement",
+          "label": "Não concordo",
+          "bounds": [
+            24,
+            684,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "14-gallery",
+      "name": "Referências ampliadas",
+      "theme": "dark",
+      "path": "svg/dark/14-gallery.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "13-classification",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "13-classification",
+          "label": "Voltar à comparação",
+          "bounds": [
+            24,
+            688,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "15-agreement",
+      "name": "Classe confirmada",
+      "theme": "dark",
+      "path": "svg/dark/15-agreement.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "13-classification",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "19-questionnaire",
+          "label": "Ir ao questionário",
+          "bounds": [
+            24,
+            644,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "16-disagreement",
+      "name": "Discordância",
+      "theme": "dark",
+      "path": "svg/dark/16-disagreement.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "13-classification",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "17-alternative",
+          "label": "Comparar outras classes",
+          "bounds": [
+            24,
+            540,
+            342,
+            52
+          ]
+        },
+        {
+          "target": "18-uncertainty",
+          "label": "Não consigo determinar",
+          "bounds": [
+            24,
+            604,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "17-alternative",
+      "name": "Seleção alternativa",
+      "theme": "dark",
+      "path": "svg/dark/17-alternative.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "16-disagreement",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "@class-0",
+          "label": "Pápula/nódulo",
+          "bounds": [
+            24,
+            284,
+            342,
+            66
+          ]
+        },
+        {
+          "target": "@class-1",
+          "label": "Mácula/mancha",
+          "bounds": [
+            24,
+            358,
+            342,
+            66
+          ]
+        },
+        {
+          "target": "@class-2",
+          "label": "Vesícula/bolha",
+          "bounds": [
+            24,
+            432,
+            342,
+            66
+          ]
+        },
+        {
+          "target": "@class-3",
+          "label": "Erosão",
+          "bounds": [
+            24,
+            506,
+            342,
+            66
+          ]
+        },
+        {
+          "target": "@class-5",
+          "label": "Placa",
+          "bounds": [
+            24,
+            580,
+            342,
+            66
+          ]
+        },
+        {
+          "target": "18-uncertainty",
+          "label": "Não consigo determinar",
+          "bounds": [
+            24,
+            676,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "18-uncertainty",
+      "name": "Incerteza",
+      "theme": "dark",
+      "path": "svg/dark/18-uncertainty.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "16-disagreement",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "@questionnaire-uncertain",
+          "label": "Ir ao questionário",
+          "bounds": [
+            24,
+            644,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "19-questionnaire",
+      "name": "Questionário",
+      "theme": "dark",
+      "path": "svg/dark/19-questionnaire.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "13-classification",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "@answer-yes",
+          "label": "Sim",
+          "bounds": [
+            24,
+            464,
+            342,
+            56
+          ]
+        },
+        {
+          "target": "@answer-no",
+          "label": "Não",
+          "bounds": [
+            24,
+            532,
+            342,
+            56
+          ]
+        },
+        {
+          "target": "@answer-unknown",
+          "label": "Não informado",
+          "bounds": [
+            24,
+            600,
+            342,
+            56
+          ]
+        },
+        {
+          "target": "31-section-two",
+          "label": "Próxima seção",
+          "bounds": [
+            24,
+            680,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "20-review",
+      "name": "Revisão das respostas",
+      "theme": "dark",
+      "path": "svg/dark/20-review.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "31-section-two",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "21-processing",
+          "label": "Confirmar e continuar",
+          "bounds": [
+            24,
+            622,
+            342,
+            52
+          ]
+        },
+        {
+          "target": "19-questionnaire",
+          "label": "Editar respostas",
+          "bounds": [
+            24,
+            686,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "21-processing",
+      "name": "Processamento final",
+      "theme": "dark",
+      "path": "svg/dark/21-processing.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "20-review",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "@result",
+          "label": "Ver resultado simulado",
+          "bounds": [
+            24,
+            606,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "22-low",
+      "name": "Risco baixo",
+      "theme": "dark",
+      "path": "svg/dark/22-low.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "20-review",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "26-complete",
+          "label": "Concluir análise",
+          "bounds": [
+            24,
+            680,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "23-medium",
+      "name": "Risco médio",
+      "theme": "dark",
+      "path": "svg/dark/23-medium.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "20-review",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "26-complete",
+          "label": "Concluir análise",
+          "bounds": [
+            24,
+            680,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "24-high",
+      "name": "Risco alto",
+      "theme": "dark",
+      "path": "svg/dark/24-high.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "20-review",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "26-complete",
+          "label": "Concluir análise",
+          "bounds": [
+            24,
+            680,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "25-unconfirmed",
+      "name": "Resultado com classe não confirmada",
+      "theme": "dark",
+      "path": "svg/dark/25-unconfirmed.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "20-review",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "26-complete",
+          "label": "Concluir análise",
+          "bounds": [
+            24,
+            680,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "26-complete",
+      "name": "Sessão concluída",
+      "theme": "dark",
+      "path": "svg/dark/26-complete.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "01-home",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "02-new",
+          "label": "Nova análise",
+          "bounds": [
+            24,
+            528,
+            342,
+            52
+          ]
+        },
+        {
+          "target": "30-history",
+          "label": "Ver histórico da execução",
+          "bounds": [
+            24,
+            592,
+            342,
+            52
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Voltar ao início",
+          "bounds": [
+            24,
+            656,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "27-about",
+      "name": "Sobre o sistema",
+      "theme": "dark",
+      "path": "svg/dark/27-about.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "01-home",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        }
+      ]
+    },
+    {
+      "id": "28-error",
+      "name": "Erro e recuperação",
+      "theme": "dark",
+      "path": "svg/dark/28-error.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "03-source",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "03-source",
+          "label": "Tentar novamente",
+          "bounds": [
+            24,
+            606,
+            342,
+            52
+          ]
+        },
+        {
+          "target": "03-source",
+          "label": "Voltar à seleção",
+          "bounds": [
+            24,
+            670,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "29-library",
+      "name": "Biblioteca de referências",
+      "theme": "dark",
+      "path": "svg/dark/29-library.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "01-home",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "@reference-0",
+          "label": "Pápula/nódulo",
+          "bounds": [
+            24,
+            270,
+            163,
+            134
+          ]
+        },
+        {
+          "target": "@reference-1",
+          "label": "Mácula/mancha",
+          "bounds": [
+            203,
+            270,
+            163,
+            134
+          ]
+        },
+        {
+          "target": "@reference-2",
+          "label": "Vesícula/bolha",
+          "bounds": [
+            24,
+            420,
+            163,
+            134
+          ]
+        },
+        {
+          "target": "@reference-3",
+          "label": "Erosão",
+          "bounds": [
+            203,
+            420,
+            163,
+            134
+          ]
+        },
+        {
+          "target": "@reference-4",
+          "label": "Úlcera",
+          "bounds": [
+            24,
+            570,
+            163,
+            134
+          ]
+        },
+        {
+          "target": "@reference-5",
+          "label": "Placa",
+          "bounds": [
+            203,
+            570,
+            163,
+            134
+          ]
+        }
+      ]
+    },
+    {
+      "id": "30-history",
+      "name": "Histórico da execução",
+      "theme": "dark",
+      "path": "svg/dark/30-history.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "26-complete",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "@export",
+          "label": "Exportar histórico JSON",
+          "bounds": [
+            24,
+            654,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "31-section-two",
+      "name": "Questionário — seção 2",
+      "theme": "dark",
+      "path": "svg/dark/31-section-two.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "19-questionnaire",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "@answer-yes",
+          "label": "Sim",
+          "bounds": [
+            24,
+            464,
+            342,
+            56
+          ]
+        },
+        {
+          "target": "@answer-no",
+          "label": "Não",
+          "bounds": [
+            24,
+            532,
+            342,
+            56
+          ]
+        },
+        {
+          "target": "@answer-unknown",
+          "label": "Não informado",
+          "bounds": [
+            24,
+            600,
+            342,
+            56
+          ]
+        },
+        {
+          "target": "20-review",
+          "label": "Revisar respostas",
+          "bounds": [
+            24,
+            680,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "32-empty",
+      "name": "Nenhuma análise iniciada",
+      "theme": "dark",
+      "path": "svg/dark/32-empty.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "01-home",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "02-new",
+          "label": "Nova análise",
+          "bounds": [
+            24,
+            604,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "33-offline",
+      "name": "Cloud indisponível",
+      "theme": "dark",
+      "path": "svg/dark/33-offline.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "03-source",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "05-detecting",
+          "label": "Tentar novamente",
+          "bounds": [
+            24,
+            606,
+            342,
+            52
+          ]
+        },
+        {
+          "target": "03-source",
+          "label": "Voltar à seleção",
+          "bounds": [
+            24,
+            670,
+            342,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "id": "34-revisit",
+      "name": "Revisão de decisões",
+      "theme": "dark",
+      "path": "svg/dark/34-revisit.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "20-review",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "10-replace",
+          "label": "Trocar imagem",
+          "bounds": [
+            24,
+            302,
+            342,
+            74
+          ]
+        },
+        {
+          "target": "08-editor",
+          "label": "Alterar recorte",
+          "bounds": [
+            24,
+            392,
+            342,
+            74
+          ]
+        },
+        {
+          "target": "13-classification",
+          "label": "Alterar classe",
+          "bounds": [
+            24,
+            482,
+            342,
+            74
+          ]
+        },
+        {
+          "target": "19-questionnaire",
+          "label": "Editar respostas",
+          "bounds": [
+            24,
+            572,
+            342,
+            74
+          ]
+        }
+      ]
+    },
+    {
+      "id": "35-zoom",
+      "name": "Imagem ampliada",
+      "theme": "dark",
+      "path": "svg/dark/35-zoom.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "14-gallery",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        }
+      ]
+    },
+    {
+      "id": "36-abandon",
+      "name": "Sair da análise",
+      "theme": "dark",
+      "path": "svg/dark/36-abandon.svg",
+      "width": 390,
+      "height": 844,
+      "links": [
+        {
+          "target": "20-review",
+          "label": "Voltar",
+          "bounds": [
+            16,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "27-about",
+          "label": "Sobre o sistema",
+          "bounds": [
+            326,
+            53,
+            48,
+            48
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Início",
+          "bounds": [
+            31,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "32-empty",
+          "label": "Análise",
+          "bounds": [
+            142,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "29-library",
+          "label": "Biblioteca",
+          "bounds": [
+            253,
+            763,
+            106,
+            50
+          ]
+        },
+        {
+          "target": "20-review",
+          "label": "Continuar análise",
+          "bounds": [
+            24,
+            514,
+            342,
+            52
+          ]
+        },
+        {
+          "target": "01-home",
+          "label": "Encerrar esta sessão",
+          "bounds": [
+            24,
+            578,
+            342,
+            52
+          ]
+        }
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "complete",
+      "name": "1 · Fluxo sem correções",
+      "start": "01-home",
+      "detect": "06-detected",
+      "focus": "11-focus",
+      "result": "22-low"
+    },
+    {
+      "id": "manual",
+      "name": "2 · Recorte incorreto → manual",
+      "start": "07-crop",
+      "detect": "06-detected",
+      "focus": "11-focus",
+      "result": "23-medium"
+    },
+    {
+      "id": "replacement",
+      "name": "3 · Recorte incorreto → nova imagem",
+      "start": "07-crop",
+      "detect": "06-detected",
+      "focus": "11-focus",
+      "result": "24-high"
+    },
+    {
+      "id": "miss-manual",
+      "name": "4 · Sem detecção → manual",
+      "start": "09-no-detection",
+      "detect": "09-no-detection",
+      "focus": "11-focus",
+      "result": "22-low"
+    },
+    {
+      "id": "miss-replace",
+      "name": "5 · Sem detecção → nova imagem",
+      "start": "09-no-detection",
+      "detect": "06-detected",
+      "focus": "11-focus",
+      "result": "23-medium"
+    },
+    {
+      "id": "focus",
+      "name": "6 · Qualidade inadequada",
+      "start": "11-focus",
+      "detect": "06-detected",
+      "focus": "12-poor-focus",
+      "result": "24-high"
+    },
+    {
+      "id": "agree",
+      "name": "7 · Concordância com a classe",
+      "start": "13-classification",
+      "detect": "06-detected",
+      "focus": "11-focus",
+      "result": "22-low"
+    },
+    {
+      "id": "correct",
+      "name": "8 · Classe alternativa",
+      "start": "16-disagreement",
+      "detect": "06-detected",
+      "focus": "11-focus",
+      "result": "23-medium"
+    },
+    {
+      "id": "uncertain",
+      "name": "9 · Não consigo determinar",
+      "start": "16-disagreement",
+      "detect": "06-detected",
+      "focus": "11-focus",
+      "result": "25-unconfirmed"
+    },
+    {
+      "id": "low",
+      "name": "10 · Resultado baixo",
+      "start": "20-review",
+      "detect": "06-detected",
+      "focus": "11-focus",
+      "result": "22-low"
+    },
+    {
+      "id": "medium",
+      "name": "11 · Resultado médio",
+      "start": "20-review",
+      "detect": "06-detected",
+      "focus": "11-focus",
+      "result": "23-medium"
+    },
+    {
+      "id": "high",
+      "name": "12 · Resultado alto",
+      "start": "20-review",
+      "detect": "06-detected",
+      "focus": "11-focus",
+      "result": "24-high"
+    },
+    {
+      "id": "return",
+      "name": "13 · Alterar decisão anterior",
+      "start": "34-revisit",
+      "detect": "06-detected",
+      "focus": "11-focus",
+      "result": "22-low"
+    },
+    {
+      "id": "format",
+      "name": "14 · Arquivo inválido",
+      "start": "28-error",
+      "detect": "06-detected",
+      "focus": "11-focus",
+      "result": "23-medium"
+    },
+    {
+      "id": "feedback",
+      "name": "15 · Correções e feedback",
+      "start": "08-editor",
+      "detect": "06-detected",
+      "focus": "11-focus",
+      "result": "25-unconfirmed"
+    }
+  ]
+}

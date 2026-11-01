@@ -1,0 +1,14 @@
+{
+  "verified_at": "2026-10-30T17:33:14.627470-03:00",
+  "upload_performed_by": "user",
+  "verification": "downloaded via OneDrive UI and compared SHA-256",
+  "download_name": "Pipeline_Bucal_Android_v1_0.3.0.apk",
+  "bytes": 155964359,
+  "sha256": "b414f94736c6276862d490926873a7a5afa46b1537dba0d3963cae283a73f8ff",
+  "matches_validated_apk": true,
+  "version": "0.3.0",
+  "build": 4,
+  "mode": "debug",
+  "sharing_observed": "Particular",
+  "external_tester_access_verified": false
+}

@@ -1,0 +1,195 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "file": "design/sources/grade_cores_pipeline_bucal.svg",
+    "sha256": "f15d324c8bf276b8a261c25309c9b913e0c360d24d0f7c0aae5423d453d9432c",
+    "note": "Wine, rose and neutral scales extracted verbatim. Semantic hues and darkBase are derived additions."
+  },
+  "colors": {
+    "wine": {
+      "50": "#FFF5F4",
+      "100": "#FCE9E7",
+      "200": "#F4D3D0",
+      "300": "#E4ACA8",
+      "400": "#B86E69",
+      "500": "#904A46",
+      "600": "#7C3D39",
+      "700": "#642F2C",
+      "800": "#4C2422",
+      "900": "#351A19"
+    },
+    "rose": {
+      "50": "#FFF8F7",
+      "100": "#FFECEA",
+      "200": "#FFDAD7",
+      "300": "#FFC4C0",
+      "400": "#F4A7A2",
+      "500": "#E38B85",
+      "600": "#CA706B",
+      "700": "#A85652",
+      "800": "#823D39",
+      "900": "#5F2C2A"
+    },
+    "neutral": {
+      "50": "#F8F9FB",
+      "100": "#F1EFF0",
+      "200": "#E4E0E1",
+      "300": "#CFC7C7",
+      "400": "#AA9C9B",
+      "500": "#857371",
+      "600": "#665957",
+      "700": "#49403E",
+      "800": "#342B29",
+      "900": "#231919"
+    },
+    "white": "#FFFFFF",
+    "darkBase": "#181313",
+    "sage": {
+      "light": "#E8F2EC",
+      "ink": "#2C5F4F",
+      "dark": "#20342C",
+      "onDark": "#B0D6BE"
+    },
+    "amber": {
+      "light": "#FFF2D8",
+      "ink": "#725114",
+      "dark": "#392F1E",
+      "onDark": "#E9CA8A"
+    },
+    "danger": {
+      "light": "#FCE6E4",
+      "ink": "#8C3634",
+      "dark": "#462825",
+      "onDark": "#F5B7B1"
+    },
+    "info": {
+      "light": "#F0EAF3",
+      "ink": "#5E4D69",
+      "dark": "#302936",
+      "onDark": "#D4C5DE"
+    }
+  },
+  "font": {
+    "family": "Inter",
+    "fallback": [
+      "Arial",
+      "sans-serif"
+    ]
+  },
+  "typography": {
+    "display": {
+      "size": 32,
+      "lineHeight": 40,
+      "weight": 600,
+      "letterSpacing": -0.8
+    },
+    "page": {
+      "size": 28,
+      "lineHeight": 36,
+      "weight": 600,
+      "letterSpacing": -0.5
+    },
+    "section": {
+      "size": 22,
+      "lineHeight": 30,
+      "weight": 600,
+      "letterSpacing": -0.3
+    },
+    "subtitle": {
+      "size": 18,
+      "lineHeight": 26,
+      "weight": 600,
+      "letterSpacing": -0.1
+    },
+    "body": {
+      "size": 16,
+      "lineHeight": 25,
+      "weight": 400,
+      "letterSpacing": 0
+    },
+    "bodySmall": {
+      "size": 14,
+      "lineHeight": 22,
+      "weight": 400,
+      "letterSpacing": 0
+    },
+    "caption": {
+      "size": 12,
+      "lineHeight": 18,
+      "weight": 500,
+      "letterSpacing": 0.15
+    },
+    "button": {
+      "size": 15,
+      "lineHeight": 22,
+      "weight": 600,
+      "letterSpacing": 0
+    },
+    "eyebrow": {
+      "size": 11,
+      "lineHeight": 16,
+      "weight": 600,
+      "letterSpacing": 1.2
+    }
+  },
+  "spacing": {
+    "none": 0,
+    "xxs": 4,
+    "xs": 8,
+    "sm": 12,
+    "md": 16,
+    "lg": 24,
+    "xl": 32,
+    "xxl": 40,
+    "huge": 48,
+    "section": 64
+  },
+  "radius": {
+    "small": 8,
+    "input": 12,
+    "button": 16,
+    "card": 24,
+    "sheet": 32,
+    "pill": 999
+  },
+  "dimensions": {
+    "minimumTouch": 48,
+    "buttonMinHeight": 52,
+    "fieldMinHeight": 56,
+    "navigationMinHeight": 64,
+    "contentMaxWidth": 640,
+    "pageGutter": 24,
+    "icon": 24,
+    "smallIcon": 20
+  },
+  "motion": {
+    "instant": 0,
+    "fast": 120,
+    "standard": 220,
+    "slow": 320,
+    "curve": "easeOutCubic",
+    "reducedMotion": 0
+  },
+  "elevation": {
+    "flat": {
+      "y": 0,
+      "blur": 0,
+      "opacity": 0
+    },
+    "card": {
+      "y": 4,
+      "blur": 20,
+      "opacity": 0.04
+    },
+    "floating": {
+      "y": 8,
+      "blur": 28,
+      "opacity": 0.12
+    },
+    "dialog": {
+      "y": 16,
+      "blur": 48,
+      "opacity": 0.18
+    }
+  }
+}

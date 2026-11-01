@@ -10,9 +10,13 @@ void main() {
     tester,
   ) async {
     await tester.pumpWidget(const PipelineApp());
-    expect(find.text('Selecionar imagem'), findsOneWidget);
+    expect(find.text('Nova análise'), findsOneWidget);
+    await tester.ensureVisible(find.text('Nova análise'));
+    await tester.tap(find.text('Nova análise'));
+    await tester.pumpAndSettle();
+    expect(find.text('Selecionar imagem'), findsNWidgets(2));
     expect(find.text('Tirar foto'), findsOneWidget);
-    expect(find.text('PROTÓTIPO ACADÊMICO • SIMULAÇÃO'), findsOneWidget);
+    expect(find.text('SIMULAÇÃO • CLOUD'), findsOneWidget);
   });
   testWidgets(
     'quality screen displays active crop pixels instead of original',

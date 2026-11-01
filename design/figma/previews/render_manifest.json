@@ -1,0 +1,218 @@
+[
+  {
+    "source": "svg/light/00-foundations.svg",
+    "preview": "previews/light-00-foundations.png",
+    "width": 1120,
+    "height": 1180
+  },
+  {
+    "source": "svg/light/00-components.svg",
+    "preview": "previews/light-00-components.png",
+    "width": 1120,
+    "height": 1600
+  },
+  {
+    "source": "svg/light/00-user-flows.svg",
+    "preview": "previews/light-00-user-flows.png",
+    "width": 1120,
+    "height": 1700
+  },
+  {
+    "source": "svg/light/01-home.svg",
+    "preview": "previews/light-01-home.png",
+    "width": 390,
+    "height": 844
+  },
+  {
+    "source": "svg/light/07-crop.svg",
+    "preview": "previews/light-07-crop.png",
+    "width": 390,
+    "height": 844
+  },
+  {
+    "source": "svg/light/13-classification.svg",
+    "preview": "previews/light-13-classification.png",
+    "width": 390,
+    "height": 844
+  },
+  {
+    "source": "svg/light/18-uncertainty.svg",
+    "preview": "previews/light-18-uncertainty.png",
+    "width": 390,
+    "height": 844
+  },
+  {
+    "source": "svg/light/19-questionnaire.svg",
+    "preview": "previews/light-19-questionnaire.png",
+    "width": 390,
+    "height": 844
+  },
+  {
+    "source": "svg/light/23-medium.svg",
+    "preview": "previews/light-23-medium.png",
+    "width": 390,
+    "height": 844
+  },
+  {
+    "source": "svg/light/25-unconfirmed.svg",
+    "preview": "previews/light-25-unconfirmed.png",
+    "width": 390,
+    "height": 844
+  },
+  {
+    "source": "svg/light/29-library.svg",
+    "preview": "previews/light-29-library.png",
+    "width": 390,
+    "height": 844
+  },
+  {
+    "source": "svg/dark/00-foundations.svg",
+    "preview": "previews/dark-00-foundations.png",
+    "width": 1120,
+    "height": 1180
+  },
+  {
+    "source": "svg/dark/00-components.svg",
+    "preview": "previews/dark-00-components.png",
+    "width": 1120,
+    "height": 1600
+  },
+  {
+    "source": "svg/dark/00-user-flows.svg",
+    "preview": "previews/dark-00-user-flows.png",
+    "width": 1120,
+    "height": 1700
+  },
+  {
+    "source": "svg/dark/01-home.svg",
+    "preview": "previews/dark-01-home.png",
+    "width": 390,
+    "height": 844
+  },
+  {
+    "source": "svg/dark/07-crop.svg",
+    "preview": "previews/dark-07-crop.png",
+    "width": 390,
+    "height": 844
+  },
+  {
+    "source": "svg/dark/13-classification.svg",
+    "preview": "previews/dark-13-classification.png",
+    "width": 390,
+    "height": 844
+  },
+  {
+    "source": "svg/dark/18-uncertainty.svg",
+    "preview": "previews/dark-18-uncertainty.png",
+    "width": 390,
+    "height": 844
+  },
+  {
+    "source": "svg/dark/19-questionnaire.svg",
+    "preview": "previews/dark-19-questionnaire.png",
+    "width": 390,
+    "height": 844
+  },
+  {
+    "source": "svg/dark/23-medium.svg",
+    "preview": "previews/dark-23-medium.png",
+    "width": 390,
+    "height": 844
+  },
+  {
+    "source": "svg/dark/25-unconfirmed.svg",
+    "preview": "previews/dark-25-unconfirmed.png",
+    "width": 390,
+    "height": 844
+  },
+  {
+    "source": "svg/dark/29-library.svg",
+    "preview": "previews/dark-29-library.png",
+    "width": 390,
+    "height": 844
+  },
+  {
+    "source": "svg/light/",
+    "preview": "previews/overview-light-1.png",
+    "width": 1170,
+    "height": 1760,
+    "kind": "raster_contact_sheet_for_visual_review_only"
+  },
+  {
+    "source": "svg/light/",
+    "preview": "previews/overview-light-2.png",
+    "width": 1170,
+    "height": 1760,
+    "kind": "raster_contact_sheet_for_visual_review_only"
+  },
+  {
+    "source": "svg/light/",
+    "preview": "previews/overview-light-3.png",
+    "width": 1170,
+    "height": 1760,
+    "kind": "raster_contact_sheet_for_visual_review_only"
+  },
+  {
+    "source": "svg/light/",
+    "preview": "previews/overview-light-4.png",
+    "width": 1170,
+    "height": 1760,
+    "kind": "raster_contact_sheet_for_visual_review_only"
+  },
+  {
+    "source": "svg/light/",
+    "preview": "previews/overview-light-5.png",
+    "width": 1170,
+    "height": 1760,
+    "kind": "raster_contact_sheet_for_visual_review_only"
+  },
+  {
+    "source": "svg/light/",
+    "preview": "previews/overview-light-6.png",
+    "width": 1170,
+    "height": 1760,
+    "kind": "raster_contact_sheet_for_visual_review_only"
+  },
+  {
+    "source": "svg/dark/",
+    "preview": "previews/overview-dark-1.png",
+    "width": 1170,
+    "height": 1760,
+    "kind": "raster_contact_sheet_for_visual_review_only"
+  },
+  {
+    "source": "svg/dark/",
+    "preview": "previews/overview-dark-2.png",
+    "width": 1170,
+    "height": 1760,
+    "kind": "raster_contact_sheet_for_visual_review_only"
+  },
+  {
+    "source": "svg/dark/",
+    "preview": "previews/overview-dark-3.png",
+    "width": 1170,
+    "height": 1760,
+    "kind": "raster_contact_sheet_for_visual_review_only"
+  },
+  {
+    "source": "svg/dark/",
+    "preview": "previews/overview-dark-4.png",
+    "width": 1170,
+    "height": 1760,
+    "kind": "raster_contact_sheet_for_visual_review_only"
+  },
+  {
+    "source": "svg/dark/",
+    "preview": "previews/overview-dark-5.png",
+    "width": 1170,
+    "height": 1760,
+    "kind": "raster_contact_sheet_for_visual_review_only"
+  },
+  {
+    "source": "svg/dark/",
+    "preview": "previews/overview-dark-6.png",
+    "width": 1170,
+    "height": 1760,
+    "kind": "raster_contact_sheet_for_visual_review_only"
+  }
+]

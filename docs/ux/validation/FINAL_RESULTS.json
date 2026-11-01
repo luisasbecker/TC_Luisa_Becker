@@ -1,0 +1,97 @@
+{
+  "date": "2026-10-29",
+  "app_version": "0.3.0+4",
+  "flutter": {
+    "tests_passed": 71,
+    "tests_skipped": 0,
+    "analysis": "no issues",
+    "python_contract_included": true
+  },
+  "backend": {
+    "tests_passed": 21,
+    "v1_compatible": true
+  },
+  "https_smoke": {
+    "passed": true,
+    "requests": 19,
+    "risk_results": [
+      "low",
+      "medium",
+      "high"
+    ],
+    "synthetic_images_only": true,
+    "manual_crop_pixels_verified": true,
+    "uncertainty_preserved": true,
+    "feedback_verified": true,
+    "retry_stable": true
+  },
+  "cloud": {
+    "project": "project-9387493a-f6b7-4a38-a3a",
+    "region": "us-central1",
+    "revision": "pipeline-bucal-00003-kx2",
+    "traffic_percent": 100,
+    "endpoint": "https://pipeline-bucal-qpkmvmtgra-uc.a.run.app",
+    "min_instances": 0,
+    "max_instances_service": 1,
+    "max_instances_revision": 1,
+    "cpu": 1,
+    "memory_mib": 512,
+    "concurrency": 2,
+    "timeout_seconds": 60,
+    "cpu_boost": false,
+    "billing_upgrade_performed": false,
+    "free_trial_observed": true,
+    "free_trial_days_observed": 84
+  },
+  "design": {
+    "palette_colors": 30,
+    "contrast_pairs_passed": 28,
+    "mockup_screens": 72,
+    "mockup_themes": 2,
+    "demo_scenarios": 15,
+    "flutter_screenshots": 10,
+    "figma_native_components_created": false,
+    "figma_blocker": "Starter MCP quota",
+    "fallback": "editable SVG and interactive HTML"
+  },
+  "ios": {
+    "build_succeeded": true,
+    "installed_build_observed": "4",
+    "launch_verification": "xcode_running_on_physical_device",
+    "on_device_flow_verified": false,
+    "signature_verified": true,
+    "signature_check": "codesign --verify --deep --strict: exit 0",
+    "clean_rebuild_performed": true,
+    "initial_invalid_framework_signature_resolved": true,
+    "validation_local_date": "2026-10-29",
+    "validation_timezone": "America/Sao_Paulo"
+  },
+  "android": {
+    "build_succeeded": true,
+    "apk_created": true,
+    "blocker": null,
+    "in_process_gradle_started": true,
+    "build_mode": "debug",
+    "build_duration_seconds": 343.8,
+    "device_model": "SM-X910",
+    "android_version": "16",
+    "api_level": 36,
+    "installed_version": "0.3.0",
+    "installed_build": 4,
+    "install_result": "Success",
+    "launch_result": "Status: ok",
+    "process_running": true,
+    "resumed_activity_observed": true,
+    "startup_error_matches": 0,
+    "on_device_flow_verified": false,
+    "apk_path": "mobile/build/app/outputs/flutter-apk/app-debug.apk",
+    "apk_sha256": "b414f94736c6276862d490926873a7a5afa46b1537dba0d3963cae283a73f8ff",
+    "build_execution": "user_initiated_local_terminal_helper",
+    "apk_signature_verified": true,
+    "apk_signature_scheme": "v2"
+  },
+  "human_ux_study_performed": false,
+  "real_ai_implemented": false,
+  "store_publication_performed": false,
+  "last_native_verification_date": "2026-10-30"
+}

@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Pipeline Bucal — protótipo visual</title>
+<style>
+@font-face{font-family:Inter;src:url('../../mobile/assets/fonts/Inter-Variable.ttf');font-weight:100 900;font-display:swap}
+:root{font-family:Inter,Arial,sans-serif;color:#231919;background:#f1eff0;--ink:#231919;--muted:#665957;--panel:#fff8f7;--border:#e4e0e1;--accent:#904a46}
+[hidden]{display:none!important}aside button[aria-pressed=true]{background:#fce9e7;border-color:#904a46;box-shadow:inset 0 0 0 1px #904a46}
+*{box-sizing:border-box}body{margin:0}button,select{font:inherit}button,select,a{touch-action:manipulation}button:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #904a46;outline-offset:4px}button{cursor:pointer}
+main{max-width:1200px;margin:auto;display:grid;grid-template-columns:310px 1fr;gap:48px;padding:40px 32px 64px;align-items:start}
+aside{position:sticky;top:32px}h1{font-size:29px;line-height:1.25;font-weight:600;letter-spacing:-.6px;margin:0 0 16px}p{line-height:1.6;color:var(--muted);font-size:14px}small{display:block;font-size:12px;line-height:1.6;color:var(--muted)}.eyebrow{color:var(--accent);font-size:11px;font-weight:600;letter-spacing:1.8px;text-transform:uppercase;margin-bottom:14px}.control{margin-top:24px}label{display:block;font-size:12px;font-weight:600;margin-bottom:8px}select,aside button{width:100%;min-height:48px;border:1px solid var(--border);border-radius:12px;padding:12px 14px;background:var(--panel);color:var(--ink);text-align:left}aside button.primary{background:var(--accent);color:white;border:0}aside button+button{margin-top:10px}.controls-row{display:flex;gap:8px}.controls-row button{width:50%;margin:0}.badge{display:inline-block;padding:7px 12px;background:#f0eaf3;color:#5e4d69;border-radius:99px;font-size:11px;font-weight:600}.fine{font-size:11px;line-height:1.7;margin-top:24px}.device{width:390px;max-width:100%;margin:auto;position:relative;background:#fff8f7;box-shadow:0 24px 80px #351a1924;border:1px solid #cfc7c7;border-radius:32px;overflow:hidden}.device svg{display:block;width:100%;height:auto}.device a{cursor:pointer}.device a:focus-visible>rect{stroke:#904a46;stroke-width:3}.device a:hover{filter:brightness(.97)}.device a:active{opacity:.8}.device #crop-box{cursor:move;touch-action:none}.device #crop-box:active{opacity:.85}.below{max-width:390px;margin:18px auto;color:#665957;font-size:12px;line-height:1.6}.unconfirmed{position:absolute;left:6.15%;right:6.15%;top:31.5%;padding:5px 12px;background:#fff2d8;color:#725114;font-size:10px;font-weight:600;border:1px solid #725114;border-radius:14px;pointer-events:none}#status{min-height:48px;margin-top:16px;font-size:12px;line-height:1.6;color:#665957}.keyboard{padding:2px 5px;border:1px solid #cfc7c7;border-radius:4px;background:white}details{margin-top:20px}summary{font-size:12px;cursor:pointer;color:var(--accent)}details ol{padding-left:20px;font-size:12px;line-height:1.8;color:#665957}.screen-index{max-height:180px;overflow:auto}.screen-index button{border:0;border-radius:6px;background:none;padding:8px;font-size:11px;min-height:34px}.screen-index button:hover{background:#fce9e7}.toolbar{display:flex;gap:8px;margin-bottom:16px}.toolbar button{min-height:40px;padding:8px 12px;border-radius:99px;border:1px solid #cfc7c7;background:#fff8f7;color:#665957;font-size:12px}.toolbar button[aria-pressed=true]{background:#231919;color:#fff8f7;border-color:#231919}.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding:32px}.gallery-grid figure{margin:0}.gallery-grid svg{width:100%;height:auto;border-radius:20px;box-shadow:0 10px 20px #23191912}.gallery-grid figcaption{font-size:11px;color:#665957;margin-top:10px;line-height:1.4}.gallery-title{padding:32px 32px 0;font-size:24px;margin:0}.back-gallery{margin:24px 32px;padding:12px 20px;border-radius:12px;border:1px solid #cfc7c7;background:white;color:#231919}
+@media(min-width:801px){.device{width:min(390px,calc((100vh - 190px)*390/844))}}
+@media(max-width:800px){main{grid-template-columns:1fr;padding:24px 16px;gap:24px}aside{position:static;max-width:390px;margin:auto}.device{width:min(390px,100%)}.control{margin-top:16px}.fine,details,.desktop-description{display:none}.gallery-grid{grid-template-columns:repeat(2,1fr);gap:16px;padding:16px}}
+@media(prefers-reduced-motion:no-preference){.device a{transition:opacity .12s,filter .12s}.device svg{animation:appear .18s ease-out}@keyframes appear{from{transform:translateY(4px)}to{transform:none}}}
+@media print{main,aside,.back-gallery{display:none}.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr)}.gallery-grid figure{break-inside:avoid}.gallery-grid svg{box-shadow:none}.gallery-title{break-before:page}}
+</style>
+</head>
+<body>
+<main id="prototype">
+<aside>
+  <div class="eyebrow">TCC · Design & experiência</div>
+  <h1>Pipeline Bucal</h1>
+  <span class="badge">Protótipo visual navegável</span>
+  <p class="desktop-description">Explore as decisões, correções e retornos de um percurso demonstrativo. Os resultados deste protótipo são fixos por cenário.</p>
+  <div class="control"><label for="scenario">Cenário de exemplo</label><select id="scenario"></select></div>
+  <div class="control"><label for="theme">Tema</label><div class="controls-row"><button type="button" id="light">Claro</button><button type="button" id="dark">Escuro</button></div></div>
+  <div class="control"><button type="button" id="restart" class="primary">Reiniciar cenário</button><button type="button" id="overview">Ver todos os mockups</button></div>
+  <div id="status" role="status" aria-live="polite"></div>
+  <details><summary>Telas deste protótipo</summary><div class="screen-index" id="screen-index"></div></details>
+  <details><summary>Como navegar</summary><ol><li>Escolha um cenário.</li><li>Toque nas ações dentro do celular.</li><li>Revise as decisões ou troque de aba.</li><li>Exporte os eventos de demonstração no histórico.</li></ol></details>
+  <p class="fine">Apenas representação visual: câmera, envio à cloud e processamento de pixels não são executados aqui. O aplicativo Flutter implementa o fluxo. As imagens são exemplos publicados, sem rótulo real de risco. Esta entrega não contém componentes ou conexões nativas do Figma.</p>
+</aside>
+<section aria-label="Prévia do aplicativo">
+  <div class="toolbar" aria-label="Atalhos de revisão"><button type="button" id="back">← Voltar</button><button type="button" id="review-decisions">Revisar decisões</button><button type="button" id="history">Histórico</button></div>
+  <div class="device" id="screen"></div>
+  <div class="below" id="screen-label"></div>
+</section>
+</main>
+<section id="gallery" hidden aria-label="Mockups de todas as telas"></section>
+<script>
+'use strict';
+const SCREENS=/*__SCREENS__*/;
+const NAMES=/*__NAMES__*/;
+const SCENARIOS=/*__SCENARIOS__*/;
+const CLASS_NAMES=['Pápula/nódulo','Mácula/mancha','Vesícula/bolha','Erosão','Úlcera','Placa'];
+const state={theme:'light',scenario:SCENARIOS[0],screen:'01-home',previous:[],analysisScreen:null,uncertain:false,selectedClass:4,referenceClass:4,imageClass:4,answers:{context:'Sim',observation:'Não informado'},events:[],stepEntered:performance.now(),session:1};
+const screen=document.getElementById('screen');
+const status=document.getElementById('status');
+const scenario=document.getElementById('scenario');
+SCENARIOS.forEach((item)=>{const option=document.createElement('option');option.value=item.id;option.textContent=item.name;scenario.append(option)});
+Object.entries(NAMES).forEach(([id,name])=>{const button=document.createElement('button');button.type='button';button.textContent=id.slice(0,2)+' · '+name;button.addEventListener('click',()=>navigate(id));document.getElementById('screen-index').append(button)});
+function event(type,details={}){state.events.push({sequence:state.events.length+1,type,screen:state.screen,elapsed_ms:Math.round(performance.now()-state.stepEntered),details});}
+function announce(text){status.textContent=text;}
+function render(){
+ screen.innerHTML=SCREENS[state.theme][state.screen];
+ const svg=screen.querySelector('svg');
+ svg.setAttribute('role','group');svg.setAttribute('aria-label',NAMES[state.screen]);
+ if(['19-questionnaire','31-section-two','20-review'].includes(state.screen)){
+   svg.querySelectorAll('text').forEach(t=>{if(t.textContent==='Úlcera')t.textContent=CLASS_NAMES[state.selectedClass];if(t.textContent==='CLASSE DO FLUXO: ÚLCERA')t.textContent='CLASSE: '+CLASS_NAMES[state.selectedClass].toUpperCase();});
+   if(state.uncertain){const badge=document.createElement('div');badge.className='unconfirmed';badge.textContent='CLASSE NÃO CONFIRMADA · REFERÊNCIA PROVISÓRIA';if(state.screen==='20-review')badge.style.top='28%';if(state.theme==='dark'){badge.style.background='#392F1E';badge.style.color='#E9CA8A';badge.style.borderColor='#E9CA8A';}screen.append(badge);scaleBadge();}
+ }
+ if(['04-preview','06-detected','07-crop','08-editor','09-no-detection','11-focus','13-classification'].includes(state.screen)){
+   const source=new DOMParser().parseFromString(SCREENS[state.theme]['29-library'],'image/svg+xml');
+   svg.querySelector('image').setAttribute('href',source.querySelectorAll('image')[state.imageClass].getAttribute('href'));
+ }
+ if(['19-questionnaire','31-section-two'].includes(state.screen))selectAnswer();
+ if(state.screen==='20-review'){
+   svg.querySelectorAll('text').forEach(t=>{if(t.textContent==='Sim')t.textContent=state.answers.context||'Não informado';else if(t.textContent==='Não informado')t.textContent=state.answers.observation||'Não informado';});
+ }
+ document.getElementById('screen-label').textContent=NAMES[state.screen]+' · '+(state.theme==='light'?'Tema claro':'Tema escuro')+' · Exemplo determinístico';
+ document.getElementById('light').setAttribute('aria-pressed',state.theme==='light');document.getElementById('dark').setAttribute('aria-pressed',state.theme==='dark');
+ history.replaceState(null,'','#'+state.screen+'?theme='+state.theme+'&scenario='+state.scenario.id);
+ if(state.screen==='08-editor')enableCrop();
+}
+function navigate(target,{back=false}={}){
+ if(target.startsWith('@')){perform(target);return;}
+ if((state.screen==='19-questionnaire'&&target==='31-section-two'&&!state.answers.context)||(state.screen==='31-section-two'&&target==='20-review'&&!state.answers.observation)){announce('Selecione uma resposta para continuar.');return;}
+ if(target==='32-empty'&&state.analysisScreen)target=state.analysisScreen;
+ if(!NAMES[target])throw new Error('Destino inexistente: '+target);
+ if(state.screen==='36-abandon'&&target==='01-home'){event('session_abandoned');state.analysisScreen=null;}
+ if(!back&&target!==state.screen)state.previous.push(state.screen);
+ event('step_completed',{duration_ms:Math.round(performance.now()-state.stepEntered)});
+ state.screen=target;state.stepEntered=performance.now();event('step_entered');
+ if(!['01-home','27-about','29-library','32-empty','30-history','35-zoom'].includes(target))state.analysisScreen=target;
+ if(target==='02-new'){state.uncertain=false;state.selectedClass=4;state.imageClass=4;state.answers={context:'Sim',observation:'Não informado'};state.analysisScreen=target;event('new_analysis');}
+ if(target==='10-replace'){state.uncertain=false;state.selectedClass=4;state.answers={};event('image_replaced',{invalidated:['detection','crop','focus','class','questionnaire','risk']});}
+ if(target==='08-editor')event('crop_edit_started');
+ if(target==='11-focus'&&state.previous.at(-1)==='08-editor')event('crop_feedback',{candidate:true,real_retraining:false});
+ if(target==='16-disagreement')event('classification_disagreed',{suggested_class:4});
+ if(target==='15-agreement'){state.uncertain=false;state.selectedClass=4;event('classification_confirmed',{suggested_class:4});}
+ if(target==='18-uncertainty'){state.uncertain=true;state.selectedClass=4;event('class_uncertain',{confirmed:false,provisional:true,effective_class:4});}
+ if(target==='26-complete')event('session_completed');
+ render();
+}
+function perform(target){
+ if(target==='@detect'){navigate(state.scenario.detect);return;}
+ if(target==='@result'){navigate(state.uncertain?'25-unconfirmed':state.scenario.result);event('simulated_result',{risk:state.screen==='22-low'?'low':state.screen==='24-high'?'high':'medium',class_confirmed:!state.uncertain});return;}
+ if(target==='@questionnaire-uncertain'){state.uncertain=true;state.selectedClass=4;navigate('19-questionnaire');return;}
+ if(target.startsWith('@class-')){state.selectedClass=Number(target.slice(7));state.uncertain=false;state.answers={};event('class_corrected',{suggested_class:4,selected_class:state.selectedClass});navigate('19-questionnaire');return;}
+ if(target.startsWith('@reference-')){state.referenceClass=Number(target.slice(11));event('reference_viewed',{class_index:state.referenceClass});showReference();return;}
+ if(target.startsWith('@answer-')){const value={'@answer-yes':'Sim','@answer-no':'Não','@answer-unknown':'Não informado'}[target];const section=state.screen==='31-section-two'?'observation':'context';state.answers[section]=value;event('answer_changed',{section,value,result_invalidated:true});selectAnswer();announce('Resposta selecionada: '+value+'.');return;}
+ if(target==='@export'){exportEvents();return;}
+}
+function selectAnswer(){
+ const svg=screen.querySelector('svg');
+ const section=state.screen==='31-section-two'?'observation':'context';
+ svg.querySelectorAll('a[data-go^="@answer-"]').forEach(a=>{const selected=a.getAttribute('aria-label')===state.answers[section];const rect=a.querySelector('rect');const circles=a.querySelectorAll('circle');rect.setAttribute('fill',selected?(state.theme==='light'?'#FCE9E7':'#4C2422'):(state.theme==='light'?'#FFFFFF':'#231919'));rect.setAttribute('stroke',selected?(state.theme==='light'?'#904A46':'#FFDAD7'):(state.theme==='light'?'#E4E0E1':'#49403E'));a.setAttribute('aria-pressed',selected);circles.forEach((circle,index)=>{if(index>0)circle.remove();});if(selected){const dot=circles[0].cloneNode();dot.setAttribute('r','4');dot.setAttribute('fill',state.theme==='light'?'#904A46':'#FFDAD7');a.append(dot);}});
+}
+function scaleBadge(){const badge=screen.querySelector('.unconfirmed');if(badge){const scale=screen.clientWidth/390;badge.style.fontSize=(10*scale)+'px';badge.style.padding=(5*scale)+'px '+(12*scale)+'px';badge.style.borderRadius=(14*scale)+'px';}}
+window.addEventListener('resize',scaleBadge);
+function showReference(){
+ navigate('35-zoom');
+ const source=new DOMParser().parseFromString(SCREENS[state.theme]['29-library'],'image/svg+xml');
+ const image=source.querySelectorAll('image')[state.referenceClass];
+ screen.querySelector('image').setAttribute('href',image.getAttribute('href'));
+ screen.querySelectorAll('text').forEach(t=>{if(t.textContent==='Imagem ampliada')t.textContent=CLASS_NAMES[state.referenceClass];});
+ const action=document.createElement('button');action.type='button';action.textContent='Usar este exemplo na análise';action.style.cssText='position:absolute;left:6.15%;right:6.15%;top:82%;height:6%;border:0;border-radius:16px;background:#904A46;color:white;font:600 14px Inter,Arial,sans-serif';action.addEventListener('click',()=>{state.imageClass=state.referenceClass;state.uncertain=false;state.answers={};event('reference_test_input_selected',{class_source:state.referenceClass,simulated_result_independent:true});navigate('04-preview');});screen.append(action);
+}
+function enableCrop(){
+ const group=screen.querySelector('#crop-box');let origin=null;let dx=0,dy=0;
+ group.addEventListener('pointerdown',e=>{origin={x:e.clientX,y:e.clientY,dx,dy};group.setPointerCapture(e.pointerId);e.preventDefault();});
+ group.addEventListener('pointermove',e=>{if(!origin)return;const scale=390/screen.clientWidth;dx=Math.max(-55,Math.min(55,origin.dx+(e.clientX-origin.x)*scale));dy=Math.max(-45,Math.min(45,origin.dy+(e.clientY-origin.y)*scale));group.setAttribute('transform',`translate(${dx} ${dy})`);});
+ group.addEventListener('pointerup',()=>{if(origin){event('crop_dragged',{dx,dy,visual_only:true});origin=null;}});
+ group.addEventListener('pointercancel',()=>{origin=null;});
+}
+screen.addEventListener('click',e=>{const link=e.target.closest('a[data-go]');if(link){e.preventDefault();navigate(link.dataset.go);}});
+screen.addEventListener('keydown',e=>{const link=e.target.closest('a[data-go]');if(link&&(e.key==='Enter'||e.key===' ')){e.preventDefault();navigate(link.dataset.go);}});
+function restart(){state.previous=[];state.analysisScreen=null;state.uncertain=false;state.selectedClass=4;state.imageClass=4;state.answers={context:'Sim',observation:'Não informado'};state.events=[];state.session++;state.stepEntered=performance.now();navigate(state.scenario.start);announce('Cenário reiniciado. Saídas fixas para reprodução.');}
+scenario.addEventListener('change',()=>{state.scenario=SCENARIOS.find(s=>s.id===scenario.value);restart();});
+document.getElementById('restart').addEventListener('click',restart);
+document.getElementById('back').addEventListener('click',()=>{const previous=state.previous.pop();if(previous)navigate(previous,{back:true});else announce('Você está no início deste percurso.');});
+document.getElementById('review-decisions').addEventListener('click',()=>navigate('34-revisit'));
+document.getElementById('history').addEventListener('click',()=>navigate('30-history'));
+['light','dark'].forEach(theme=>document.getElementById(theme).addEventListener('click',()=>{state.theme=theme;render();}));
+function exportEvents(){event('history_exported');const payload={schema_version:1,kind:'visual_prototype',human_evaluation:false,session_id:'mockup-'+state.session,scenario:state.scenario.id,theme:state.theme,events:state.events};const url=URL.createObjectURL(new Blob([JSON.stringify(payload,null,2)],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download='pipeline-bucal-mockup-history.json';a.click();URL.revokeObjectURL(url);announce('Histórico exportado. Contém apenas eventos deste protótipo visual.');}
+function namespaceSVG(svg,prefix){return svg.replace(/\bid="([^"]+)"/g,(_,id)=>'id="'+prefix+id+'"').replace(/url\(#([^)]*)\)/g,(_,id)=>'url(#'+prefix+id+')').replace('aria-labelledby="title"','aria-labelledby="'+prefix+'title"');}
+document.getElementById('overview').addEventListener('click',()=>{
+ const gallery=document.getElementById('gallery');gallery.replaceChildren();
+ const back=document.createElement('button');back.className='back-gallery';back.textContent='← Voltar ao protótipo';back.addEventListener('click',()=>{gallery.hidden=true;document.getElementById('prototype').hidden=false;window.scrollTo(0,0);});gallery.append(back);
+ for(const theme of ['light','dark']){const h=document.createElement('h2');h.className='gallery-title';h.textContent=theme==='light'?'Tema claro':'Tema escuro';gallery.append(h);const grid=document.createElement('div');grid.className='gallery-grid';Object.entries(SCREENS[theme]).forEach(([key,svg])=>{const figure=document.createElement('figure');figure.innerHTML=namespaceSVG(svg,theme+'-'+key+'-');figure.querySelectorAll('a').forEach(a=>{a.removeAttribute('href');a.removeAttribute('tabindex');});const caption=document.createElement('figcaption');caption.textContent=key.slice(0,2)+' · '+NAMES[key];figure.append(caption);grid.append(figure);});gallery.append(grid);}
+ document.getElementById('prototype').hidden=true;gallery.hidden=false;window.scrollTo(0,0);
+});
+const initial=location.hash.slice(1).split('?');if(NAMES[initial[0]])state.screen=initial[0];const params=new URLSearchParams(initial[1]);if(['light','dark'].includes(params.get('theme')))state.theme=params.get('theme');const selected=SCENARIOS.find(s=>s.id===params.get('scenario'));if(selected){state.scenario=selected;scenario.value=selected.id;}
+if(state.screen==='25-unconfirmed'||state.screen==='18-uncertainty')state.uncertain=true;
+event('step_entered');render();
+// Read-only handle for deterministic smoke checks; no real medical data.
+window.pipelineMockup={getState:()=>({theme:state.theme,screen:state.screen,uncertain:state.uncertain,selectedClass:state.selectedClass,eventCount:state.events.length}),scenarios:SCENARIOS.map(s=>s.id)};
+</script>
+</body>
+</html>

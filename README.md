@@ -1,20 +1,87 @@
 # Pipeline para Detecção, Processamento e Classificação de Lesões Bucais
 
-Protótipo funcional e teórico, em Python, do pipeline proposto no TCC I **“Integração de Diferentes Algoritmos de Inteligência Artificial Através de um Pipeline para Detecção, Processamento e Classificação de Lesões Bucais em Imagens Clínicas”**.
+Projeto acadêmico baseado no TCC **“Integração de Diferentes Algoritmos de Inteligência Artificial Através de um Pipeline para Detecção, Processamento e Classificação de Lesões Bucais em Imagens Clínicas”**. A implementação atual combina um aplicativo Flutter para Android/iOS e uma API Python no Google Cloud Run. O protótipo original Python/Streamlit permanece preservado na seção de legado.
 
-O objetivo atual é validar o fluxo de informações, as decisões do profissional da saúde e a passagem da imagem entre módulos. Todos os módulos computacionais são **stubs/blocos fantasmas determinísticos**. Não há IA real, inferência clínica, treinamento ou retreinamento.
+O objetivo é validar o fluxo de imagens e informações, as decisões do profissional e a experiência de uso. YOLO, foco, CNN, sistema inteligente e os seis modelos multimodais continuam **simulados**. Não há IA real, inferência clínica, treinamento ou retreinamento.
 
-## Versão instalável para iPhone e Android
+## Aplicativo atual — 0.3.0+4
 
-A pasta [`mobile/`](mobile/README.md) contém a adaptação Flutter local do fluxo, com recorte por toque e uso dos pixels confirmados nas etapas seguintes. O protótipo Streamlit descrito abaixo permanece disponível. A versão Release foi compilada e instalada no iPhone conectado. O usuário confirmou o sucesso da instalação e iniciará os testes de uso. O build Android permanece pendente por bloqueio de rede. Veja o guia móvel para os testes executados e os próximos passos.
+A pasta [`mobile/`](mobile/README.md) contém a interface com temas claro/escuro, fonte Inter, novo ícone, menu inferior flutuante e navegação guiada por etapas. O recorte manual é feito sobre a imagem e seus pixels confirmados seguem para as próximas etapas.
 
-## Aviso importante
+No uso normal, a classe de lesão e o risco variam com o identificador aleatório de cada nova análise; resultados podem se repetir. O resultado de uma mesma requisição permanece estável em uma nova tentativa. Os cenários do painel de demonstração e os mockups têm saídas determinísticas para reproduzir percursos.
 
-O sistema é somente uma ferramenta de apoio. A saída final expressa **risco baixo, médio ou alto de câncer**, sem produzir diagnóstico definitivo. Em qualquer classe de risco, o protótipo orienta a busca por avaliação médica adequada e informa que não substitui avaliação profissional nem exames complementares quando indicados.
+A saída final contém exclusivamente **risco baixo, risco médio ou risco alto**, sem porcentagens. Esses níveis não expressam um diagnóstico nem a probabilidade real de câncer. São resultados demonstrativos, independentes da imagem e das respostas, acompanhados de orientação para avaliação médica. O aplicativo não deve ser usado para decisões clínicas.
 
-Não utilize imagens reais ou identificáveis de pacientes neste protótipo.
+Utilize imagens de exemplo do TCC, sintéticas ou autorizadas que não identifiquem pessoas. Não envie rostos, nomes ou dados identificáveis de pacientes.
 
-## Fluxo implementado
+### Fluxo e consistência
+
+1. Selecionar/capturar uma imagem, conferir a prévia e confirmar seu uso.
+2. Receber uma região de interesse simulada e validar o recorte.
+3. Corrigir o recorte manualmente ou enviar outra imagem. Falha de detecção oferece essas mesmas opções; não avança sem região válida.
+4. Confirmar a qualidade visual. Imagem inadequada retorna à aquisição e reinicia a detecção.
+5. Comparar a classe sugerida com referências dos artigos e concordar, escolher outra classe ou declarar incerteza.
+6. Responder e revisar o questionário correspondente à classe usada no fluxo.
+7. Acionar o componente multimodal dessa classe e apresentar um dos três riscos simulados.
+8. Concluir a sessão ou iniciar nova análise; exportar o histórico JSON quando desejado.
+
+**“Não consigo determinar” não interrompe o fluxo.** A sugestão original segue como referência provisória, identificada como não confirmada, sem transformar incerteza em concordância. A sugestão da CNN e a decisão do profissional são registradas separadamente. Trocas de imagem, recorte, classe ou respostas invalidam os resultados posteriores dependentes.
+
+As seis classes são pápula/nódulo, mácula/mancha, vesícula/bolha, erosão, úlcera e placa. Cada classe possui um questionário demonstrativo e um componente multimodal separado. Perguntas e orientações ainda dependem de revisão por especialista.
+
+### Estado de compilação e distribuição
+
+| Plataforma/serviço | Última verificação registrada |
+| --- | --- |
+| iOS | Versão 0.3.0/build 4 compilada, assinatura verificada, instalada e aberta no iPhone em 29/10/2026. |
+| Android | APK **debug** 0.3.0/build 4 compilado, instalado e aberto em Samsung com Android 16 em 30/10/2026; mínimo Android 7.0/API 24. |
+| Distribuição Android | A usuária enviou o APK manualmente ao OneDrive. A cópia baixada foi comparada por SHA-256 e corresponde ao build 4 validado. Acesso de terceiros à pasta ainda depende do compartilhamento. |
+| Release Android build 5 | Preparado, mas ainda não produzido: faltam dependências do release no cache disponível para a execução restrita. |
+| Lojas | Nenhuma versão publicada na App Store, TestFlight ou Google Play. TestFlight permanece uma etapa futura. |
+| Google Cloud Run | API v2 publicada na revisão `pipeline-bucal-00003-kx2`, com compatibilidade v1 preservada. |
+
+SHA-256 do APK debug distribuído: `b414f94736c6276862d490926873a7a5afa46b1537dba0d3963cae283a73f8ff`.
+
+As confirmações de instalação e abertura não substituem o teste manual completo no aparelho nem uma avaliação com profissionais. Os relatórios distinguem testes automatizados, inspeção do artefato e execução em dispositivos: [iOS](docs/ux/validation/IOS_BUILD.md), [Android](docs/ux/validation/ANDROID_BUILD.md), [distribuição Android](docs/ux/validation/ANDROID_DISTRIBUTION.md) e [resultados consolidados](docs/ux/validation/FINAL_RESULTS.json).
+
+### Executar e verificar o Flutter
+
+Ambiente já utilizado: Flutter 3.41.7 e Dart 3.11.5, com as ferramentas nativas exigidas por cada plataforma.
+
+```sh
+cd mobile
+flutter pub get
+flutter run
+flutter analyze
+flutter test
+```
+
+O app usa o endpoint HTTPS v2 publicado como padrão. O modo offline é uma escolha explícita; falhas de rede não produzem um resultado local silencioso. Consulte [`mobile/README.md`](mobile/README.md) para o painel de demonstração, exportação do histórico, testes de contrato Python e geração dos artefatos Android/iOS.
+
+## Cloud e dados
+
+A comunicação HTTPS, o envio da imagem e o recorte dos pixels são reais. Imagens e respostas são processadas em memória durante cada requisição; o serviço não usa banco ou bucket de pacientes nem registra os corpos enviados. Logs técnicos do provedor podem conter metadados das chamadas. O histórico do aplicativo permanece em memória, com exportação manual em JSON sem pixels ou nomes de pacientes.
+
+O Cloud Run mantém mínimo zero e máximo uma instância, com CPU por requisição. A restrição do projeto é manter **custo financeiro zero**; limites de instância não são um teto de cobrança. Conferir as condições gratuitas antes de novas implantações, sem upgrade de faturamento não autorizado. Contratos, limites e verificação HTTPS estão em [`cloud/README.md`](cloud/README.md) e [`docs/CLOUD_REQUIREMENTS.md`](docs/CLOUD_REQUIREMENTS.md).
+
+## Organização e documentação atual
+
+| Local | Conteúdo |
+| --- | --- |
+| [`mobile/`](mobile/README.md) | Aplicativo Flutter, fluxo, serviços, biblioteca de referências e testes. |
+| [`cloud/`](cloud/README.md) | API Python v1/v2 e seis componentes multimodais simulados. |
+| [`design/tokens/`](design/tokens/) | Tokens JSON primitivos/semânticos e geração do tema. |
+| [`mobile/lib/design_system/`](mobile/lib/design_system/) | Temas e componentes Flutter reutilizáveis. |
+| [`design/figma/`](design/figma/README.md) | 72 mockups SVG, pranchas e protótipo HTML; não são componentes Figma nativos. |
+| [`design/reference_library/`](design/reference_library/README.md) | Imagens extraídas das fontes, atribuições e mapeamento documentado das classes. |
+| [`docs/ux/DELIVERY.md`](docs/ux/DELIVERY.md) | Recursos entregues, capturas e limites de validação. |
+| [`docs/ux/validation/PROTOCOL.md`](docs/ux/validation/PROTOCOL.md) | Roteiro para futura avaliação com profissionais. |
+
+## Legado — protótipo original Python/Streamlit
+
+As seções a seguir descrevem a implementação original em `app.py` e `src/pipeline/`, preservada como parte do histórico do projeto. Suas configurações determinísticas, cartões sintéticos e acesso móvel pelo navegador pertencem a esse protótipo; o fluxo Flutter atual é descrito acima. Nenhuma alteração metodológica ou implementação de IA real está implícita na nova interface.
+
+### Fluxo implementado
 
 1. Upload de imagem clínica simulada.
 2. Detecção e recorte por YOLO fantasma, tratando “lesão” como classe única.
@@ -29,7 +96,7 @@ Não utilize imagens reais ou identificáveis de pacientes neste protótipo.
 11. Em discordância, seleção de classe corrigida e registro de feedback.
 12. Questionário simulado específico da classe final.
 13. Execução do modelo multimodal específico por classe.
-14. Saída final em risco baixo, médio ou alto de câncer, acompanhada de orientação médica.
+14. Saída final em risco baixo, médio ou alto, em caráter demonstrativo, acompanhada de orientação médica.
 15. Visualização e download do histórico completo em JSON.
 16. Acesso móvel local com layout responsivo, recorte por toque e QR gerado no computador.
 
@@ -42,7 +109,7 @@ As seis classes de lesão elementar são:
 - úlcera;
 - placa.
 
-## Arquitetura
+### Arquitetura
 
 | Arquivo | Responsabilidade |
 |---|---|
@@ -68,7 +135,7 @@ As seis classes de lesão elementar são:
 
 O núcleo não depende do Streamlit. Isso permite testar o pipeline diretamente e substituir a interface no futuro.
 
-## Pré-requisitos
+### Pré-requisitos
 
 - Python 3.11 a 3.14, com Python 3.14.x recomendado;
 - `pip` disponível;
@@ -81,7 +148,7 @@ O protótipo foi verificado com Python 3.14, Streamlit 1.66 e Pillow 11.3. Vers�
 
 > **Apresentação pelo iPhone ou Android?** Depois da instalação, siga o [Guia de apresentação móvel](GUIA_APRESENTACAO_MOBILE.md). No Windows, também é possível dar dois cliques em `INICIAR_PIPELINE_MOBILE.bat`.
 
-## Instalação rápida
+### Instalação rápida
 
 Clone o repositório e acesse a pasta do projeto:
 
@@ -108,7 +175,7 @@ source .venv/bin/activate
 python -m pip install -r requirements.txt
 ```
 
-## Execução
+### Execução
 
 ```powershell
 python -m streamlit run app.py
@@ -120,7 +187,7 @@ Nenhuma imagem é gravada automaticamente: os bytes permanecem apenas na sessão
 
 Para encerrar a aplicação, pressione `Ctrl+C` no terminal em que o Streamlit está sendo executado.
 
-### Execução no celular pela rede local
+#### Execução no celular pela rede local
 
 No Windows, conecte o celular e o computador à mesma rede — ou ative primeiro o Hotspot móvel do computador — e dê dois cliques em:
 
@@ -130,7 +197,7 @@ INICIAR_PIPELINE_MOBILE.bat
 
 O iniciador seleciona o endereço de rede, abre o Streamlit para acesso local e mostra um QR na barra lateral. O computador e seu terminal devem permanecer ligados. O cabo USB é opcional e não substitui a conexão Wi-Fi. Consulte o [guia móvel](GUIA_APRESENTACAO_MOBILE.md) para os passos completos e a solução de problemas de firewall.
 
-## Configuração da simulação
+### Configuração da simulação
 
 Na barra lateral, é possível fixar:
 
@@ -143,9 +210,9 @@ Na barra lateral, é possível fixar:
 
 Esses valores não resultam de análise da imagem. Eles existem apenas para reproduzir cenários de navegação e teste.
 
-## Cenários manuais principais
+### Cenários manuais principais
 
-### 1. Fluxo concordante
+#### 1. Fluxo concordante
 
 1. Mantenha a configuração padrão.
 2. Envie uma imagem.
@@ -157,7 +224,7 @@ Esses valores não resultam de análise da imagem. Eles existem apenas para repr
 
 Resultado esperado: risco configurado, mensagem médica e JSON completo.
 
-### 2. Correção manual do recorte
+#### 2. Correção manual do recorte
 
 1. Rejeite o recorte automático.
 2. Na opção **Recortar diretamente na imagem**, arraste os pontos dos cantos ou das bordas para ajustar a área. Arraste o interior do retângulo para movê-lo.
@@ -168,14 +235,14 @@ O seletor começa com a área proposta pelo YOLO fantasma, limitada às bordas d
 
 Resultado esperado: eventos de recorte manual, curadoria e candidatura ao retreinamento futuro da YOLO.
 
-### 3. Qualidade inadequada
+#### 3. Qualidade inadequada
 
 1. Execute o módulo de foco.
 2. Informe que a qualidade visual não é suficiente.
 
 Resultado esperado: encerramento antes da CNN e solicitação de novo envio.
 
-### 4. Discordância da CNN
+#### 4. Discordância da CNN
 
 1. Rejeite a classe de lesão elementar sugerida.
 2. Compare os cartões sintéticos das demais classes.
@@ -183,7 +250,7 @@ Resultado esperado: encerramento antes da CNN e solicitação de novo envio.
 
 Resultado esperado: eventos de discordância, correção e candidatura ao retreinamento futuro da CNN; a classe corrigida orienta questionário e multimodal.
 
-## Testes automatizados
+### Testes automatizados
 
 Os testes do núcleo usam somente a biblioteca padrão:
 
@@ -208,13 +275,13 @@ A suíte verifica, entre outros pontos:
 - correção da orientação EXIF, remoção de metadados e limite de dimensão da cópia de trabalho;
 - geração local do QR e presença dos recursos necessários à apresentação móvel.
 
-## Dados, feedback e privacidade
+### Dados, feedback e privacidade
 
 O sistema inteligente apenas cria registros em memória. Recortes manuais e discordâncias são marcados como candidatos à avaliação/curadoria e ao retreinamento futuro; nada é incorporado automaticamente e nenhum retreinamento é executado.
 
 O protótipo não inclui base de pacientes, autenticação, banco de dados ou persistência de imagens. O download do JSON ocorre somente quando solicitado pelo usuário.
 
-## Limitações e trabalho futuro
+### Limitações e trabalho futuro
 
 - YOLO, foco, CNN e multimodais são stubs sem inferência real.
 - As perguntas são placeholders claramente marcadas como simuladas.
@@ -222,4 +289,4 @@ O protótipo não inclui base de pacientes, autenticação, banco de dados ou pe
 - As regras clínicas e os limiares reais das classes de risco ainda não foram definidos ou validados.
 - Imagens candidatas exigirão curadoria antes de qualquer uso futuro.
 - Uma etapa posterior deverá tratar consentimento, anonimização, segurança, descarte e LGPD antes de receber dados reais.
-- O acesso móvel atual depende do computador servidor e da mesma rede local; ele não é um aplicativo nativo nem uma distribuição por TestFlight ou lojas.
+- O acesso móvel deste legado Streamlit depende do computador servidor e da mesma rede local. O aplicativo Flutter atual, descrito acima, é uma implementação separada.

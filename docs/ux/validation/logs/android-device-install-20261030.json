@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-30",
+  "device_model": "SM-X910",
+  "android_version": "16",
+  "verification": "native_install_and_launch",
+  "full_on_device_pipeline_tested": false,
+  "version_code": "4",
+  "version_name": "0.3.0",
+  "minimum_sdk": "24",
+  "target_sdk": "36",
+  "abi": "arm64-v8a",
+  "process_running": true,
+  "resumed_activity_observed": true,
+  "startup_error_matches": 0,
+  "startup_logs_examined_lines": 220,
+  "apk_bytes": 155964359,
+  "apk_sha256": "b414f94736c6276862d490926873a7a5afa46b1537dba0d3963cae283a73f8ff",
+  "reference_assets": 12,
+  "inter_font_included": true,
+  "arm64_flutter_engine_included": true,
+  "apk_signature_verified": true,
+  "apk_signature_scheme": "v2"
+}

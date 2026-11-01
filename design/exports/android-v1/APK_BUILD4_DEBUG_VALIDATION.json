@@ -1,0 +1,363 @@
+{
+  "kind": "android_debug_artifact_validation",
+  "checked_at": "2026-10-30T20:12:57.687732+00:00",
+  "apk": "Pipeline_Bucal_Android_v1_0.3.0_build4_debug.apk",
+  "bytes": 155964359,
+  "sha256": "b414f94736c6276862d490926873a7a5afa46b1537dba0d3963cae283a73f8ff",
+  "is_release": false,
+  "new_device_install_performed": false,
+  "cloud_request_performed": false,
+  "checks": [
+    {
+      "name": "aapt",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "name='br.com.luisabecker.pipeline_bucal'",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "versionCode='4'",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "versionName='0.3.0'",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "sdkVersion:'24'",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "targetSdkVersion:'36'",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "uses-permission: name='android.permission.INTERNET'",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "application-debuggable",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "apksigner",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "debug_certificate_expected",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "zipalign",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "zip_alignment_16kb",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "asset:AssetManifest.bin",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "asset:assets/fonts/Inter-Variable.ttf",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "asset:assets/branding/app_icon.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "asset:assets/references/manifest.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "asset:kernel_blob.bin",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cloud_endpoint_in_application",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "six_reference_classes",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "reference:photos/gomes2023_fig2_class0_a.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "reference:photos/gomes2023_fig2_class0_b.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "reference:photos/gomes2023_fig2_class1_a.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "reference:photos/gomes2023_fig2_class1_b.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "reference:photos/gomes2023_fig2_class2_a.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "reference:photos/gomes2023_fig2_class2_b.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "reference:photos/gomes2023_fig2_class3_a.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "reference:photos/gomes2023_fig2_class4_a.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "reference:photos/gomes2023_fig2_class5_a.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "reference:quality/souza_focus_fig1_a_sharp.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "reference:quality/souza_focus_fig1_b_blurred.png",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "universal_abis",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "elf_16kb:lib/arm64-v8a/libVkLayer_khronos_validation.so",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "elf_16kb:lib/arm64-v8a/libdartjni.so",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "elf_16kb:lib/arm64-v8a/libflutter.so",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "elf_16kb:lib/armeabi-v7a/libdartjni.so",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "elf_16kb:lib/armeabi-v7a/libflutter.so",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "elf_16kb:lib/x86_64/libdartjni.so",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "elf_16kb:lib/x86_64/libflutter.so",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "unchanged_installed_build_sha",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "package": "br.com.luisabecker.pipeline_bucal",
+  "version_name": "0.3.0",
+  "version_code": 4,
+  "min_sdk": 24,
+  "target_sdk": 36,
+  "signature_verification": "Verifies\nVerified using v1 scheme (JAR signing): false\nVerified using v2 scheme (APK Signature Scheme v2): true\nVerified using v3 scheme (APK Signature Scheme v3): false\nVerified using v3.1 scheme (APK Signature Scheme v3.1): false\nVerified using v4 scheme (APK Signature Scheme v4): false\nVerified for SourceStamp: false\nNumber of signers: 1\nSigner #1 certificate DN: C=US, O=Android, CN=Android Debug\nSigner #1 certificate SHA-256 digest: 5a6460f002584384cf5257745506ce5030bd4e55446b50d18ecc8a652c66a1a7\nSigner #1 certificate SHA-1 digest: fbe18a1acee4804781cff69518ca9507af3b3a1c\nSigner #1 certificate MD5 digest: c887c314a0c85878c1d725f885f2e16a\nSigner #1 key algorithm: RSA\nSigner #1 key size (bits): 2048\nSigner #1 public key SHA-256 digest: bcb1bdabcfd7ba8cead68e098fa12611cfff694f026be7189afb7cdc19687cfd\nSigner #1 public key SHA-1 digest: 2450d4fb85338b07bcd59cd7926e62b7846f99e5\nSigner #1 public key MD5 digest: 50c03fd39067ff9bd3482064c7fecdcd\n",
+  "endpoint": "https://pipeline-bucal-qpkmvmtgra-uc.a.run.app",
+  "reference_asset_count": 11,
+  "abis": [
+    "arm64-v8a",
+    "armeabi-v7a",
+    "x86_64"
+  ],
+  "elf_libraries": {
+    "lib/arm64-v8a/libVkLayer_khronos_validation.so": [
+      {
+        "offset": 0,
+        "virtual_address": 0,
+        "alignment": 65536,
+        "supports_16kb": true
+      },
+      {
+        "offset": 13656624,
+        "virtual_address": 13722160,
+        "alignment": 65536,
+        "supports_16kb": true
+      },
+      {
+        "offset": 15251168,
+        "virtual_address": 15382240,
+        "alignment": 65536,
+        "supports_16kb": true
+      }
+    ],
+    "lib/arm64-v8a/libdartjni.so": [
+      {
+        "offset": 0,
+        "virtual_address": 0,
+        "alignment": 16384,
+        "supports_16kb": true
+      },
+      {
+        "offset": 91664,
+        "virtual_address": 108048,
+        "alignment": 16384,
+        "supports_16kb": true
+      },
+      {
+        "offset": 93024,
+        "virtual_address": 125792,
+        "alignment": 16384,
+        "supports_16kb": true
+      }
+    ],
+    "lib/arm64-v8a/libflutter.so": [
+      {
+        "offset": 0,
+        "virtual_address": 0,
+        "alignment": 65536,
+        "supports_16kb": true
+      },
+      {
+        "offset": 36583856,
+        "virtual_address": 36649392,
+        "alignment": 65536,
+        "supports_16kb": true
+      },
+      {
+        "offset": 37144160,
+        "virtual_address": 37275232,
+        "alignment": 65536,
+        "supports_16kb": true
+      }
+    ],
+    "lib/armeabi-v7a/libdartjni.so": [
+      {
+        "offset": 0,
+        "virtual_address": 0,
+        "alignment": 16384,
+        "supports_16kb": true
+      },
+      {
+        "offset": 53680,
+        "virtual_address": 70064,
+        "alignment": 16384,
+        "supports_16kb": true
+      },
+      {
+        "offset": 54364,
+        "virtual_address": 87132,
+        "alignment": 16384,
+        "supports_16kb": true
+      }
+    ],
+    "lib/armeabi-v7a/libflutter.so": [
+      {
+        "offset": 0,
+        "virtual_address": 0,
+        "alignment": 65536,
+        "supports_16kb": true
+      },
+      {
+        "offset": 31323264,
+        "virtual_address": 31388800,
+        "alignment": 65536,
+        "supports_16kb": true
+      },
+      {
+        "offset": 31618088,
+        "virtual_address": 31749160,
+        "alignment": 65536,
+        "supports_16kb": true
+      }
+    ],
+    "lib/x86_64/libdartjni.so": [
+      {
+        "offset": 0,
+        "virtual_address": 0,
+        "alignment": 16384,
+        "supports_16kb": true
+      },
+      {
+        "offset": 93680,
+        "virtual_address": 110064,
+        "alignment": 16384,
+        "supports_16kb": true
+      },
+      {
+        "offset": 95040,
+        "virtual_address": 127808,
+        "alignment": 16384,
+        "supports_16kb": true
+      }
+    ],
+    "lib/x86_64/libflutter.so": [
+      {
+        "offset": 0,
+        "virtual_address": 0,
+        "alignment": 65536,
+        "supports_16kb": true
+      },
+      {
+        "offset": 37787152,
+        "virtual_address": 37852688,
+        "alignment": 65536,
+        "supports_16kb": true
+      },
+      {
+        "offset": 38339664,
+        "virtual_address": 38470736,
+        "alignment": 65536,
+        "supports_16kb": true
+      }
+    ]
+  },
+  "passed": true
+}

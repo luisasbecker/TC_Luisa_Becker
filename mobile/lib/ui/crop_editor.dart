@@ -99,7 +99,7 @@ class CropEditor extends StatelessWidget {
                           decoration: BoxDecoration(
                             color: Colors.white,
                             border: Border.all(
-                              color: Colors.redAccent,
+                              color: Theme.of(context).colorScheme.primary,
                               width: 3,
                             ),
                             shape: BoxShape.circle,

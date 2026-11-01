@@ -69,7 +69,7 @@
 	<key>NSCameraUsageDescription</key>
 	<string>Fotografar uma imagem de teste para a simulação do pipeline bucal.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Selecionar a imagem de teste que será processada localmente no aparelho.</string>
+	<string>Selecionar uma imagem de teste para a simulação local ou no Google Cloud, conforme o modo escolhido.</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 </dict>

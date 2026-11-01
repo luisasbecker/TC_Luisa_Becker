@@ -1,0 +1,53 @@
+{
+  "kind": "isolated_shell_script_checks_with_fake_flutter_and_adb",
+  "actual_android_build": false,
+  "actual_device_install": false,
+  "helper_sha256": "789bb05adf8912e83b94c3375a7146bd7935df0a5fdee19e6470074155eb6937",
+  "checks": [
+    {
+      "scenario": "success",
+      "passed": true,
+      "exit_code": 0
+    },
+    {
+      "scenario": "none",
+      "passed": true,
+      "exit_code": 1
+    },
+    {
+      "scenario": "unauthorized",
+      "passed": true,
+      "exit_code": 1
+    },
+    {
+      "scenario": "multiple",
+      "passed": true,
+      "exit_code": 1
+    },
+    {
+      "scenario": "explicit",
+      "passed": true,
+      "exit_code": 0
+    },
+    {
+      "scenario": "install_fail",
+      "passed": true,
+      "exit_code": 1
+    },
+    {
+      "scenario": "launch_error",
+      "passed": true,
+      "exit_code": 1
+    },
+    {
+      "scenario": "build_fail",
+      "passed": true,
+      "exit_code": 17
+    },
+    {
+      "scenario": "disappear",
+      "passed": true,
+      "exit_code": 1
+    }
+  ]
+}

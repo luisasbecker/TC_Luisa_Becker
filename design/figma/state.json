@@ -1,0 +1,27 @@
+{
+  "runId": "pipeline-bucal-2026-10-29",
+  "scope": "full-library-and-mobile-prototype",
+  "fileKey": "hzwZXkdUf8RE0bY45KAWbx",
+  "fileUrl": "https://www.figma.com/design/hzwZXkdUf8RE0bY45KAWbx",
+  "figmaStatus": "created_empty_content_authoring_blocked",
+  "blocker": "Figma MCP Starter plan tool call limit reached before first content mutation",
+  "paidUpgradePerformed": false,
+  "nativeEntitiesCreated": {
+    "pages": {},
+    "variables": {},
+    "components": {},
+    "screens": {},
+    "prototypeConnections": []
+  },
+  "fallback": {
+    "status": "implemented",
+    "screenCount": 72,
+    "supportBoardCount": 6,
+    "scenarioCount": 15,
+    "inventory": "inventory.json",
+    "prototype": "prototype.html",
+    "verification": "validation.json",
+    "nativeFigmaComponents": false,
+    "htmlPrototypeOnly": true
+  }
+}

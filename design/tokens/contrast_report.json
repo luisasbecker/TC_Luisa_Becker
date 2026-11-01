@@ -1,0 +1,198 @@
+[
+  {
+    "mode": "light",
+    "foreground": "textPrimary",
+    "background": "background",
+    "ratio": 16.35,
+    "minimum": 4.5
+  },
+  {
+    "mode": "light",
+    "foreground": "textPrimary",
+    "background": "surface",
+    "ratio": 17.15,
+    "minimum": 4.5
+  },
+  {
+    "mode": "light",
+    "foreground": "textSecondary",
+    "background": "surface",
+    "ratio": 6.71,
+    "minimum": 4.5
+  },
+  {
+    "mode": "light",
+    "foreground": "textMuted",
+    "background": "surface",
+    "ratio": 6.71,
+    "minimum": 4.5
+  },
+  {
+    "mode": "light",
+    "foreground": "onPrimary",
+    "background": "primary",
+    "ratio": 6.45,
+    "minimum": 4.5
+  },
+  {
+    "mode": "light",
+    "foreground": "onSecondary",
+    "background": "secondary",
+    "ratio": 8.19,
+    "minimum": 4.5
+  },
+  {
+    "mode": "light",
+    "foreground": "onNavigation",
+    "background": "navigation",
+    "ratio": 16.35,
+    "minimum": 4.5
+  },
+  {
+    "mode": "light",
+    "foreground": "onNavigationSelected",
+    "background": "navigationSelected",
+    "ratio": 12.38,
+    "minimum": 4.5
+  },
+  {
+    "mode": "light",
+    "foreground": "success",
+    "background": "successSurface",
+    "ratio": 6.42,
+    "minimum": 4.5
+  },
+  {
+    "mode": "light",
+    "foreground": "warning",
+    "background": "warningSurface",
+    "ratio": 6.53,
+    "minimum": 4.5
+  },
+  {
+    "mode": "light",
+    "foreground": "error",
+    "background": "errorSurface",
+    "ratio": 6.53,
+    "minimum": 4.5
+  },
+  {
+    "mode": "light",
+    "foreground": "info",
+    "background": "infoSurface",
+    "ratio": 6.48,
+    "minimum": 4.5
+  },
+  {
+    "mode": "light",
+    "foreground": "focus",
+    "background": "surface",
+    "ratio": 8.13,
+    "minimum": 3
+  },
+  {
+    "mode": "light",
+    "foreground": "outline",
+    "background": "surface",
+    "ratio": 4.48,
+    "minimum": 3
+  },
+  {
+    "mode": "dark",
+    "foreground": "textPrimary",
+    "background": "background",
+    "ratio": 17.47,
+    "minimum": 4.5
+  },
+  {
+    "mode": "dark",
+    "foreground": "textPrimary",
+    "background": "surface",
+    "ratio": 16.28,
+    "minimum": 4.5
+  },
+  {
+    "mode": "dark",
+    "foreground": "textSecondary",
+    "background": "surface",
+    "ratio": 10.33,
+    "minimum": 4.5
+  },
+  {
+    "mode": "dark",
+    "foreground": "textMuted",
+    "background": "surface",
+    "ratio": 6.48,
+    "minimum": 4.5
+  },
+  {
+    "mode": "dark",
+    "foreground": "onPrimary",
+    "background": "primary",
+    "ratio": 12.38,
+    "minimum": 4.5
+  },
+  {
+    "mode": "dark",
+    "foreground": "onSecondary",
+    "background": "secondary",
+    "ratio": 10.27,
+    "minimum": 4.5
+  },
+  {
+    "mode": "dark",
+    "foreground": "onNavigation",
+    "background": "navigation",
+    "ratio": 14.98,
+    "minimum": 4.5
+  },
+  {
+    "mode": "dark",
+    "foreground": "onNavigationSelected",
+    "background": "navigationSelected",
+    "ratio": 12.38,
+    "minimum": 4.5
+  },
+  {
+    "mode": "dark",
+    "foreground": "success",
+    "background": "successSurface",
+    "ratio": 8.31,
+    "minimum": 4.5
+  },
+  {
+    "mode": "dark",
+    "foreground": "warning",
+    "background": "warningSurface",
+    "ratio": 8.3,
+    "minimum": 4.5
+  },
+  {
+    "mode": "dark",
+    "foreground": "error",
+    "background": "errorSurface",
+    "ratio": 7.73,
+    "minimum": 4.5
+  },
+  {
+    "mode": "dark",
+    "foreground": "info",
+    "background": "infoSurface",
+    "ratio": 8.58,
+    "minimum": 4.5
+  },
+  {
+    "mode": "dark",
+    "foreground": "focus",
+    "background": "surface",
+    "ratio": 11.36,
+    "minimum": 3
+  },
+  {
+    "mode": "dark",
+    "foreground": "outline",
+    "background": "surface",
+    "ratio": 6.48,
+    "minimum": 3
+  }
+]

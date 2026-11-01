@@ -7,3 +7,21 @@ venv/
 
 # Relatório e artigos de apoio locais não fazem parte do pacote executável.
 /*.pdf
+
+# Credenciais e pacotes instaláveis são mantidos fora do código-fonte.
+.env
+.env.*
+!.env.example
+*.jks
+*.keystore
+*.p12
+*.mobileprovision
+*.apk
+*.aab
+*.ipa
+
+# Evidências brutas locais podem conter caminhos, identificadores e dados da conta.
+/docs/ux/validation/logs/*.log
+/docs/ux/validation/logs/ios-launch-signature-error.txt
+/mobile/README_2026-10-22.md
+/design/exports/android-v1/LEIA-ME_TESTADORES_ANDROID.txt
