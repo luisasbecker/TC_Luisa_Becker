@@ -1,0 +1,106 @@
+{
+  "date_local": "2026-11-02",
+  "timezone": "America/Sao_Paulo",
+  "application_source_commit": "765c732",
+  "academic_sources": [
+    {
+      "filename": "TCC_II__Luisa_Becker_v1.pdf",
+      "sha256": "f8cc1f2b7d312aca2d2c17a8fba2ebb8ac68fa250245d688257453c231fbb453"
+    },
+    {
+      "filename": "Fluxograma_Pipeline_v7.png",
+      "sha256": "3cce1e97553f8152919c11bcc61be71d9e327626411e304ec38d3557b112a3f3"
+    }
+  ],
+  "flutter_tests": {
+    "general_passed": 115,
+    "general_initially_skipped": 1,
+    "complementary_python_contract_passed": 1,
+    "total_cases_passed": 116,
+    "unresolved_skips": 0,
+    "commands": [
+      "flutter test --no-pub --reporter expanded",
+      "PIPELINE_PYTHON=<python_with_Pillow> flutter test --no-pub test/analysis_backend_contract_test.dart --reporter expanded"
+    ]
+  },
+  "flutter_compilation": {
+    "command": "flutter build bundle --debug --no-pub",
+    "exit_code": 0,
+    "new_native_android_build": false,
+    "new_native_ios_build": false
+  },
+  "visual_evidence": {
+    "capture_generation_test_passed": true,
+    "golden_comparison_test_passed": true,
+    "png_count": 47,
+    "figure_groups": 26,
+    "physical_device_capture": false,
+    "http_requests": 0
+  },
+  "documents": {
+    "pdf_pages": 31,
+    "pdf_renderer": "ReportLab",
+    "latex_structural_checks_passed": true,
+    "latex_compiled": false,
+    "institutional_layout_verified": false,
+    "pdf_visual_review": "All pages inspected as a contact sheet; representative app captures inspected separately"
+  },
+  "external_actions": {
+    "github_push_completed": false,
+    "github_blocker": "Local Git missing authentication; connected GitHub account reports push=false",
+    "overleaf_modified": false,
+    "overleaf_blocker": "No browser/computer-control tool available in this turn",
+    "cloud_deployment_modified": false
+  },
+  "original_academic_files_modified": false,
+  "clinical_validation_performed": false,
+  "capture_hashes": {
+    "01-inicio.png": "a5b41695d05e436b4d4c8c7855f5a5e7da0a36dc3f56c7b0f336623e2a0942b6",
+    "02-aquisicao.png": "b0efeb2ab46cbe670d9fef88f84a6d712569f39a7ee54345c0d00b7f0323cca8",
+    "03-previsualizacao.png": "4255102d0a424fc2261f7b1c250231ccf784b8ac1560fe0fa153e3e43e63a08e",
+    "03b-previsualizacao-acoes.png": "f791b4a0e9d48ba38e79bb768e48b9ea414d19a9d72013e2ab17c5726b31365f",
+    "04-deteccao-processando.png": "0642069fc57bf34507fb293a0fa48a978f6f2ff1165d5e43ec40fc4a12966786",
+    "05-conferencia-recorte.png": "0b6a1dc79540737d114892e41d4fbc9043b4ba6a230dc8744503ae53a8f0ca45",
+    "05b-conferencia-recorte-acoes.png": "dcbfd775dfe76b84a0ac85dca93b3622000185dd9d22e7b4dcee78e0486fde45",
+    "06-editor-recorte.png": "4377f5fa9b2968a816ca27c94c23a16126265a32b3a85e1b673f696f0f7db550",
+    "07-deteccao-sem-regiao.png": "e24d682d404d0799d2195d2e94402590af5add7559b232e71ced0a7f09e6dfd8",
+    "07b-deteccao-sem-regiao-acoes.png": "cba89e44053ea53659b0fff0878a01b5157e3161827fdeecebf537392b601f9e",
+    "08-foco-processando.png": "ea7bb8f0ed88599829dd76195bebf5de0deff8dbfd660ff2e6ac87b4d510a08f",
+    "09-foco-adequado.png": "74178d116b6e26751f48c0efc9b9a7ace1012a29c29c1cad3cdb15b74787d21c",
+    "09b-foco-acoes.png": "b9e553a81d1fb7f0dc12c4ec3557dc9d8bb1caebc60b54626e92e64b4f5e8a5e",
+    "10-foco-inadequado.png": "50d947c0bf5e2191a1915abd7ff85fa68f7f6d7209880e6689f0fd5d4a27ef5d",
+    "10b-foco-inadequado-acoes.png": "6bdf87692165b08dce1dcc5eacedd05b11c876d5ac5ac0719ec4ce1c22f5ab6d",
+    "11-classificacao-processando.png": "1db81d6fc0e79c2879df66b7747e9a57643fd1b6a4bca08f9eeeef99b1fe9355",
+    "12-classificacao.png": "482e5ea8cb188c90171baee1613aa91f617d1fe4248821c638c5b6a3df6c4c60",
+    "13-classificacao-galeria.png": "3f3184341c183247d8fdb60d5cdd6fd50ad5cdb7656badfa8cdc446c1fb3986f",
+    "14-classes-alternativas.png": "483f17aa60e44ac0ba4f6d4ec72e43b014f7bf6a674bcd4d8e04b26c03d69de1",
+    "15-opcao-incerteza.png": "b4e5b5e3c1883d59630109f58ada954157ee31d0986484e9947a74c273c2c885",
+    "16-questionario.png": "26d25f8cc6d2b045eebccb85c6d6e607995cbd957441b75aae2af825934fd1fd",
+    "17-questionario-secao-2.png": "ed1b1f5b9594e7131bcc8f59909f8f2de45553b85795070c9d4653bf8761dcc9",
+    "18-questionario-classe-provisoria.png": "0e9e554db61bdeb58df8496d28a988f973f55bb388146217f695036730302af8",
+    "19-revisao-respostas.png": "f761fb81ce5fb0c33ff601dcda255d1c66bc427d1b75998b243f4478d5268a0f",
+    "20-multimodal-processando.png": "f1b4d840a1c78d75e66b78262de0cdce8b18a097b18734fc43adc21572068a75",
+    "21-risco-baixo.png": "6d858a7a2a0e8c99b9e6798bc19b4eee506a953e93bfb235acfa41dadf98f475",
+    "22-risco-medio.png": "ce4bcd10d7b887010d66bbcb04e68a3e774d5cbefc07f0e99958c3780bed9a95",
+    "23-risco-alto.png": "2d7a36f172904a088fa4204cdbfb5fb4d02871b05dda1a8a759ad453b49489a6",
+    "24-risco-classe-provisoria.png": "2d7a36f172904a088fa4204cdbfb5fb4d02871b05dda1a8a759ad453b49489a6",
+    "24b-resultado-aviso-incerteza.png": "e1d29db2b7fd2c791bf8ab5ddf7efc3baf344e7f1f1ba7233c5ab25868124aac",
+    "25-conclusao.png": "440d11168ecee5ff0089f443f467ca32dbebe3d76e7cae28b33bc230c000d6ae",
+    "26-biblioteca.png": "0b03d29e4b4622c23eaa35862c7d07ee84d8c6523b566f012eeddfeb2d6ca0c9",
+    "27-imagem-ampliada.png": "9214a4d656b94c5ee7053ec43c18048e7c611d48994349ca2366f8cc332b0c94",
+    "28-sobre.png": "2af50b871a1f1c93398b4c2c94f26ca61ff7be074b482970b09b5e34f825a898",
+    "29-configuracoes.png": "aee28e0aadbde59fcfc5d099f045f76961a360b40fe8e311889352ee0cd97472",
+    "30-painel-demonstracao.png": "cc0c29d5a24cb2f59bf1291961be911f7b73eab042c717212967ef3a76795069",
+    "31-historico.png": "deb3c4f6977c24a00eaa889fa306a1f77ff26bfa5c8e4c64aef0e9bdfe3b958e",
+    "32-arquivo-invalido.png": "521ad89e47dee82eb2da78694a8126f32b47f6d74aa4d3c504231e6b55d35963",
+    "33-erro-recuperavel.png": "0a170f783401fa4be434b0f9cbd4788571ac23b15f05bc2bad6942c0ddf9fa9b",
+    "34-modo-execucao.png": "17503aa5846247a0a194cf8d928b145a01f80a90cda4d5cd0a4e7366a46117e5",
+    "35-questionario-acoes.png": "28303846fde1057b517ddc2c2c42a8d33a7959e8ac9907c5a95b61664e4d7c4e",
+    "36-revisao-confirmacao.png": "b7e9fb59b81278545af87cfcfd359c367ca17e92eaf92d11212810bf4ea96b31",
+    "37-resultado-orientacoes.png": "0dca8ec72746dea97eb5209041856e11606a697ae8d46c02387df78d38f47c1f",
+    "38-escuro-inicio.png": "a8c8e379efe6805bf15871387ae80d7092fff14a8a42600cce6f898657ebb739",
+    "39-escuro-recorte.png": "9c87d9f74d03990520e72a7fa2abca09d402d3b3d1bc453aed92b9e5cca29849",
+    "40-escuro-resultado.png": "d7b3fe5bed85a73dad3dd2959688c0742fbecdc0fab537ffc673c13980ccbef1",
+    "41-questionario-classe-corrigida.png": "b3fbdecf54d6c83e12540314525be19cc5189573136748c3b08c29681b491815"
+  }
+}

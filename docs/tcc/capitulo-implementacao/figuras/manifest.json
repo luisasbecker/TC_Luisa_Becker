@@ -1,0 +1,440 @@
+{
+  "schema_version": 1,
+  "source_commit": "765c732",
+  "source": "Rendered current Flutter widgets using the real app and controller",
+  "execution": "Local deterministic offline fixtures, no HTTP requests",
+  "not_evidence_of": [
+    "physical-device captures",
+    "cloud execution",
+    "clinical validity",
+    "user evaluation"
+  ],
+  "viewport": {
+    "width": 390,
+    "height": 844,
+    "device_pixel_ratio": 1
+  },
+  "reduced_motion": true,
+  "clinical_images": "Authorized bundled article references; see mobile/assets/references/manifest.json for source, attribution, license and explicit class mapping",
+  "loading_states": "Fixture transport paused until capture, then released",
+  "history_clock": "Fixed 2026-11-02T15:00:00Z for reproducibility; not measured task timings",
+  "captures": [
+    {
+      "file": "01-inicio.png",
+      "target": "home",
+      "theme": "light",
+      "stage": "acquisition",
+      "busy_operation": null,
+      "scroll_excerpt": false,
+      "reference_id": null
+    },
+    {
+      "file": "02-aquisicao.png",
+      "target": "acquisition",
+      "theme": "light",
+      "stage": "acquisition",
+      "busy_operation": null,
+      "scroll_excerpt": false,
+      "reference_id": null
+    },
+    {
+      "file": "03-previsualizacao.png",
+      "target": "preview",
+      "theme": "light",
+      "stage": "preview",
+      "busy_operation": null,
+      "scroll_excerpt": false,
+      "reference_id": "gomes2023_fig2_class4_a"
+    },
+    {
+      "file": "03b-previsualizacao-acoes.png",
+      "target": "preview",
+      "theme": "light",
+      "stage": "preview",
+      "scroll_excerpt": true,
+      "reference_id": "gomes2023_fig2_class4_a"
+    },
+    {
+      "file": "04-deteccao-processando.png",
+      "target": "detecting",
+      "theme": "light",
+      "stage": "detection",
+      "busy_operation": "detect",
+      "scroll_excerpt": false,
+      "reference_id": "gomes2023_fig2_class4_a"
+    },
+    {
+      "file": "05-conferencia-recorte.png",
+      "target": "crop",
+      "theme": "light",
+      "stage": "crop",
+      "busy_operation": null,
+      "scroll_excerpt": false,
+      "reference_id": "gomes2023_fig2_class4_a"
+    },
+    {
+      "file": "05b-conferencia-recorte-acoes.png",
+      "target": "crop",
+      "theme": "light",
+      "stage": "crop",
+      "scroll_excerpt": true,
+      "reference_id": "gomes2023_fig2_class4_a"
+    },
+    {
+      "file": "06-editor-recorte.png",
+      "target": "manual",
+      "theme": "light",
+      "stage": "manualCrop",
+      "busy_operation": null,
+      "scroll_excerpt": false,
+      "reference_id": "gomes2023_fig2_class4_a"
+    },
+    {
+      "file": "07-deteccao-sem-regiao.png",
+      "target": "missing",
+      "theme": "light",
+      "stage": "crop",
+      "busy_operation": null,
+      "scroll_excerpt": false,
+      "reference_id": "gomes2023_fig2_class4_a"
+    },
+    {
+      "file": "07b-deteccao-sem-regiao-acoes.png",
+      "target": "missing",
+      "theme": "light",
+      "stage": "crop",
+      "scroll_excerpt": true,
+      "reference_id": "gomes2023_fig2_class4_a"
+    },
+    {
+      "file": "08-foco-processando.png",
+      "target": "focusing",
+      "theme": "light",
+      "stage": "crop",
+      "busy_operation": "focus",
+      "scroll_excerpt": false,
+      "reference_id": "gomes2023_fig2_class4_a"
+    },
+    {
+      "file": "09-foco-adequado.png",
+      "target": "quality",
+      "theme": "light",
+      "stage": "quality",
+      "busy_operation": null,
+      "scroll_excerpt": false,
+      "reference_id": "gomes2023_fig2_class4_a"
+    },
+    {
+      "file": "09b-foco-acoes.png",
+      "target": "quality",
+      "theme": "light",
+      "stage": "quality",
+      "scroll_excerpt": true,
+      "reference_id": "gomes2023_fig2_class4_a"
+    },
+    {
+      "file": "10-foco-inadequado.png",
+      "target": "quality-bad",
+      "theme": "light",
+      "stage": "quality",
+      "busy_operation": null,
+      "scroll_excerpt": false,
+      "reference_id": "gomes2023_fig2_class4_a"
+    },
+    {
+      "file": "10b-foco-inadequado-acoes.png",
+      "target": "quality-bad",
+      "theme": "light",
+      "stage": "quality",
+      "scroll_excerpt": true,
+      "reference_id": "gomes2023_fig2_class4_a"
+    },
+    {
+      "file": "11-classificacao-processando.png",
+      "target": "classifying",
+      "theme": "light",
+      "stage": "classification",
+      "busy_operation": "classify",
+      "scroll_excerpt": false,
+      "reference_id": "gomes2023_fig2_class4_a"
+    },
+    {
+      "file": "12-classificacao.png",
+      "target": "classification",
+      "theme": "light",
+      "stage": "classification",
+      "busy_operation": null,
+      "scroll_excerpt": false,
+      "reference_id": "gomes2023_fig2_class4_a"
+    },
+    {
+      "file": "13-classificacao-galeria.png",
+      "target": "classification-gallery",
+      "theme": "light",
+      "stage": "classification",
+      "busy_operation": null,
+      "scroll_excerpt": true,
+      "reference_id": "gomes2023_fig2_class4_a"
+    },
+    {
+      "file": "14-classes-alternativas.png",
+      "target": "alternative",
+      "theme": "light",
+      "stage": "alternative",
+      "busy_operation": null,
+      "scroll_excerpt": false,
+      "reference_id": "gomes2023_fig2_class4_a"
+    },
+    {
+      "file": "15-opcao-incerteza.png",
+      "target": "uncertainty-option",
+      "theme": "light",
+      "stage": "alternative",
+      "busy_operation": null,
+      "scroll_excerpt": true,
+      "reference_id": "gomes2023_fig2_class4_a"
+    },
+    {
+      "file": "16-questionario.png",
+      "target": "questionnaire",
+      "theme": "light",
+      "stage": "questionnaire",
+      "busy_operation": null,
+      "scroll_excerpt": false,
+      "reference_id": "gomes2023_fig2_class4_a"
+    },
+    {
+      "file": "17-questionario-secao-2.png",
+      "target": "questionnaire-second",
+      "theme": "light",
+      "stage": "questionnaire",
+      "busy_operation": null,
+      "scroll_excerpt": false,
+      "reference_id": "gomes2023_fig2_class4_a"
+    },
+    {
+      "file": "18-questionario-classe-provisoria.png",
+      "target": "questionnaire-provisional",
+      "theme": "light",
+      "stage": "questionnaire",
+      "busy_operation": null,
+      "scroll_excerpt": false,
+      "reference_id": "gomes2023_fig2_class4_a"
+    },
+    {
+      "file": "19-revisao-respostas.png",
+      "target": "review",
+      "theme": "light",
+      "stage": "review",
+      "busy_operation": null,
+      "scroll_excerpt": false,
+      "reference_id": "gomes2023_fig2_class4_a"
+    },
+    {
+      "file": "20-multimodal-processando.png",
+      "target": "multimodal",
+      "theme": "light",
+      "stage": "multimodal",
+      "busy_operation": "multimodal",
+      "scroll_excerpt": false,
+      "reference_id": "gomes2023_fig2_class4_a"
+    },
+    {
+      "file": "21-risco-baixo.png",
+      "target": "risk-low",
+      "theme": "light",
+      "stage": "result",
+      "busy_operation": null,
+      "scroll_excerpt": false,
+      "reference_id": "gomes2023_fig2_class4_a"
+    },
+    {
+      "file": "22-risco-medio.png",
+      "target": "risk-medium",
+      "theme": "light",
+      "stage": "result",
+      "busy_operation": null,
+      "scroll_excerpt": false,
+      "reference_id": "gomes2023_fig2_class4_a"
+    },
+    {
+      "file": "23-risco-alto.png",
+      "target": "risk-high",
+      "theme": "light",
+      "stage": "result",
+      "busy_operation": null,
+      "scroll_excerpt": false,
+      "reference_id": "gomes2023_fig2_class4_a"
+    },
+    {
+      "file": "24-risco-classe-provisoria.png",
+      "target": "risk-provisional",
+      "theme": "light",
+      "stage": "result",
+      "busy_operation": null,
+      "scroll_excerpt": false,
+      "reference_id": "gomes2023_fig2_class4_a"
+    },
+    {
+      "file": "24b-resultado-aviso-incerteza.png",
+      "target": "risk-provisional",
+      "theme": "light",
+      "stage": "result",
+      "scroll_excerpt": true,
+      "reference_id": "gomes2023_fig2_class4_a"
+    },
+    {
+      "file": "25-conclusao.png",
+      "target": "completed",
+      "theme": "light",
+      "stage": "completed",
+      "busy_operation": null,
+      "scroll_excerpt": false,
+      "reference_id": "gomes2023_fig2_class4_a"
+    },
+    {
+      "file": "26-biblioteca.png",
+      "target": "library",
+      "theme": "light",
+      "stage": "acquisition",
+      "busy_operation": null,
+      "scroll_excerpt": false,
+      "reference_id": null
+    },
+    {
+      "file": "27-imagem-ampliada.png",
+      "target": "viewer",
+      "theme": "light",
+      "stage": "acquisition",
+      "busy_operation": null,
+      "scroll_excerpt": false,
+      "reference_id": null
+    },
+    {
+      "file": "28-sobre.png",
+      "target": "about",
+      "theme": "light",
+      "stage": "acquisition",
+      "busy_operation": null,
+      "scroll_excerpt": false,
+      "reference_id": null
+    },
+    {
+      "file": "29-configuracoes.png",
+      "target": "settings",
+      "theme": "light",
+      "stage": "acquisition",
+      "busy_operation": null,
+      "scroll_excerpt": true,
+      "reference_id": null
+    },
+    {
+      "file": "30-painel-demonstracao.png",
+      "target": "demos",
+      "theme": "light",
+      "stage": "acquisition",
+      "busy_operation": null,
+      "scroll_excerpt": false,
+      "reference_id": null
+    },
+    {
+      "file": "31-historico.png",
+      "target": "history",
+      "theme": "light",
+      "stage": "completed",
+      "busy_operation": null,
+      "scroll_excerpt": false,
+      "reference_id": "gomes2023_fig2_class4_a"
+    },
+    {
+      "file": "32-arquivo-invalido.png",
+      "target": "invalid",
+      "theme": "light",
+      "stage": "acquisition",
+      "busy_operation": null,
+      "scroll_excerpt": false,
+      "reference_id": null
+    },
+    {
+      "file": "33-erro-recuperavel.png",
+      "target": "error",
+      "theme": "light",
+      "stage": "preview",
+      "busy_operation": null,
+      "scroll_excerpt": false,
+      "reference_id": "gomes2023_fig2_class4_a"
+    },
+    {
+      "file": "34-modo-execucao.png",
+      "target": "execution",
+      "theme": "light",
+      "stage": "acquisition",
+      "busy_operation": null,
+      "scroll_excerpt": false,
+      "reference_id": null
+    },
+    {
+      "file": "35-questionario-acoes.png",
+      "target": "questionnaire-actions",
+      "theme": "light",
+      "stage": "questionnaire",
+      "busy_operation": null,
+      "scroll_excerpt": true,
+      "reference_id": "gomes2023_fig2_class4_a"
+    },
+    {
+      "file": "36-revisao-confirmacao.png",
+      "target": "review-confirmation",
+      "theme": "light",
+      "stage": "review",
+      "busy_operation": null,
+      "scroll_excerpt": true,
+      "reference_id": "gomes2023_fig2_class4_a"
+    },
+    {
+      "file": "37-resultado-orientacoes.png",
+      "target": "risk-guidance",
+      "theme": "light",
+      "stage": "result",
+      "busy_operation": null,
+      "scroll_excerpt": true,
+      "reference_id": "gomes2023_fig2_class4_a"
+    },
+    {
+      "file": "38-escuro-inicio.png",
+      "target": "home",
+      "theme": "dark",
+      "stage": "acquisition",
+      "busy_operation": null,
+      "scroll_excerpt": false,
+      "reference_id": null
+    },
+    {
+      "file": "39-escuro-recorte.png",
+      "target": "crop",
+      "theme": "dark",
+      "stage": "crop",
+      "busy_operation": null,
+      "scroll_excerpt": false,
+      "reference_id": "gomes2023_fig2_class4_a"
+    },
+    {
+      "file": "40-escuro-resultado.png",
+      "target": "risk-medium",
+      "theme": "dark",
+      "stage": "result",
+      "busy_operation": null,
+      "scroll_excerpt": false,
+      "reference_id": "gomes2023_fig2_class4_a"
+    },
+    {
+      "file": "41-questionario-classe-corrigida.png",
+      "target": "questionnaire-corrected",
+      "theme": "light",
+      "stage": "questionnaire",
+      "busy_operation": null,
+      "scroll_excerpt": false,
+      "reference_id": "gomes2023_fig2_class4_a"
+    }
+  ]
+}

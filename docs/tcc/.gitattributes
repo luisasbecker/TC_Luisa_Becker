@@ -1,0 +1,4 @@
+# Generated documents and images are binary artifacts, even for ASCII PDFs.
+*.pdf binary
+*.png binary
+*.zip binary

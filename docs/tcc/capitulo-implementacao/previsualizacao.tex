@@ -1,0 +1,20 @@
+% Standalone preview only. Keep the existing thesis class/preamble in Overleaf.
+\documentclass[12pt,a4paper,oneside]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage[section]{placeins}
+\usepackage[left=3cm,right=2cm,top=3cm,bottom=2cm]{geometry}
+\usepackage{setspace}
+\onehalfspacing
+\setlength{\parindent}{1.25cm}
+\providecommand{\pipelinefigdir}{figuras}
+\counterwithout{figure}{chapter}
+\renewcommand{\thefigure}{\arabic{figure}}
+\begin{document}
+\setcounter{chapter}{3}
+\setcounter{figure}{1}
+\input{capitulo-implementacao}
+\end{document}
