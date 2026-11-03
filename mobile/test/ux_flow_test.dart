@@ -294,7 +294,7 @@ void main() {
           ),
         );
         await tester.pumpAndSettle();
-        expect(find.text('Clareza em\ncada etapa.'), findsOneWidget);
+        expect(find.text('Clareza em cada etapa.'), findsOneWidget);
         expect(tester.takeException(), isNull);
         await tap(tester, 'Nova análise');
         expect(find.text('Selecionar imagem'), findsNWidgets(2));

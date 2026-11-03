@@ -4,6 +4,8 @@ Versão 0.3.0+4. Protótipo acadêmico de apoio à avaliação de lesões bucais
 
 ## Executar
 
+Para editar e acompanhar as mudanças no iPhone pela IDE, consulte o [guia do Antigravity com hot reload](../docs/desenvolvimento-antigravity.md).
+
 Ambiente usado: Flutter 3.41.7 / Dart 3.11.5; Xcode para iOS; JDK 17 e Android SDK para Android. As versões dos pacotes são fixadas por `pubspec.lock`.
 
 ```sh

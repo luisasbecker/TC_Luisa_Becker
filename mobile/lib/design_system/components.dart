@@ -262,7 +262,7 @@ class BucalStageHeader extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 12),
-        Semantics(header: true, child: Text(title, style: text.headlineLarge)),
+        Semantics(header: true, child: Text(title, style: text.headlineMedium)),
         if (subtitle != null) ...[
           const SizedBox(height: 12),
           Text(

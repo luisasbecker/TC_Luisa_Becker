@@ -372,32 +372,17 @@ class _BucalShellState extends State<BucalShell> with WidgetsBindingObserver {
   Widget home(BuildContext context) => Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      Text(
-        'PROTÓTIPO ACADÊMICO',
-        style: Theme.of(context).textTheme.labelSmall?.copyWith(
-          color: BucalColors.of(context).primary,
-        ),
-      ),
       const SizedBox(height: 20),
       Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Expanded(
             child: Text(
-              'Clareza em\ncada etapa.',
-              style: Theme.of(context).textTheme.displayLarge,
+              'Clareza em cada etapa.',
+              style: Theme.of(context).textTheme.displaySmall,
             ),
           ),
           const SizedBox(width: 16),
-          ClipRRect(
-            borderRadius: BorderRadius.circular(24),
-            child: Image.asset(
-              'assets/branding/app_icon.png',
-              width: 80,
-              height: 80,
-              semanticLabel: 'Símbolo do Pipeline Bucal',
-            ),
-          ),
         ],
       ),
       const SizedBox(height: 20),

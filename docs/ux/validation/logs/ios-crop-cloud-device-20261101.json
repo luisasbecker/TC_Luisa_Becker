@@ -1,0 +1,56 @@
+{
+  "verified_at_local": "2026-11-01T19:55:00-03:00",
+  "timezone": "America/Sao_Paulo",
+  "source_commit": "15b61e50eff4a17a842b6aff431ea793241ee186",
+  "configuration": "Release",
+  "entrypoint": "lib/main.dart",
+  "manifest": {
+    "CFBundleIdentifier": "br.com.luisabecker.pipelineBucal",
+    "CFBundleShortVersionString": "0.3.0",
+    "CFBundleVersion": "4",
+    "MinimumOSVersion": "13.0"
+  },
+  "app_framework": {
+    "relative_binary": "Runner.app/Frameworks/App.framework/App",
+    "modified_utc": "2026-11-01T22:55:21+00:00",
+    "bytes": 6066320,
+    "sha256": "de500df83aaa0a293f0fe5354c470316944a3847ee162084296ef778476348be",
+    "changed_from_previous_20261029_build": true,
+    "cloud_endpoint_present": true,
+    "fixed_crop_workspace_present": true,
+    "crop_viewport_present": true,
+    "previous_diagnostic_marker_present": false
+  },
+  "signature": {
+    "verification": "codesign --verify --deep --strict --verbose=2",
+    "exit_code": 0,
+    "valid_on_disk": true,
+    "satisfies_designated_requirement": true
+  },
+  "device": {
+    "model": "iPhone 16 Pro Max",
+    "os_version": "26.5.2"
+  },
+  "installation": {
+    "confirmed": true,
+    "source": "Xcode launch log",
+    "status": "Successfully installed",
+    "duration_seconds": 4.9
+  },
+  "launch": {
+    "confirmed": true,
+    "source": "Xcode launch log and current activity status",
+    "status": "Successfully launched Runner",
+    "duration_seconds": 0.4,
+    "xcode_running_on_selected_iphone": true
+  },
+  "full_manual_pipeline_tested_on_device": false,
+  "published_to_testflight": false,
+  "published_to_app_store": false,
+  "cloud_deployment_or_billing_changed": false,
+  "notes": [
+    "Install and launch were confirmed through the Xcode user interface.",
+    "Artifact verification does not replace the user's manual crop and end-to-end pipeline tests.",
+    "Version 0.3.0 build 4 was retained; binary timestamp, hash and crop markers identify the updated source."
+  ]
+}

@@ -201,7 +201,7 @@ class AnalysisScreen extends StatelessWidget {
               ),
           ],
         ),
-        gap(12),
+        gap(1),
         BucalStageHeader(
           title: title,
           subtitle: subtitle,
@@ -374,8 +374,6 @@ class AnalysisScreen extends StatelessWidget {
         }
         return [
           if (state.original != null) _DetectionPreview(state: state),
-          gap(20),
-          patient(),
           gap(20),
           button(
             'O recorte está adequado',
@@ -785,37 +783,62 @@ class _DetectionPreview extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        ClipRRect(
-          borderRadius: BorderRadius.circular(24),
-          child: AspectRatio(
-            aspectRatio: original.width / original.height,
-            child: LayoutBuilder(
-              builder: (context, size) => Stack(
-                children: [
-                  Positioned.fill(
-                    child: Image.memory(
-                      original.bytes,
-                      fit: BoxFit.fill,
-                      semanticLabel: 'Imagem original com região sugerida',
-                    ),
-                  ),
-                  Positioned(
-                    left: state.cropBox.left * size.maxWidth,
-                    top: state.cropBox.top * size.maxHeight,
-                    width:
-                        (state.cropBox.right - state.cropBox.left) *
-                        size.maxWidth,
-                    height:
-                        (state.cropBox.bottom - state.cropBox.top) *
-                        size.maxHeight,
-                    child: DecoratedBox(
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.white, width: 3),
-                        color: Colors.black.withValues(alpha: .08),
+        Center(
+          child: SizedBox(
+            width: 300,
+            child: AspectRatio(
+              aspectRatio: 1,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(24),
+                child: LayoutBuilder(
+                  builder: (context, constraints) {
+                    final viewport = constraints.biggest;
+                    final fitted = applyBoxFit(
+                      BoxFit.contain,
+                      Size(
+                        original.width.toDouble(),
+                        original.height.toDouble(),
                       ),
-                    ),
-                  ),
-                ],
+                      viewport,
+                    );
+                    final imageRect = Alignment.center.inscribe(
+                      fitted.destination,
+                      Offset.zero & viewport,
+                    );
+                    return Stack(
+                      children: [
+                        Positioned.fill(
+                          child: Image.memory(
+                            original.bytes,
+                            fit: BoxFit.contain,
+                            semanticLabel:
+                                'Imagem original com região sugerida',
+                          ),
+                        ),
+                        Positioned(
+                          left:
+                              imageRect.left +
+                              state.cropBox.left * imageRect.width,
+                          top:
+                              imageRect.top +
+                              state.cropBox.top * imageRect.height,
+                          width:
+                              (state.cropBox.right - state.cropBox.left) *
+                              imageRect.width,
+                          height:
+                              (state.cropBox.bottom - state.cropBox.top) *
+                              imageRect.height,
+                          child: DecoratedBox(
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.white, width: 3),
+                              color: Colors.black.withValues(alpha: .08),
+                            ),
+                          ),
+                        ),
+                      ],
+                    );
+                  },
+                ),
               ),
             ),
           ),

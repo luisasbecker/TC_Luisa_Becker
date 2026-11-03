@@ -1,0 +1,30 @@
+{
+  "verification_date": "2026-11-02",
+  "timezone": "America/Sao_Paulo",
+  "scope": "Preparação de desenvolvimento local em iPhone físico; não é teste clínico nem teste completo do pipeline.",
+  "ide": {"name": "Antigravity IDE", "version": "2.5.5"},
+  "extensions": {"Dart-Code.dart-code": "3.146.0", "Dart-Code.flutter": "3.146.0"},
+  "flutter": "3.41.7",
+  "dart": "3.11.5",
+  "app_version": "0.3.0+4",
+  "entrypoint": "mobile/lib/main.dart",
+  "mode": "debug",
+  "physical_device_platform": "iOS",
+  "codesign_verification_exit_code": 0,
+  "bonjour_vm_service_in_debug_bundle": true,
+  "xcode_build_seconds": 41.7,
+  "vm_service_connected": true,
+  "save_triggered_hot_reload": true,
+  "temporary_change": "debugShowCheckedModeBanner: false -> true -> false",
+  "reloads": [
+    {"operation": "temporary_change", "libraries_reloaded": 1, "total_libraries": 1891, "elapsed_ms": 437},
+    {"operation": "restore_original", "libraries_reloaded": 1, "total_libraries": 1891, "elapsed_ms": 355}
+  ],
+  "main_dart_matches_git_head_after_test": true,
+  "ide_problems_after_test": 0,
+  "debug_session_left_running": true,
+  "cloud_configuration_modified": false,
+  "cloud_requests_exercised_in_this_check": false,
+  "android_configuration_modified": false,
+  "evidence_source": "Antigravity Debug Console, editor status, local configuration and signed bundle inspection"
+}
